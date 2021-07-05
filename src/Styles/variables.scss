@@ -1,0 +1,15 @@
+$main-color: #ff0558;
+$sub-color: #742d8d;
+$font-color-main: #292a32;
+$font-color-sub: #74747b;
+
+$font-category: 22px;
+$font-large: 16px;
+$font-medium: 14px;
+$font-small: 13px;
+
+@mixin display-flex($justify: center, $align: center) {
+  display: $flex;
+  justify-content: $justify;
+  align-items: $align;
+}
