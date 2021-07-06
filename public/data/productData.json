@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "productName": "Coke",
+    "price": "1200",
+    "star": "4.5"
+  },
+
+  {
+    "id": 2,
+    "productName": "Cider",
+    "price": "2000",
+    "star": "4"
+  },
+
+  {
+    "id": 3,
+    "productName": "egg",
+    "price": "500",
+    "star": "2"
+  },
+
+  {
+    "id": 4,
+    "productName": "egg",
+    "price": "500",
+    "star": "2"
+  },
+
+  {
+    "id": 5,
+    "productName": "egg",
+    "price": "500",
+    "star": "2"
+  }
+]

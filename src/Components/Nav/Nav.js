@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import './Nav.scss';
 
-export default class Nav extends Component {
+class Nav extends Component {
   render() {
-    return <div></div>;
+    return <div className="nav">Nav</div>;
   }
 }
+
+export default Nav;
