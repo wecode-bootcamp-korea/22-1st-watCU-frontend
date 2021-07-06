@@ -1,1 +1,224 @@
-//
+@import '../../Styles/variables.scss';
+
+body {
+  background-color: #f8f8f8;
+}
+
+.categoryImageBox {
+  display: flex;
+  height: 393px;
+
+  .blurEffect {
+    background-color: black;
+    flex-grow: 1;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    width: 975px;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+}
+
+.introContainer {
+  position: relative;
+  height: 231px;
+  border-bottom: 1px solid #e3e3e3;
+
+  .introContents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 975px;
+    height: 190px;
+    margin: 0px auto;
+
+    .introText {
+      position: relative;
+      margin-left: 191px;
+      height: 100%;
+
+      h1 {
+        font-size: 33px;
+        font-weight: 700;
+      }
+
+      .classification {
+        margin-top: 6px;
+        font-size: 17px;
+        color: $font-color-sub;
+      }
+
+      .buttons {
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        height: 40px;
+
+        .leftButton {
+          display: flex;
+          width: 250px;
+          background-color: $main-color;
+          border-radius: 8px;
+
+          img {
+            filter: invert(100%);
+          }
+
+          .eatButton {
+            display: block;
+            flex-grow: 1;
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+
+            span {
+              position: relative;
+              top: 1px;
+            }
+
+            img {
+              position: relative;
+              top: 2px;
+              margin-right: 10px;
+            }
+          }
+
+          .moreButton {
+            display: block;
+            width: 50px;
+            border-left: 1px solid #e71252;
+
+            img {
+              position: relative;
+              top: 2px;
+              width: 12px;
+            }
+          }
+        }
+
+        .rightButton {
+          background-color: $main-color;
+          border-radius: 8px;
+          width: 120px;
+          .evaluationButton {
+            height: 100%;
+            display: block;
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0px auto;
+          }
+        }
+      }
+    }
+
+    .postImage {
+      position: relative;
+      bottom: 243px;
+      width: 166px;
+      height: 238px;
+      border: 3px solid #ececec;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .itemIntroduce {
+    flex-shrink: 0;
+    width: 640px;
+    background-color: white;
+    border: 1px solid #e3e3e3;
+    border-radius: 7px;
+    padding: 25px;
+    margin-top: 30px;
+
+    .itemPrice {
+      margin: 0px 8px;
+
+      h3 {
+        position: relative;
+        top: 17px;
+        font-size: 18px;
+        margin-bottom: 35px;
+      }
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .anotherItemContainer {
+      h2 {
+        border-top: 1px solid #f0f0f0;
+        margin: 10px 8px;
+        padding-top: 20px;
+      }
+      .anotherItemList {
+        // background-color: blue;
+        padding-left: 4px;
+        .anotherItem {
+          display: inline-block;
+          padding: 0px 2px;
+          img {
+            width: 140px;
+            height: 204px;
+          }
+        }
+      }
+    }
+    .similarItemContainer {
+      h2 {
+        border-top: 1px solid #f0f0f0;
+        padding-top: 20px;
+        margin: 20px 8px 10px 8px;
+      }
+
+      .similarItemList {
+        // background-color: blue;
+        padding-left: 4px;
+        .similarItem {
+          display: inline-block;
+          padding: 0px 2px;
+          img {
+            width: 140px;
+            height: 204px;
+          }
+        }
+      }
+    }
+  }
+
+  .itemEtc {
+    width: 320px;
+    margin-top: 30px;
+
+    .itemInfo {
+      background-color: white;
+      border: 1px solid #e3e3e3;
+      border-radius: 7px;
+      padding: 20px 10px;
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+}
