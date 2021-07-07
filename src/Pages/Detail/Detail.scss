@@ -4,56 +4,6 @@ body {
   background-color: #f8f8f8;
 }
 
-// .categoryImageBox {
-//   display: flex;
-//   height: 393px;
-
-//   .blackBlock {
-//     background-color: black;
-//     flex-grow: 1;
-//   }
-
-//   .categoryImageEffectBox {
-//     position: relative;
-//     width: 975px;
-//     height: 100%;
-
-//     .blurEffectLeft {
-//       position: absolute;
-//       height: 100%;
-//       width: 150px;
-//       background-image: linear-gradient(
-//         270deg,
-//         rgba(10, 7, 3, 0) 0%,
-//         rgb(10, 7, 3) 100%
-//       );
-//       top: 0px;
-//     }
-
-//     .blurEffectRight {
-//       position: absolute;
-//       right: 0px;
-//       top: 0px;
-//       height: 100%;
-//       width: 150px;
-//       background-image: linear-gradient(
-//         90deg,
-//         rgba(10, 7, 3, 0) 0%,
-//         rgb(10, 7, 3) 100%
-//       );
-//     }
-
-//     img {
-//       display: block;
-//       height: 100%;
-//       width: 100%;
-//       object-fit: cover;
-//       object-position: center;
-//       z-index: -1;
-//     }
-//   }
-// }
-
 .introContainer {
   position: relative;
   height: 231px;
@@ -93,61 +43,19 @@ body {
         gap: 20px;
         height: 40px;
 
-        .leftButton {
-          display: flex;
-          width: 250px;
-          background-color: $main-color;
-          border-radius: 8px;
-
-          img {
-            filter: invert(100%);
-          }
-
-          .eatButton {
-            display: block;
-            flex-grow: 1;
-            color: white;
-            font-size: 19px;
-            font-weight: 700;
-
-            span {
-              position: relative;
-              top: 1px;
-            }
-
-            img {
-              position: relative;
-              top: 2px;
-              margin-right: 10px;
-            }
-          }
-
-          .moreButton {
-            display: block;
-            width: 50px;
-            border-left: 1px solid #e71252;
-
-            img {
-              position: relative;
-              top: 2px;
-              width: 12px;
-            }
-          }
-        }
-
-        .rightButton {
-          background-color: $main-color;
-          border-radius: 8px;
-          width: 120px;
-          .evaluationButton {
-            height: 100%;
-            display: block;
-            color: white;
-            font-size: 19px;
-            font-weight: 700;
-            margin: 0px auto;
-          }
-        }
+        // .evaluationContainer {
+        //   background-color: $main-color;
+        //   border-radius: 8px;
+        //   width: 120px;
+        //   .evaluationButton {
+        //     height: 100%;
+        //     display: block;
+        //     color: white;
+        //     font-size: 19px;
+        //     font-weight: 700;
+        //     margin: 0px auto;
+        //   }
+        // }
       }
     }
 
@@ -211,14 +119,6 @@ body {
           display: flex;
           justify-content: flex-start;
           transition: transform 0.5s ease-in-out;
-
-          .anotherItem {
-            padding: 0px 3.3px;
-            img {
-              width: 140px;
-              height: 204px;
-            }
-          }
         }
       }
 
@@ -270,27 +170,27 @@ body {
         // background-color: blue;
         display: flex;
         flex-wrap: wrap;
-        .similarItem {
-          padding: 0px 3.3px;
-          line-height: 18px;
-          img {
-            width: 140px;
-            height: 204px;
-          }
+        // .similarItem {
+        //   padding: 0px 3.3px;
+        //   line-height: 18px;
+        //   img {
+        //     width: 140px;
+        //     height: 204px;
+        //   }
 
-          h3 {
-            margin-top: 5px;
-            font-size: 15px;
-          }
-          h4 {
-            font-size: 12px;
-            color: $font-color-sub;
-          }
+        //   h3 {
+        //     margin-top: 5px;
+        //     font-size: 15px;
+        //   }
+        //   h4 {
+        //     font-size: 12px;
+        //     color: $font-color-sub;
+        //   }
 
-          .smallCategoryText {
-            margin-bottom: 30px;
-          }
-        }
+        //   .smallCategoryText {
+        //     margin-bottom: 30px;
+        //   }
+        // }
       }
     }
   }

@@ -1,0 +1,23 @@
+@import '../../../Styles/variables.scss';
+
+.similarItem {
+  padding: 0px 3.3px;
+  line-height: 18px;
+  img {
+    width: 140px;
+    height: 204px;
+  }
+
+  h3 {
+    margin-top: 5px;
+    font-size: 15px;
+  }
+  h4 {
+    font-size: 12px;
+    color: $font-color-sub;
+  }
+
+  .smallCategoryText {
+    margin-bottom: 30px;
+  }
+}

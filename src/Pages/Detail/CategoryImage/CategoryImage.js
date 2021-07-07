@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CategoryImage.scss';
 
-export default class Detail extends Component {
+export default class CategoryImage extends Component {
   constructor(props) {
     super(props);
   }

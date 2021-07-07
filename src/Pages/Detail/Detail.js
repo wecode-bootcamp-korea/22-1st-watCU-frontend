@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import CategoryImage from './CategoryImage/CategoryImage';
+import AnotherItem from './AnotherItem/AnotherItem';
+import SimilarItem from './SimilarItem/SimilarItem';
+import WantEatContainer from './WantEatContainer/WantEatContainer';
+import EvaluationContainer from './WantEatContainer/WantEatContainer';
 import './Detail.scss';
 
 export default class Detail extends Component {
@@ -9,16 +13,28 @@ export default class Detail extends Component {
     this.itemRef = React.createRef();
     this.state = {
       transFormPosition: 0,
+      eachdatalist: [],
     };
   }
+
+  // callApi = () => {
+  //   fetch('http://10.58.2.238:8000/products?category=전체')
+  //     .then(res => res.json())
+  //     .then(data =>
+  //       this.setState({
+  //         eachdatalist: data,
+  //       })
+  //     );
+  // };
+
+  // componentDidMount = () => {
+  //   this.callApi();
+  // };
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
     const itemElement = this.itemRef.current;
     const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
-
-    console.log(sliderElement.getElementsByClassName('anotherItem'));
-
     if (
       this.state.transFormPosition ===
       (sliderElement.getElementsByClassName('anotherItem').length - 4) *
@@ -33,7 +49,6 @@ export default class Detail extends Component {
       },
       () => {
         sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
-        console.log(this.state.transFormPosition);
       }
     );
   };
@@ -53,7 +68,6 @@ export default class Detail extends Component {
       },
       () => {
         sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
-        console.log(this.state.transFormPosition);
       }
     );
   };
@@ -68,20 +82,9 @@ export default class Detail extends Component {
             <div className="introText">
               <h1>코카콜라(Cocacola)</h1>
               <div className="classification">음료/탄산음료</div>
-
               <div className="buttons">
-                <div className="leftButton">
-                  <button className="eatButton">
-                    <img alt="plus" src="/images/detail/plus.png" />
-                    <span>먹고싶어요</span>
-                  </button>
-                  <button className="moreButton">
-                    <img alt="arrow_down" src="/images/detail/arrow_down.png" />
-                  </button>
-                </div>
-                <div className="rightButton">
-                  <button className="evaluationButton">평가하기</button>
-                </div>
+                <WantEatContainer />
+                <EvaluationContainer />
               </div>
             </div>
             <img
@@ -102,27 +105,12 @@ export default class Detail extends Component {
               <h2>상품의 다른이미지</h2>
               <div className="anotherItemWrapper">
                 <div className="anotherItemList" ref={this.sliderRef}>
-                  <div className="anotherItem" ref={this.itemRef}>
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
-                  <div className="anotherItem">
-                    <img src="https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80" />
-                  </div>
+                  <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
                 </div>
               </div>
               <div className="prevButton">
@@ -140,54 +128,14 @@ export default class Detail extends Component {
             <div className="similarItemContainer">
               <h2>비슷한 상품</h2>
               <div className="similarItemList">
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
-                <div className="similarItem">
-                  <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" />
-                  <h3>펩시(pepsi)</h3>
-                  <h4>가격:1,400원</h4>
-                  <h4 className="smallCategoryText">음료</h4>
-                </div>
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
+                <SimilarItem />
               </div>
             </div>
           </div>
