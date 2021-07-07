@@ -3,7 +3,7 @@ import CategoryImage from './CategoryImage/CategoryImage';
 import AnotherItem from './AnotherItem/AnotherItem';
 import SimilarItem from './SimilarItem/SimilarItem';
 import WantEatContainer from './WantEatContainer/WantEatContainer';
-import EvaluationContainer from './WantEatContainer/WantEatContainer';
+import EvaluationContainer from './EvaluationContainer/EvaluationContainer';
 import './Detail.scss';
 
 export default class Detail extends Component {
@@ -14,6 +14,7 @@ export default class Detail extends Component {
     this.state = {
       transFormPosition: 0,
       eachdatalist: [],
+      anotherItemLocation: null,
     };
   }
 
@@ -30,6 +31,17 @@ export default class Detail extends Component {
   // componentDidMount = () => {
   //   this.callApi();
   // };
+
+  componentDidMount = () => {
+    const sliderElement = this.sliderRef.current;
+    const itemElement = this.itemRef.current;
+    const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
+    this.setState({
+      anotherItemLocation:
+        (sliderElement.getElementsByClassName('anotherItem').length - 4) *
+        -itemWidth,
+    });
+  };
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
@@ -73,6 +85,7 @@ export default class Detail extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <>
         <CategoryImage />
@@ -111,18 +124,25 @@ export default class Detail extends Component {
                   <AnotherItem itemRef={this.itemRef} />
                   <AnotherItem itemRef={this.itemRef} />
                   <AnotherItem itemRef={this.itemRef} />
+                  <AnotherItem itemRef={this.itemRef} />
                 </div>
               </div>
-              <div className="prevButton">
+              {this.state.transFormPosition !== 0 && (
                 <button onClick={this.handlePrevSlider}>
-                  <img src="/images/detail/left_arrow_angle.png" />
+                  <div className="prevButton">
+                    <img src="/images/detail/left_arrow_angle.png" />
+                  </div>
                 </button>
-              </div>
-              <div className="nextButton">
+              )}
+
+              {this.state.transFormPosition !==
+                this.state.anotherItemLocation && (
                 <button onClick={this.handleNextSlider}>
-                  <img src="/images/detail/right_arrow_angle.png" />
+                  <div className="nextButton">
+                    <img src="/images/detail/right_arrow_angle.png" />
+                  </div>
                 </button>
-              </div>
+              )}
             </div>
 
             <div className="similarItemContainer">

@@ -3,9 +3,23 @@
 .similarItem {
   padding: 0px 3.3px;
   line-height: 18px;
-  img {
-    width: 140px;
-    height: 204px;
+
+  .imageEffectWarpper {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    img {
+      width: 140px;
+      height: 204px;
+      transition: all ease-in-out 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        opacity: 50%;
+      }
+    }
   }
 
   h3 {
