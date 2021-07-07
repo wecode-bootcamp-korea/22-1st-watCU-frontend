@@ -4,28 +4,60 @@ body {
   background-color: #f8f8f8;
 }
 
-.categoryImageBox {
-  display: flex;
-  height: 393px;
+// .categoryImageBox {
+//   display: flex;
+//   height: 393px;
 
-  .blurEffect {
-    background-color: black;
-    flex-grow: 1;
-  }
+//   .blackBlock {
+//     background-color: black;
+//     flex-grow: 1;
+//   }
 
-  img {
-    display: block;
-    height: 100%;
-    width: 975px;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
-  }
-}
+//   .categoryImageEffectBox {
+//     position: relative;
+//     width: 975px;
+//     height: 100%;
+
+//     .blurEffectLeft {
+//       position: absolute;
+//       height: 100%;
+//       width: 150px;
+//       background-image: linear-gradient(
+//         270deg,
+//         rgba(10, 7, 3, 0) 0%,
+//         rgb(10, 7, 3) 100%
+//       );
+//       top: 0px;
+//     }
+
+//     .blurEffectRight {
+//       position: absolute;
+//       right: 0px;
+//       top: 0px;
+//       height: 100%;
+//       width: 150px;
+//       background-image: linear-gradient(
+//         90deg,
+//         rgba(10, 7, 3, 0) 0%,
+//         rgb(10, 7, 3) 100%
+//       );
+//     }
+
+//     img {
+//       display: block;
+//       height: 100%;
+//       width: 100%;
+//       object-fit: cover;
+//       object-position: center;
+//       z-index: -1;
+//     }
+//   }
+// }
 
 .introContainer {
   position: relative;
   height: 231px;
+  background-color: white;
   border-bottom: 1px solid #e3e3e3;
 
   .introContents {
@@ -140,11 +172,12 @@ body {
     background-color: white;
     border: 1px solid #e3e3e3;
     border-radius: 7px;
-    padding: 25px;
+    padding: 25px 25px 30px 25px;
     margin-top: 30px;
+    margin-bottom: 30px;
 
     .itemPrice {
-      margin: 0px 8px;
+      margin: 0px 5px;
 
       h3 {
         position: relative;
@@ -160,21 +193,69 @@ body {
     }
 
     .anotherItemContainer {
+      position: relative;
+
       h2 {
         border-top: 1px solid #f0f0f0;
-        margin: 10px 8px;
+        margin: 10px 5px;
         padding-top: 20px;
       }
-      .anotherItemList {
-        // background-color: blue;
-        padding-left: 4px;
-        .anotherItem {
-          display: inline-block;
-          padding: 0px 2px;
-          img {
-            width: 140px;
-            height: 204px;
+
+      .anotherItemWrapper {
+        overflow: hidden;
+
+        .anotherItemList {
+          position: relative;
+          top: 0px;
+          left: 0px;
+          display: flex;
+          justify-content: flex-start;
+          transition: transform 0.5s ease-in-out;
+
+          .anotherItem {
+            padding: 0px 3.3px;
+            img {
+              width: 140px;
+              height: 204px;
+            }
           }
+        }
+      }
+
+      .nextButton {
+        display: inline-block;
+        position: absolute;
+        top: 135px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 80%;
+        box-shadow: 0px 0px 10px grey;
+        background-color: white;
+        text-align: center;
+
+        img {
+          position: relative;
+          top: 5px;
+          filter: invert(60%);
+        }
+      }
+
+      .prevButton {
+        display: inline-block;
+        position: absolute;
+        top: 135px;
+        left: -10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 80%;
+        box-shadow: 0px 0px 10px grey;
+        background-color: white;
+
+        img {
+          position: relative;
+          top: 5px;
+          filter: invert(60%);
         }
       }
     }
@@ -182,18 +263,32 @@ body {
       h2 {
         border-top: 1px solid #f0f0f0;
         padding-top: 20px;
-        margin: 20px 8px 10px 8px;
+        margin: 20px 8px 10px 5px;
       }
 
       .similarItemList {
         // background-color: blue;
-        padding-left: 4px;
+        display: flex;
+        flex-wrap: wrap;
         .similarItem {
-          display: inline-block;
-          padding: 0px 2px;
+          padding: 0px 3.3px;
+          line-height: 18px;
           img {
             width: 140px;
             height: 204px;
+          }
+
+          h3 {
+            margin-top: 5px;
+            font-size: 15px;
+          }
+          h4 {
+            font-size: 12px;
+            color: $font-color-sub;
+          }
+
+          .smallCategoryText {
+            margin-bottom: 30px;
           }
         }
       }
