@@ -1,12 +1,27 @@
-.contentsList {
-  width: 100vw;
+.categoryContainer {
   display: flex;
-  padding: 0 20px;
+  flex-direction: column;
+  width: 90vw;
+  margin: 0 auto;
+
+  .categoryTitle {
+    font-size: 18px;
+    font-weight: 900;
+    padding: 40px 0 14px;
+    margin: 0 10px;
+  }
+}
+
+.contentsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .productInfo {
   width: 20%;
   max-width: 260px;
+  min-width: 160px;
   list-style: none;
   display: flex;
   flex-direction: column;

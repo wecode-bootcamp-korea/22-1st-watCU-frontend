@@ -26,7 +26,9 @@ class Category extends Component {
   render() {
     return (
       <div className="categoryContainer">
-        <div className="categoryTitle">인기 순위</div>
+        <div className="categoryTitle">
+          <p>전체 인기 순위</p>
+        </div>
         <div className="contentsList">
           {this.state.contentsList.map(content => {
             return (
