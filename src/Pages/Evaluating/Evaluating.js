@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Evaluating.scss';
 
+import { RiArrowDownSFill } from 'react-icons/ri';
+
 import Foods from './FoodsComponent/Foods';
 import Drinks from './DrinksComponent/Drinks';
 import Deserts from './DesertsComponent/Deserts';
@@ -60,7 +62,10 @@ class Evaluating extends Component {
                 음료
               </li>
             </ul>
-            <p className="category">카테고리</p>
+            <p className="category">
+              <RiArrowDownSFill />
+              카테고리
+            </p>
           </div>
           <div className="contentsBox">
             <Foods toggleState={toggleState} />
