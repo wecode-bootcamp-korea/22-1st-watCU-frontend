@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { BsThreeDotsVertical } from 'react-icons/bs';
+
 import { CATEGORY_FOOD_APIKEY } from '../../../Config/Config';
 
 class Foods extends Component {
@@ -7,7 +9,7 @@ class Foods extends Component {
     super();
 
     this.state = {
-      name: '',
+      contents: [],
     };
   }
 
@@ -16,21 +18,24 @@ class Foods extends Component {
       .then(res => res.json())
       .then(res =>
         this.setState({
-          name: res.results[0].korean_name,
+          contents: res.results[0],
         })
       )
       .catch(console.log(`"object"`, 'object'));
   };
 
   render() {
+    console.log(`this.state.contents`, this.state.contents);
     return (
       <ul
         className={
           this.props.toggleState === 1 ? `contents contentsActive` : `contents`
         }
       >
-        <li>{this.state.name}</li>
-        <li>2</li>
+        {/* <li>{this.state.conten}</li> */}
+        <li>
+          <BsThreeDotsVertical className="threeDot" />
+        </li>
         <li>3</li>
         <li>4</li>
         <li>5</li>
