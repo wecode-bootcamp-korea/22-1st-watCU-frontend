@@ -39,6 +39,15 @@ export default class Nav extends Component {
       );
   };
 
+  openModal = e => {
+    const { name } = e.target;
+
+    this.setState({
+      [name]: true,
+    });
+    console.log(`this.state`, this.state);
+  };
+
   closeMoal = () => {
     this.setState({ isLoginModal: false, isSignupModal: false });
   };
@@ -78,13 +87,15 @@ export default class Nav extends Component {
             <div className="adminBox">
               <button
                 className="loginBtn"
-                onClick={() => this.setState({ isLoginModal: true })}
+                name="isLoginModal"
+                onClick={this.openModal}
               >
                 로그인
               </button>
               <button
                 className="signupBtn"
-                onClick={() => this.setState({ isSignupModal: true })}
+                name="isSignupModal"
+                onClick={this.openModal}
               >
                 회원가입
               </button>
