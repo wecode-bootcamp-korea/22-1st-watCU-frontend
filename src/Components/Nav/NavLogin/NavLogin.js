@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.scss';
+import './NavLogin.scss';
 
 import { LOGIN_APIKEY } from '../../../Config/Config';
 

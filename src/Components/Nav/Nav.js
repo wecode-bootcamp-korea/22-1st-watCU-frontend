@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 // ##COMPONENT
-import Login from './NavLogin/Login';
+import Login from './NavLogin/NavLogin';
 import NavSearch from './NavSearch/NavSearch';
-import Signup from './NavSignup/Signup';
+import Signup from './NavSignup/NavSignup';
 
 // ##STYLES
 import './Nav.scss';
