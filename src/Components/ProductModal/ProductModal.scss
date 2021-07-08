@@ -1,0 +1,175 @@
+.productModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+  .productModalBg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    .productContainer {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      width: 450px;
+      height: 450px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px 20px;
+
+      .aboutProduct {
+        display: flex;
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+
+        .aboutImgBox {
+          width: 150px;
+          height: 150px;
+          border: none;
+          border-radius: 50%;
+          overflow: hidden;
+
+          .aboutImg {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            object-fit: cover;
+          }
+        }
+        .aboutText {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding-left: 30px;
+
+          h2 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .wantEat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+
+        .willEat {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          border-right: 1px solid #ccc;
+
+          .willIcon {
+            font-size: 40px;
+            color: #bbb;
+            cursor: pointer;
+            margin-top: 10px;
+
+            &:hover {
+              color: #ff2f6e;
+            }
+          }
+
+          p {
+            margin: 10px 0;
+          }
+        }
+
+        .eating {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+
+          .ingIcon {
+            font-size: 40px;
+            color: #bbb;
+            cursor: pointer;
+            margin-top: 10px;
+
+            &:hover {
+              color: #ff2f6e;
+            }
+          }
+
+          p {
+            margin: 10px 0;
+          }
+        }
+      }
+
+      .commentProduct {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+
+        p {
+          font-size: 18px;
+        }
+
+        .commentIcon {
+          font-size: 30px;
+          color: #262626;
+          cursor: pointer;
+        }
+      }
+
+      .unInterested {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px 0;
+
+        p {
+          font-size: 18px;
+        }
+
+        .uninterIcon {
+          font-size: 30px;
+          color: #262626;
+          cursor: pointer;
+        }
+      }
+      .closeBtnBox {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+
+        .closeBtn {
+          font-size: 30px;
+          color: #ff2f6e;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
