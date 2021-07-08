@@ -32,6 +32,7 @@
   .categoryContainer {
     display: flex;
     flex-direction: column;
+    position: relative;
     margin: 0 40px;
 
     .categoryTitle {
@@ -47,8 +48,11 @@
   }
 }
 
+.slideContainer {
+  overflow: hidden;
+}
+
 .pdCardList {
-  width: 100%;
   display: flex;
 
   .productInfo {
@@ -101,4 +105,8 @@
       color: #ff0558;
     }
   }
+}
+
+.blank {
+  padding: 40px 0;
 }

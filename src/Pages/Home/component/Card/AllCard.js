@@ -4,7 +4,7 @@ class AllCard extends Component {
   render() {
     return (
       <>
-        <div className="productInfo">
+        {/* <div className="productInfo">
           <span className="pdBadge">
             <p>{this.props.productBadge}</p>
           </span>
@@ -12,6 +12,51 @@ class AllCard extends Component {
           <div className="pdNameText">{this.props.koreanName}</div>
           <div className="pdPrice">{this.props.price}</div>
           <div className="pdStar">별점 ★ 4.5</div>
+        </div> */}
+        <div className="productInfo">
+          <span className="pdBadge">
+            <p>1</p>
+          </span>
+          <img alt="Product_image" src="images/test-image.jpg" />
+          <div className="pdNameText">상품명</div>
+          <div className="pdPrice">가격</div>
+          <div className="pdStar">평점</div>
+        </div>
+        <div className="productInfo">
+          <span className="pdBadge">
+            <p>2</p>
+          </span>
+          <img alt="Product_image" src="images/test-image.jpg" />
+          <div className="pdNameText">상품명</div>
+          <div className="pdPrice">가격</div>
+          <div className="pdStar">평점</div>
+        </div>
+        <div className="productInfo">
+          <span className="pdBadge">
+            <p>3</p>
+          </span>
+          <img alt="Product_image" src="images/test-image.jpg" />
+          <div className="pdNameText">상품명</div>
+          <div className="pdPrice">가격</div>
+          <div className="pdStar">평점</div>
+        </div>
+        <div className="productInfo">
+          <span className="pdBadge">
+            <p>4</p>
+          </span>
+          <img alt="Product_image" src="images/test-image.jpg" />
+          <div className="pdNameText">상품명</div>
+          <div className="pdPrice">가격</div>
+          <div className="pdStar">평점</div>
+        </div>
+        <div className="productInfo">
+          <span className="pdBadge">
+            <p>5</p>
+          </span>
+          <img alt="Product_image" src="images/test-image.jpg" />
+          <div className="pdNameText">상품명</div>
+          <div className="pdPrice">가격</div>
+          <div className="pdStar">평점</div>
         </div>
       </>
     );

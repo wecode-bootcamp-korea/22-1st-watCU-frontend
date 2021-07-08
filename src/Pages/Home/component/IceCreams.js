@@ -3,26 +3,6 @@ import IceCreamsCard from './Card/IceCreamsCard';
 import '../Home.scss';
 
 class IceCreams extends Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     iceCreamList: [],
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   fetch('/data/productData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(red => red.json())
-  //     .then(data => {
-  //       this.setState({
-  //         iceCreamList: data,
-  //       });
-  //     });
-  // }
-
   render() {
     return (
       <div className="categoryContainer">

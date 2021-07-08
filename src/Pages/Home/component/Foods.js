@@ -3,26 +3,6 @@ import FoodsCard from './Card/FoodsCard';
 import '../Home.scss';
 
 class Foods extends Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     foodList: [],
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   fetch('/data/productData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(red => red.json())
-  //     .then(data => {
-  //       this.setState({
-  //         foodList: data,
-  //       });
-  //     });
-  // }
-
   render() {
     return (
       <div className="categoryContainer">

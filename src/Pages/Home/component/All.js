@@ -1,39 +1,39 @@
 import React, { Component } from 'react';
 import AllCard from './Card/AllCard';
+
 import '../Home.scss';
 
 class All extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      allList: [],
-    };
-  }
+  //   // this.state = {
+  //   //   allList: [],
+  //   // };
+  // }
 
-  componentDidMount() {
-    fetch('http://10.58.2.238:8000/products?category=전체', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      // .then(results => console.log(results))
-      .then(data => {
-        this.setState({
-          allList: data.results,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch('http://10.58.6.205:8000/products?category=전체', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         allList: data.results,
+  //       });
+  //     });
+  // }
 
   render() {
-    console.log(this.state.allList);
-
     return (
       <div className="categoryContainer">
         <div className="categoryTitle">
           <p>전체 카테고리 순위별</p>
         </div>
-        <div className="pdCardList">
-          {this.state.allList &&
+        <div className="slideContainer">
+          <div className="pdCardList">
+            <AllCard />
+            {/* {this.state.allList &&
             this.state.allList.map(all => {
               return (
                 <>
@@ -51,7 +51,8 @@ class All extends Component {
                   />
                 </>
               );
-            })}
+            })} */}
+          </div>
         </div>
       </div>
     );
