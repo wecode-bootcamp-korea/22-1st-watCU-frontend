@@ -11,6 +11,7 @@ export default class Detail extends Component {
     super(props);
     this.sliderRef = React.createRef();
     this.itemRef = React.createRef();
+    this.accrodionContent = [];
     this.state = {
       transFormPosition: 0,
       eachDatalist: [],
@@ -19,7 +20,6 @@ export default class Detail extends Component {
   }
 
   callApi = () => {
-    console.log('hi');
     fetch('http://10.58.6.205:8000/products/1?page=detail')
       .then(res => res.json())
       .then(data =>
@@ -30,58 +30,55 @@ export default class Detail extends Component {
   };
 
   componentDidMount = () => {
-    console.log('hello');
     this.callApi();
-
-    const sliderElement = this.sliderRef.current;
-    const itemElement = this.itemRef.current;
-    const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
-    this.setState({
-      anotherItemLocation:
-        (sliderElement.getElementsByClassName('anotherItem').length - 4) *
-        -itemWidth,
-    });
   };
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
     const itemElement = this.itemRef.current;
-    const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
-    if (
-      this.state.transFormPosition ===
-      (sliderElement.getElementsByClassName('anotherItem').length - 4) *
-        -itemWidth
-    ) {
-      return;
-    }
-
-    this.setState(
-      {
-        transFormPosition: this.state.transFormPosition - itemWidth,
-      },
-      () => {
-        sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+    if (itemElement) {
+      const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
+      if (
+        this.state.transFormPosition ===
+        (sliderElement.getElementsByClassName('anotherItem').length - 4) *
+          -itemWidth
+      ) {
+        return;
       }
-    );
+
+      this.setState(
+        {
+          transFormPosition: this.state.transFormPosition - itemWidth,
+          anotherItemLocation:
+            (sliderElement.getElementsByClassName('anotherItem').length - 4) *
+            -itemWidth,
+        },
+        () => {
+          sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+        }
+      );
+    }
   };
 
   handlePrevSlider = () => {
     const sliderElement = this.sliderRef.current;
     const itemElement = this.itemRef.current;
-    const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
+    if (itemElement) {
+      const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
 
-    if (this.state.transFormPosition === 0) {
-      return;
-    }
-
-    this.setState(
-      {
-        transFormPosition: this.state.transFormPosition + itemWidth,
-      },
-      () => {
-        sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+      if (this.state.transFormPosition === 0) {
+        return;
       }
-    );
+
+      this.setState(
+        {
+          transFormPosition: this.state.transFormPosition + itemWidth,
+        },
+        () => {
+          sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+        }
+      );
+    }
   };
 
   render() {
@@ -117,24 +114,24 @@ export default class Detail extends Component {
           <div className="itemIntroduce">
             <div className="itemPrice">
               <h2>상품 가격</h2>
-              <h3>가격 : 1,200원</h3>
+              <h3>{`${this.state.eachDatalist.price}원`}</h3>
             </div>
             <div className="anotherItemContainer">
               <h2>상품의 다른이미지</h2>
               <div className="anotherItemWrapper">
                 <div className="anotherItemList" ref={this.sliderRef}>
-                  {/* {this.state.eachdatalist.map(another => {
-                    return (
-                      console.log('배고팡')
-                    )
-                  })} */}
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
-                  <AnotherItem itemRef={this.itemRef} />
+                  {this.state.eachDatalist.sub_image_url &&
+                    this.state.eachDatalist.sub_image_url.map(
+                      (another, key) => {
+                        return (
+                          <AnotherItem
+                            key={key}
+                            anotherImage={another}
+                            itemRef={this.itemRef}
+                          />
+                        );
+                      }
+                    )}
                 </div>
               </div>
               {this.state.transFormPosition !== 0 && (
