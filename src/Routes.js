@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // #PAGES
 import Home from './Pages/Home/Home';
 import Detail from './Pages/Detail/Detail';
+import StarRating from './Components/StarRating/StarRating';
 
 // #COMPONENTS
 import Nav from './Components/Nav/Nav';
@@ -18,6 +19,7 @@ class Routes extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/detail" component={Detail} />
+            <Route exact path="/star-rating" component={StarRating} />
           </Switch>
           <Footer />
         </Router>
