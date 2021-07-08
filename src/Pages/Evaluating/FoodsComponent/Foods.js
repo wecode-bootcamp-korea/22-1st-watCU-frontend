@@ -18,7 +18,7 @@ class Foods extends Component {
       .then(res => res.json())
       .then(res =>
         this.setState({
-          contents: res.results[0],
+          contents: res.results,
         })
       )
       .catch(console.log(`"object"`, 'object'));
@@ -27,37 +27,45 @@ class Foods extends Component {
   render() {
     console.log(`this.state.contents`, this.state.contents);
     return (
-      <ul
-        className={
-          this.props.toggleState === 1 ? `contents contentsActive` : `contents`
-        }
-      >
-        <li className="listContainer">
-          <div className="listBg">
-            <div className="listBox">
-              <div className="listImgBox">
-                <img
-                  src="/images/pexels-pierre-blaché-2901209.jpg"
-                  alt=""
-                  className="listImg"
-                />
-              </div>
-              <div className="listTextBox">
-                <div className="listText">
-                  <h2>글제목</h2>
-                  <p>글 설명</p>
+      this.props.toggleState === 1 && (
+        <ul
+          className={
+            this.props.toggleState === 1
+              ? `contents contentsActive`
+              : `contents`
+          }
+        >
+          {this.state.contents.map((content, i) => {
+            return (
+              <li className="listContainer" key={i}>
+                <div className="listBg">
+                  <div className="listBox">
+                    <div className="listImgBox">
+                      <img
+                        src="/images/pexels-pierre-blaché-2901209.jpg"
+                        alt=""
+                        className="listImg"
+                      />
+                    </div>
+                    <div className="listTextBox">
+                      <div className="listText">
+                        <h2>{content.korean_name}</h2>
+                        <p>글 설명</p>
+                      </div>
+                      <div className="listHeartComponent">
+                        <p>이곳은 하트 자리</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="listThreedotBox">
+                    <BsThreeDotsVertical className="threeDot" />
+                  </div>
                 </div>
-                <div className="listHeartComponent">
-                  <p>이곳은 하트 자리</p>
-                </div>
-              </div>
-            </div>
-            <div className="listThreedotBox">
-              <BsThreeDotsVertical className="threeDot" />
-            </div>
-          </div>
-        </li>
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      )
     );
   }
 }

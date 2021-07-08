@@ -69,8 +69,8 @@ class Evaluating extends Component {
           </div>
           <div className="contentsBox">
             <Foods toggleState={toggleState} />
-            <Drinks toggleState={toggleState} />
-            <Deserts toggleState={toggleState} />
+            {/* <Drinks toggleState={toggleState} /> */}
+            {/* <Deserts toggleState={toggleState} /> */}
           </div>
         </div>
       </div>
