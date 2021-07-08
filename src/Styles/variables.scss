@@ -9,7 +9,7 @@ $font-medium: 14px;
 $font-small: 13px;
 
 @mixin display-flex($justify: center, $align: center) {
-  display: $flex;
+  display: flex;
   justify-content: $justify;
   align-items: $align;
 }
