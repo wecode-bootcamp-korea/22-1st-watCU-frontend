@@ -13,26 +13,26 @@ export default class Detail extends Component {
     this.itemRef = React.createRef();
     this.state = {
       transFormPosition: 0,
-      eachdatalist: [],
+      eachDatalist: [],
       anotherItemLocation: null,
     };
   }
 
-  // callApi = () => {
-  //   fetch('http://10.58.2.238:8000/products?category=전체')
-  //     .then(res => res.json())
-  //     .then(data =>
-  //       this.setState({
-  //         eachdatalist: data,
-  //       })
-  //     );
-  // };
-
-  // componentDidMount = () => {
-  //   this.callApi();
-  // };
+  callApi = () => {
+    console.log('hi');
+    fetch('http://10.58.6.205:8000/products/1?page=detail')
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          eachDatalist: data.result,
+        })
+      );
+  };
 
   componentDidMount = () => {
+    console.log('hello');
+    this.callApi();
+
     const sliderElement = this.sliderRef.current;
     const itemElement = this.itemRef.current;
     const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
@@ -93,8 +93,13 @@ export default class Detail extends Component {
         <div className="introContainer">
           <div className="introContents">
             <div className="introText">
-              <h1>코카콜라(Cocacola)</h1>
-              <div className="classification">음료/탄산음료</div>
+              <h1>
+                {this.state.eachDatalist.korean_name}
+                {`(${this.state.eachDatalist.english_name})`}
+              </h1>
+              <div className="classification">
+                {this.state.eachDatalist.category_name}
+              </div>
               <div className="buttons">
                 <WantEatContainer />
                 <EvaluationContainer />
@@ -103,7 +108,7 @@ export default class Detail extends Component {
             <img
               className="postImage"
               alt="drink"
-              src="https://images.unsplash.com/photo-1607929680208-0528b0039b43?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              src={this.state.eachDatalist.main_image_url}
             />
           </div>
         </div>
@@ -118,6 +123,11 @@ export default class Detail extends Component {
               <h2>상품의 다른이미지</h2>
               <div className="anotherItemWrapper">
                 <div className="anotherItemList" ref={this.sliderRef}>
+                  {/* {this.state.eachdatalist.map(another => {
+                    return (
+                      console.log('배고팡')
+                    )
+                  })} */}
                   <AnotherItem itemRef={this.itemRef} />
                   <AnotherItem itemRef={this.itemRef} />
                   <AnotherItem itemRef={this.itemRef} />

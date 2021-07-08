@@ -9,7 +9,7 @@ export default class EvaluationContainer extends Component {
   render() {
     return (
       <div className="evaluationContainer">
-        <button class="evaluationButton">평가하기</button>
+        <button className="evaluationButton">평가하기</button>
       </div>
     );
   }
