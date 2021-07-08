@@ -39,7 +39,7 @@ class Evaluating extends Component {
                   this.toggleTab(1);
                 }}
               >
-                전체
+                식사
               </li>
               <li
                 className={
@@ -49,7 +49,7 @@ class Evaluating extends Component {
                   this.toggleTab(2);
                 }}
               >
-                식사
+                음료
               </li>
               <li
                 className={
@@ -59,7 +59,7 @@ class Evaluating extends Component {
                   this.toggleTab(3);
                 }}
               >
-                음료
+                디저트
               </li>
             </ul>
             <p className="category">
