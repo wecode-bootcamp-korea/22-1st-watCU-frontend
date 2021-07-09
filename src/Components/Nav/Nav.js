@@ -57,6 +57,7 @@ export default class Nav extends Component {
 
   userButtons = () => {
     this.setState({ isUserButtons: true });
+    console.log(`"ijiji"`, 'ijiji');
   };
 
   render() {

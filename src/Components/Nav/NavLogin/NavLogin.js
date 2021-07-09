@@ -36,17 +36,14 @@ class Login extends Component {
       }),
     })
       .then(res => res.json())
-      .then(
-        res => alert('로그인 성공'),
-        console.log(`this.props.userButtons`, this.props.userButtons)
-        // this.history.push('/')
-      );
+      .then(res => alert('로그인 성공'))
+      .then(this.props.userButtons)
+      .then(this.props.history.push('/'));
 
     this.setState({ email: '', password: '' });
   };
 
   render() {
-    console.log(`this.props`, this.props);
     const { email, password } = this.state;
     const { onSaveInputValue, onSubmitForm } = this;
     return (
