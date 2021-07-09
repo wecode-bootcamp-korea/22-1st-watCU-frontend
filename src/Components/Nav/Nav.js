@@ -51,13 +51,12 @@ export default class Nav extends Component {
     });
   };
 
-  closeMoal = () => {
+  closeModal = () => {
     this.setState({ isLoginModal: false, isSignupModal: false });
   };
 
   userButtons = () => {
     this.setState({ isUserButtons: true });
-    console.log(`"ijiji"`, 'ijiji');
   };
 
   render() {
@@ -105,9 +104,9 @@ export default class Nav extends Component {
           </div>
         </div>
         {isLoginModal && (
-          <Login closeMoal={this.closeMoal} userButtons={this.userButtons} />
+          <Login closeModal={this.closeModal} userButtons={this.userButtons} />
         )}
-        {isSignupModal && <Signup closeMoal={this.closeMoal} />}
+        {isSignupModal && <Signup closeModal={this.closeModal} />}
       </nav>
     );
   }

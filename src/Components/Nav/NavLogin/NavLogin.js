@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// ##LIBRARY
+import { withRouter } from 'react-router-dom';
+
 // ##STYLES
 import './NavLogin.scss';
 
@@ -36,9 +39,12 @@ class Login extends Component {
       }),
     })
       .then(res => res.json())
-      .then(res => alert('로그인 성공'))
-      .then(this.props.userButtons)
-      .then(this.props.history.push('/'));
+      .then(
+        res => alert('로그인 성공'),
+        this.props.closeModal(),
+        this.props.userButtons(),
+        this.props.history.push('/')
+      );
 
     this.setState({ email: '', password: '' });
   };
@@ -88,4 +94,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default withRouter(Login);
