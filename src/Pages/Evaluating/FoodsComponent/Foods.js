@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+// ##LIBRARY
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
+// ##APIKEY
 import { CATEGORY_FOOD_APIKEY } from '../../../Config';
 
 class Foods extends Component {
@@ -21,21 +23,18 @@ class Foods extends Component {
           contents: res.results,
         })
       )
-      .catch(console.log(`"object"`, 'object'));
+      .catch(console.log(`"FOOD_FETCH FAILED"`, 'FOOD_FETCH FAILED'));
   };
 
   render() {
-    console.log(`this.state.contents`, this.state.contents);
+    const { contents } = this.state;
+    const { toggleState } = this.props;
     return (
-      this.props.toggleState === 1 && (
+      toggleState === 1 && (
         <ul
-          className={
-            this.props.toggleState === 1
-              ? `contents contentsActive`
-              : `contents`
-          }
+          className={toggleState === 1 ? `contents contentsActive` : `contents`}
         >
-          {this.state.contents.map((content, i) => {
+          {contents.map((content, i) => {
             return (
               <li className="listContainer" key={i}>
                 <div className="listBg">

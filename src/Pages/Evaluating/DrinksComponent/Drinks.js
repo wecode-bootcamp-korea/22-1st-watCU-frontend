@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+// ##LIBRARY
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
+// ##APIKEY
 import { CATEGORY_DRINKS_APIKEY } from '../../../Config';
 
 class Drinks extends Component {
@@ -9,54 +11,59 @@ class Drinks extends Component {
     super();
 
     this.state = {
-      name: '',
+      contents: [],
     };
   }
 
   componentDidMount = () => {
     fetch(CATEGORY_DRINKS_APIKEY)
       .then(res => res.json())
-      // .then(res => console.log(`resss`, res))
       .then(res =>
         this.setState({
-          name: res.results[0].korean_name,
+          contents: res.results,
         })
       )
-      .catch(console.log(`"object"`, 'object'));
+      .catch(console.log(`"DRINKS_FETCH FAILED"`, 'DRINKS_FETCH FAILED'));
   };
   render() {
+    const { contents } = this.state;
+    const { toggleState } = this.props;
     return (
-      <ul
-        className={
-          this.props.toggleState === 2 ? `contents contentsActive` : `contents`
-        }
-      >
-        <li className="listContainer">
-          <div className="listBg">
-            <div className="listBox">
-              <div className="listImgBox">
-                <img
-                  src="/images/pexels-pierre-blaché-2901209.jpg"
-                  alt=""
-                  className="listImg"
-                />
-              </div>
-              <div className="listTextBox">
-                <div className="listText">
-                  <h2>글제목</h2>
-                  <p>글 설명</p>
+      toggleState === 1 && (
+        <ul
+          className={toggleState === 1 ? `contents contentsActive` : `contents`}
+        >
+          {contents.map((content, i) => {
+            return (
+              <li className="listContainer" key={i}>
+                <div className="listBg">
+                  <div className="listBox">
+                    <div className="listImgBox">
+                      <img
+                        src="/images/pexels-pierre-blaché-2901209.jpg"
+                        alt=""
+                        className="listImg"
+                      />
+                    </div>
+                    <div className="listTextBox">
+                      <div className="listText">
+                        <h2>{content.korean_name}</h2>
+                        <p>글 설명</p>
+                      </div>
+                      <div className="listHeartComponent">
+                        <p>이곳은 하트 자리</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="listThreedotBox">
+                    <BsThreeDotsVertical className="threeDot" />
+                  </div>
                 </div>
-                <div className="listHeartComponent">
-                  <p>이곳은 하트 자리</p>
-                </div>
-              </div>
-            </div>
-            <div className="listThreedotBox">
-              <BsThreeDotsVertical className="threeDot" />
-            </div>
-          </div>
-        </li>
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      )
     );
   }
 }

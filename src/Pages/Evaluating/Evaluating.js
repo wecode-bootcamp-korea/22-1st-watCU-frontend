@@ -7,6 +7,7 @@ import { RiArrowDownSFill } from 'react-icons/ri';
 import Foods from './FoodsComponent/Foods';
 import Drinks from './DrinksComponent/Drinks';
 import Deserts from './DesertsComponent/Deserts';
+import TabList from './TabList/TabList';
 
 // ##STYLES
 import './Evaluating.scss';
@@ -17,6 +18,7 @@ class Evaluating extends Component {
 
     this.state = {
       toggleState: 1,
+      tabLists: ['All', 'Foods', 'Drinks', 'Deserts'],
     };
   }
 
@@ -27,7 +29,7 @@ class Evaluating extends Component {
   };
 
   render() {
-    const { toggleState } = this.state;
+    const { toggleState, tabLists } = this.state;
     return (
       <div className="bg">
         <div className="container">
@@ -35,36 +37,11 @@ class Evaluating extends Component {
             <h2>3</h2>
             <p>조금씩 당신의 취향을 알아가는 중입니다.</p>
             <ul className="tabs">
-              <li
-                className={
-                  this.state.toggleState === 1 ? `tab tabActive` : `tab`
-                }
-                onClick={() => {
-                  this.toggleTab(1);
-                }}
-              >
-                식사
-              </li>
-              <li
-                className={
-                  this.state.toggleState === 2 ? `tab tabActive` : `tab`
-                }
-                onClick={() => {
-                  this.toggleTab(2);
-                }}
-              >
-                음료
-              </li>
-              <li
-                className={
-                  this.state.toggleState === 3 ? `tab tabActive` : `tab`
-                }
-                onClick={() => {
-                  this.toggleTab(3);
-                }}
-              >
-                디저트
-              </li>
+              <TabList
+                toggleState={toggleState}
+                tabLists={tabLists}
+                toggleTab={this.toggleTab}
+              />
             </ul>
             <p className="category">
               <RiArrowDownSFill />
@@ -73,8 +50,8 @@ class Evaluating extends Component {
           </div>
           <div className="contentsBox">
             <Foods toggleState={toggleState} />
-            {/* <Drinks toggleState={toggleState} /> */}
-            {/* <Deserts toggleState={toggleState} /> */}
+            <Drinks toggleState={toggleState} />
+            <Deserts toggleState={toggleState} />
           </div>
         </div>
       </div>
