@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+// ##STYLES
 import './NavLogin.scss';
 
-import { LOGIN_APIKEY } from '../../../Config/Config';
+// ##APIKEY
+import { LOGIN_APIKEY } from '../../../Config';
 
 class Login extends Component {
   constructor() {
@@ -33,13 +36,17 @@ class Login extends Component {
       }),
     })
       .then(res => res.json())
-      .then(res => alert('로그인 성공'))
-      .then(this.history.push('/'));
+      .then(
+        res => alert('로그인 성공'),
+        console.log(`this.props.userButtons`, this.props.userButtons)
+        // this.history.push('/')
+      );
 
     this.setState({ email: '', password: '' });
   };
 
   render() {
+    console.log(`this.props`, this.props);
     const { email, password } = this.state;
     const { onSaveInputValue, onSubmitForm } = this;
     return (

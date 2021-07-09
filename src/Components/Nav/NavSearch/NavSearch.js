@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+// ##STYLES
 import './NavSearch.scss';
 
 class NavSearch extends Component {

@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 
 // ##LIBRARY
 import { Link } from 'react-router-dom';
+import { FaRegUser } from 'react-icons/fa';
 
 // ##COMPONENT
 import Login from './NavLogin/NavLogin';
 import NavSearch from './NavSearch/NavSearch';
 import Signup from './NavSignup/NavSignup';
+import NavUserBtns from './NavUserBtns/NavUserBtns';
 
 // ##STYLES
 import './Nav.scss';
 
-import { SEARCH_APIKEY } from '../../Config/Config';
+// ##APIKEY
+import { SEARCH_APIKEY } from '../../Config';
 
 export default class Nav extends Component {
   constructor() {
@@ -22,6 +25,7 @@ export default class Nav extends Component {
       isSignupModal: false,
       isInputFocused: false,
       searchLists: [],
+      isUserButtons: false,
     };
   }
   onInputChange = e => {
@@ -45,15 +49,19 @@ export default class Nav extends Component {
     this.setState({
       [name]: true,
     });
-    console.log(`this.state`, this.state);
   };
 
   closeMoal = () => {
     this.setState({ isLoginModal: false, isSignupModal: false });
   };
 
+  userButtons = () => {
+    this.setState({ isUserButtons: true });
+  };
+
   render() {
-    const { isLoginModal, isSignupModal, searchLists } = this.state;
+    const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
+      this.state;
     return (
       <nav className="nav">
         <div className="navContainer">
@@ -85,24 +93,19 @@ export default class Nav extends Component {
               <NavSearch searchLists={searchLists} />
             </div>
             <div className="adminBox">
-              <button
-                className="loginBtn"
-                name="isLoginModal"
-                onClick={this.openModal}
-              >
-                로그인
-              </button>
-              <button
-                className="signupBtn"
-                name="isSignupModal"
-                onClick={this.openModal}
-              >
-                회원가입
-              </button>
+              {isUserButtons ? (
+                <div className="userIconBox">
+                  <FaRegUser className="userIcon" />
+                </div>
+              ) : (
+                <NavUserBtns openModal={this.openModal} />
+              )}
             </div>
           </div>
         </div>
-        {isLoginModal && <Login closeMoal={this.closeMoal} />}
+        {isLoginModal && (
+          <Login closeMoal={this.closeMoal} userButtons={this.userButtons} />
+        )}
         {isSignupModal && <Signup closeMoal={this.closeMoal} />}
       </nav>
     );

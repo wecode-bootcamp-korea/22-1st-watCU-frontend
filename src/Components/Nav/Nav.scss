@@ -82,6 +82,21 @@
       .adminBox {
         margin: 0 50px;
 
+        .userIconBox {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #9b9b9e;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          .userIcon {
+            font-size: 18px;
+            color: #78787c;
+          }
+        }
+
         .loginBtn {
           color: #74747b;
           font-size: 14px;

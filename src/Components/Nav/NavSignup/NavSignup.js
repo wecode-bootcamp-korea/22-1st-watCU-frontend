@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+// ## STYLES
 import './NavSignup.scss';
 
-import { SIGNUP_APIKEY } from '../../../Config/Config';
+// ##APIKEY
+import { SIGNUP_APIKEY } from '../../../Config';
 
 class Signup extends Component {
   constructor() {
