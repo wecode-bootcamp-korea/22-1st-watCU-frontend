@@ -16,34 +16,33 @@ export default class ProductModal extends Component {
           <div className="productContainer">
             <div className="aboutProduct">
               <div className="aboutImgBox">
-                <img
-                  src="/images/pexels-pierre-blaché-2901209.jpg"
-                  alt=""
-                  className="aboutImg"
-                />
+                <img src="/images/desert1.jpg" alt="" className="aboutImg" />
               </div>
               <div className="aboutText">
-                <h2>런닝맨</h2>
-                <p>영화 2012</p>
+                <h2>Cakesome</h2>
+                <p>$7.9</p>
               </div>
             </div>
             <div className="wantEat">
               <div className="willEat">
                 <BsBookmarkPlus className="willIcon" />
-                <p>먹고싶어요</p>
+                <p>WANT</p>
               </div>
               <div className="eating">
                 <BsHeart className="ingIcon" />
-                <p>가보고싶어요</p>
+                <p>LIKE</p>
               </div>
             </div>
             <div className="commentProduct">
-              <p>코멘트 작성하기</p>
+              <p>Comment</p>
               <VscComment className="commentIcon" />
             </div>
             <div className="unInterested">
-              <p>관심없어요</p>
+              <p>Uninterested</p>
               <AiOutlineStop className="uninterIcon" />
+            </div>
+            <div className="cancleBox">
+              <p>close</p>
             </div>
             <div className="closeBtnBox">
               <AiOutlineClose className="closeBtn" />

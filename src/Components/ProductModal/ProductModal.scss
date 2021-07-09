@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  display: none;
+  // display: none;
 
   &::before {
     content: '';
@@ -37,12 +37,12 @@
       .aboutProduct {
         display: flex;
         width: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 30px;
         border-bottom: 1px solid #ccc;
 
         .aboutImgBox {
-          width: 150px;
-          height: 150px;
+          width: 100px;
+          height: 100px;
           border: none;
           border-radius: 50%;
           overflow: hidden;
@@ -92,6 +92,7 @@
 
             &:hover {
               color: #ff2f6e;
+              transition: all 0.2s ease-in-out;
             }
           }
 
@@ -115,6 +116,7 @@
 
             &:hover {
               color: #ff2f6e;
+              transition: all 0.2s ease-in-out;
             }
           }
 
@@ -129,7 +131,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding: 20px 0;
+        padding: 20px;
         border-bottom: 1px solid #ccc;
 
         p {
@@ -138,16 +140,23 @@
 
         .commentIcon {
           font-size: 30px;
-          color: #262626;
+          color: #bbb;
           cursor: pointer;
+
+          &:hover {
+            color: #ff2f6e;
+            transition: all 0.2s ease-in-out;
+          }
         }
       }
 
       .unInterested {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 20px 0;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
 
         p {
           font-size: 18px;
@@ -155,10 +164,28 @@
 
         .uninterIcon {
           font-size: 30px;
-          color: #262626;
+          color: #bbb;
+          cursor: pointer;
+
+          &:hover {
+            color: #ff2f6e;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+      .cancleBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+
+        > p {
+          color: #ff2f6e;
           cursor: pointer;
         }
       }
+
       .closeBtnBox {
         position: absolute;
         top: 15px;
