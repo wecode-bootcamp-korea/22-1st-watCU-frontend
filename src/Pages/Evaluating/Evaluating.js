@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import './Evaluating.scss';
 
+// ##LIBRARY
 import { RiArrowDownSFill } from 'react-icons/ri';
 
+// ##COMPONENTS
 import Foods from './FoodsComponent/Foods';
 import Drinks from './DrinksComponent/Drinks';
 import Deserts from './DesertsComponent/Deserts';
+
+// ##STYLES
+import './Evaluating.scss';
 
 class Evaluating extends Component {
   constructor() {

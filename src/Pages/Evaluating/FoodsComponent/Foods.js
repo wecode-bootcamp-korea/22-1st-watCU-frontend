@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
-import { CATEGORY_FOOD_APIKEY } from '../../../Config/Config';
+import { CATEGORY_FOOD_APIKEY } from '../../../Config';
 
 class Foods extends Component {
   constructor() {

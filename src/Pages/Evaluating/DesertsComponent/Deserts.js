@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
-import { CATEGORY_DESERTS_APIKEY } from '../../../Config/Config';
+import { CATEGORY_DESERTS_APIKEY } from '../../../Config';
 
 class Deserts extends Component {
   constructor() {
