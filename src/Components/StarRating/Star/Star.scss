@@ -1,9 +1,9 @@
 .eachStar {
-  margin: 0px 3px;
-  .noStar {
+  .inactiveStar {
     fill: grey;
   }
-  .yesStar {
+
+  .activeStar {
     fill: #ffc107;
   }
 }
