@@ -1,3 +1,9 @@
 .starList {
   display: flex;
+
+  button {
+    &:hover {
+      fill: #ffc107;
+    }
+  }
 }
