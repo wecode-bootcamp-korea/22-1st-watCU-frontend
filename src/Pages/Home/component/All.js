@@ -4,35 +4,64 @@ import AllCard from './Card/AllCard';
 import '../Home.scss';
 
 class All extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   // this.state = {
-  //   //   allList: [],
-  //   // };
-  // }
+    this.state = {
+      // allList: [],
+      transLate: 0,
+    };
+  }
 
-  // componentDidMount() {
-  //   fetch('http://10.58.6.205:8000/products?category=전체', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         allList: data.results,
-  //       });
-  //     });
-  // }
+  //   // componentDidMount() {
+  //   //   fetch('http://10.58.6.205:8000/products?category=전체', {
+  //   //     method: 'GET',
+  //   //   })
+  //   //     .then(res => res.json())
+  //   //     .then(data => {
+  //   //       this.setState({
+  //   //         allList: data.results,
+  //   //       });
+  //   //     });
+  //   }
+
+  handleSlideLeft = () => {
+    console.log('prev');
+    const { transLate } = this.state;
+
+    if (transLate !== 0) {
+      this.setState({
+        transLate: transLate + 720,
+      });
+    }
+  };
+
+  handleSlideRight = () => {
+    console.log('next');
+    const { transLate } = this.state;
+
+    if (transLate > -1441) {
+      this.setState({
+        transLate: transLate - 720,
+      });
+    }
+  };
 
   render() {
     return (
       <div className="categoryContainer">
+        <button className="slideBtnLeft" onClick={this.handleSlideLeft}>
+          prev
+        </button>
+        <button className="slideBtnRight" onClick={this.handleSlideRight}>
+          next
+        </button>
         <div className="categoryTitle">
           <p>전체 카테고리 순위별</p>
         </div>
         <div className="slideContainer">
-          <div className="pdCardList">
-            <AllCard />
+          <div>
+            <AllCard transLate={this.state.transLate} />
             {/* {this.state.allList &&
             this.state.allList.map(all => {
               return (

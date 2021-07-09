@@ -48,16 +48,47 @@
   }
 }
 
+.slideBtnLeft,
+.slideBtnRight {
+  background-color: gray;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  position: absolute;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.slideBtnLeft {
+  z-index: 1;
+  top: 38%;
+  left: -2.5%;
+}
+
+.slideBtnRight {
+  z-index: 1;
+  top: 38%;
+  right: -2.5%;
+}
+
 .slideContainer {
   overflow: hidden;
+  width: 82vw;
+  display: flex;
+  position: relative;
 }
 
 .pdCardList {
   display: flex;
+  transition: transform 0.5s;
+  flex-direction: row;
 
   .productInfo {
     position: relative;
     padding: 0 10px;
+    width: 20%;
 
     span {
       width: 28px;

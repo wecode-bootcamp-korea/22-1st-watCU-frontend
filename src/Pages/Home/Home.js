@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import All from './component/All';
-import Foods from './component/Foods';
-import Drinks from './component/Drinks';
-import IceCream from './component/IceCreams';
+// import Foods from './component/Foods';
+// import Drinks from './component/Drinks';
+// import IceCream from './component/IceCreams';
 
 import './Home.scss';
 
@@ -13,7 +13,7 @@ class Home extends Component {
         <section className="categorySection">
           <All />
         </section>
-        <section className="categorySection">
+        {/* <section className="categorySection">
           <Foods />
         </section>
         <section className="categorySection">
@@ -21,7 +21,7 @@ class Home extends Component {
         </section>
         <section className="categorySection">
           <IceCream />
-        </section>
+        </section> */}
         <div className="blank" />
         <section className="ratingSection">
           <span>
