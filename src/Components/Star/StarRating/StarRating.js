@@ -4,8 +4,8 @@ import StarGraph from '../StarGraph/StarGraph';
 import './StarRating.scss';
 
 export default class StarRating extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       rateValue: [false, false, false, false, false],
       hoverRateValue: [false, false, false, false, false],
