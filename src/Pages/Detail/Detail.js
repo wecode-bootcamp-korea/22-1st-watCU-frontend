@@ -79,9 +79,11 @@ export default class Detail extends Component {
               <h2>비슷한 상품</h2>
               <div className="similarItemList">
                 {this.state.categoryDatalist.category_image_url &&
-                  this.state.categoryDatalist.category_image_url.map(() => {
-                    return <SimilarItem />;
-                  })}
+                  this.state.categoryDatalist.category_image_url.map(
+                    (similar, index) => {
+                      return <SimilarItem key={index} />;
+                    }
+                  )}
               </div>
             </div>
           </div>
