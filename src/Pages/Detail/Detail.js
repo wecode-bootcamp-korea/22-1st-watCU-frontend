@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import CategoryImage from './CategoryImage/CategoryImage';
-import AnotherItem from './Slider/AnotherItem/AnotherItem';
+import Slider from './Slider/Slider';
 import SimilarItem from './SimilarItem/SimilarItem';
 import WantEatContainer from './WantEatContainer/WantEatContainer';
 import EvaluationContainer from './EvaluationContainer/EvaluationContainer';
 import './Detail.scss';
 
 export default class Detail extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.sliderRef = React.createRef();
     this.itemRef = React.createRef();
     this.state = {
-      currentIndex: 0,
       eachDatalist: {
         sub_image_url: [1, 2, 3, 4, 5, 6, 7],
       },
@@ -35,58 +34,6 @@ export default class Detail extends Component {
   // componentDidMount = () => {
   //   this.callApi();
   // };
-
-  handleNextSlider = () => {
-    const sliderElement = this.sliderRef.current;
-
-    if (this.itemRef.current) {
-      const itemWidth = Math.ceil(
-        this.itemRef.current.getBoundingClientRect().width
-      );
-      if (
-        this.state.currentIndex ===
-        this.state.eachDatalist.sub_image_url.length - 4
-      ) {
-        return;
-      }
-
-      this.setState(
-        {
-          currentIndex: this.state.currentIndex + 1,
-        },
-        () => {
-          sliderElement.style.transform = `translate(-${
-            this.state.currentIndex * itemWidth
-          }px)`;
-        }
-      );
-    }
-  };
-
-  handlePrevSlider = () => {
-    const sliderElement = this.sliderRef.current;
-
-    if (this.itemRef.current) {
-      const itemWidth = Math.ceil(
-        this.itemRef.current.getBoundingClientRect().width
-      );
-
-      if (this.state.currentIndex === 0) {
-        return;
-      }
-
-      this.setState(
-        {
-          currentIndex: this.state.currentIndex - 1,
-        },
-        () => {
-          sliderElement.style.transform = `translate(-${
-            this.state.currentIndex * itemWidth
-          }px)`;
-        }
-      );
-    }
-  };
 
   render() {
     return (
@@ -122,41 +69,11 @@ export default class Detail extends Component {
               <h2>상품 가격</h2>
               <h3>{`${this.state.eachDatalist.price}원`}</h3>
             </div>
-            <div className="anotherItemContainer">
-              <h2>상품의 다른이미지</h2>
-              <div className="anotherItemWrapper">
-                <div className="anotherItemList" ref={this.sliderRef}>
-                  {this.state.eachDatalist.sub_image_url &&
-                    this.state.eachDatalist.sub_image_url.map(
-                      (another, key) => {
-                        return (
-                          <AnotherItem
-                            key={key}
-                            anotherImage={another}
-                            itemRef={this.itemRef}
-                          />
-                        );
-                      }
-                    )}
-                </div>
-              </div>
-              {this.state.currentIndex !== 0 && (
-                <button onClick={this.handlePrevSlider}>
-                  <div className="prevButton">
-                    <img src="/images/detail/left_arrow_angle.png" />
-                  </div>
-                </button>
-              )}
 
-              {this.state.currentIndex !==
-                this.state.eachDatalist.sub_image_url.length - 4 && (
-                <button onClick={this.handleNextSlider}>
-                  <div className="nextButton">
-                    <img src="/images/detail/right_arrow_angle.png" />
-                  </div>
-                </button>
-              )}
-            </div>
+            <Slider
+              title="상품의 다른이미지"
+              subImage={this.state.eachDatalist.sub_image_url}
+            />
 
             <div className="similarItemContainer">
               <h2>비슷한 상품</h2>
