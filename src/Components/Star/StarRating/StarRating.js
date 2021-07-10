@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Star from './Star/Star';
+import Star from './EachStar/EachStar';
+import StarGraph from '../StarGraph/StarGraph';
 import './StarRating.scss';
 
 export default class StarRating extends Component {
@@ -13,7 +14,6 @@ export default class StarRating extends Component {
   }
 
   handleStarClick = clickedIndex => {
-    console.log('handleStarClick');
     const prevRateValue = [...this.state.rateValue];
     const isClickedStarActive = prevRateValue[clickedIndex];
     const isNextStarActive = prevRateValue[clickedIndex + 1];
@@ -135,7 +135,7 @@ export default class StarRating extends Component {
                 onMouseEnter={() => this.handleStarMousehover(star)}
                 onMouseLeave={() => this.handleStarMouseout()}
               >
-                <Star size="60" name={this.checkIsActive(star)} />
+                <Star size={this.props.size} name={this.checkIsActive(star)} />
               </button>
             );
           })}

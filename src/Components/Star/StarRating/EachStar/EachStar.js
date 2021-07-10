@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Star.scss';
+import './EachStar.scss';
 
-export default class StarRating extends Component {
+export default class EachStar extends Component {
   render() {
     return (
       <div className="eachStar">
