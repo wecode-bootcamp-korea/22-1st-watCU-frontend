@@ -13,25 +13,31 @@ export default class Detail extends Component {
     this.itemRef = React.createRef();
     this.accrodionContent = [];
     this.state = {
+      currentIndex: 0,
       transFormPosition: 0,
-      eachDatalist: [],
+      eachDatalist: {
+        sub_image_url: [1, 2, 3, 4, 5, 6],
+      },
+      categoryDatalist: {
+        category_image_url: [1, 2, 3, 4, 5, 6, 7, 8],
+      },
       anotherItemLocation: null,
     };
   }
 
-  callApi = () => {
-    fetch('http://10.58.6.205:8000/products/1?page=detail')
-      .then(res => res.json())
-      .then(data =>
-        this.setState({
-          eachDatalist: data.result,
-        })
-      );
-  };
+  // callApi = () => {
+  //   fetch('http://10.58.6.205:8000/products/1?page=detail')
+  //     .then(res => res.json())
+  //     .then(data =>
+  //       this.setState({
+  //         eachDatalist: data.result,
+  //       })
+  //     );
+  // };
 
-  componentDidMount = () => {
-    this.callApi();
-  };
+  // componentDidMount = () => {
+  //   this.callApi();
+  // };
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
@@ -155,14 +161,10 @@ export default class Detail extends Component {
             <div className="similarItemContainer">
               <h2>비슷한 상품</h2>
               <div className="similarItemList">
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
-                <SimilarItem />
+                {this.state.categoryDatalist.category_image_url &&
+                  this.state.categoryDatalist.category_image_url.map(() => {
+                    return <SimilarItem />;
+                  })}
               </div>
             </div>
           </div>

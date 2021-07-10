@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './CategoryImage.scss';
 
 export default class CategoryImage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="categoryImageBox">
