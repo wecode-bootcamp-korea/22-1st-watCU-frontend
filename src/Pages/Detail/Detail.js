@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryImage from './CategoryImage/CategoryImage';
-import AnotherItem from './AnotherItem/AnotherItem';
+import AnotherItem from './Slider/AnotherItem/AnotherItem';
 import SimilarItem from './SimilarItem/SimilarItem';
 import WantEatContainer from './WantEatContainer/WantEatContainer';
 import EvaluationContainer from './EvaluationContainer/EvaluationContainer';
@@ -11,17 +11,14 @@ export default class Detail extends Component {
     super(props);
     this.sliderRef = React.createRef();
     this.itemRef = React.createRef();
-    this.accrodionContent = [];
     this.state = {
       currentIndex: 0,
-      transFormPosition: 0,
       eachDatalist: {
-        sub_image_url: [1, 2, 3, 4, 5, 6],
+        sub_image_url: [1, 2, 3, 4, 5, 6, 7],
       },
       categoryDatalist: {
         category_image_url: [1, 2, 3, 4, 5, 6, 7, 8],
       },
-      anotherItemLocation: null,
     };
   }
 
@@ -41,26 +38,26 @@ export default class Detail extends Component {
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
-    const itemElement = this.itemRef.current;
-    if (itemElement) {
-      const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
+
+    if (this.itemRef.current) {
+      const itemWidth = Math.ceil(
+        this.itemRef.current.getBoundingClientRect().width
+      );
       if (
-        this.state.transFormPosition ===
-        (sliderElement.getElementsByClassName('anotherItem').length - 4) *
-          -itemWidth
+        this.state.currentIndex ===
+        this.state.eachDatalist.sub_image_url.length - 4
       ) {
         return;
       }
 
       this.setState(
         {
-          transFormPosition: this.state.transFormPosition - itemWidth,
-          anotherItemLocation:
-            (sliderElement.getElementsByClassName('anotherItem').length - 4) *
-            -itemWidth,
+          currentIndex: this.state.currentIndex + 1,
         },
         () => {
-          sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+          sliderElement.style.transform = `translate(-${
+            this.state.currentIndex * itemWidth
+          }px)`;
         }
       );
     }
@@ -68,27 +65,30 @@ export default class Detail extends Component {
 
   handlePrevSlider = () => {
     const sliderElement = this.sliderRef.current;
-    const itemElement = this.itemRef.current;
-    if (itemElement) {
-      const itemWidth = Math.ceil(itemElement.getBoundingClientRect().width);
 
-      if (this.state.transFormPosition === 0) {
+    if (this.itemRef.current) {
+      const itemWidth = Math.ceil(
+        this.itemRef.current.getBoundingClientRect().width
+      );
+
+      if (this.state.currentIndex === 0) {
         return;
       }
 
       this.setState(
         {
-          transFormPosition: this.state.transFormPosition + itemWidth,
+          currentIndex: this.state.currentIndex - 1,
         },
         () => {
-          sliderElement.style.transform = `translate(${this.state.transFormPosition}px)`;
+          sliderElement.style.transform = `translate(-${
+            this.state.currentIndex * itemWidth
+          }px)`;
         }
       );
     }
   };
 
   render() {
-    console.log(this.state);
     return (
       <>
         <CategoryImage />
@@ -140,7 +140,7 @@ export default class Detail extends Component {
                     )}
                 </div>
               </div>
-              {this.state.transFormPosition !== 0 && (
+              {this.state.currentIndex !== 0 && (
                 <button onClick={this.handlePrevSlider}>
                   <div className="prevButton">
                     <img src="/images/detail/left_arrow_angle.png" />
@@ -148,8 +148,8 @@ export default class Detail extends Component {
                 </button>
               )}
 
-              {this.state.transFormPosition !==
-                this.state.anotherItemLocation && (
+              {this.state.currentIndex !==
+                this.state.eachDatalist.sub_image_url.length - 4 && (
                 <button onClick={this.handleNextSlider}>
                   <div className="nextButton">
                     <img src="/images/detail/right_arrow_angle.png" />
