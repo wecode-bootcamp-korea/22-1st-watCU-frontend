@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // ##LIBRARY
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
-class All extends Component {
+class Contents extends Component {
   constructor() {
     super();
 
@@ -44,4 +44,4 @@ class All extends Component {
   }
 }
 
-export default All;
+export default Contents;

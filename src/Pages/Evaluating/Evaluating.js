@@ -4,12 +4,12 @@ import React, { Component } from 'react';
 import { RiArrowDownSFill } from 'react-icons/ri';
 import { withRouter } from 'react-router-dom';
 
-// ##APIKEY
+// ##APIKEY(DEFAULT)
 import { CATEGORY_FOODS_APIKEY } from '../../Config';
 
 // ##COMPONENTS
-import All from './AllComponent/All';
 import TabList from './TabList/TabList';
+import Contents from './Contents/Contents';
 
 // ##STYLES
 import './Evaluating.scss';
@@ -68,7 +68,7 @@ class Evaluating extends Component {
             </p>
           </div>
           <div className="contentsBox">
-            <All contents={contents} />
+            <Contents contents={contents} />
           </div>
         </div>
       </div>
