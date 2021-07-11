@@ -18,12 +18,12 @@ class Foods extends Component {
   componentDidMount = () => {
     fetch(CATEGORY_FOOD_APIKEY)
       .then(res => res.json())
-      .then(res =>
+      .then(res => {
+        console.log(`"snislanfn"`, 'snislanfn');
         this.setState({
           contents: res.results,
-        })
-      )
-      .catch(console.log(`"FOOD_FETCH FAILED"`, 'FOOD_FETCH FAILED'));
+        });
+      });
   };
 
   render() {

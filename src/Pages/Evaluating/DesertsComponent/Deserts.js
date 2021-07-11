@@ -23,8 +23,7 @@ class Deserts extends Component {
         this.setState({
           contents: res.results,
         })
-      )
-      .catch(console.log(`"DESERTS_FETCH FAILED"`, 'DESERTS_FETCH FAILED'));
+      );
   };
   render() {
     const { contents } = this.state;

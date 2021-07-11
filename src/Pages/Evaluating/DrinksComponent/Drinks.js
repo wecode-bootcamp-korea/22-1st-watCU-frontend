@@ -22,8 +22,7 @@ class Drinks extends Component {
         this.setState({
           contents: res.results,
         })
-      )
-      .catch(console.log(`"DRINKS_FETCH FAILED"`, 'DRINKS_FETCH FAILED'));
+      );
   };
   render() {
     const { contents } = this.state;

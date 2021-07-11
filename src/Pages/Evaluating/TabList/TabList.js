@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 class TabList extends Component {
   render() {
-    const { toggleState, tabLists } = this.props;
+    const { toggleState, tabLists, handleClick } = this.props;
 
     return (
       <>
         {this.props.tabLists.map((tablist, i) => {
-          const tabNum = i + 1;
           return (
             <li
-              className={toggleState === tabNum ? `tab tabActive` : `tab`}
+              key={i}
+              className={toggleState === i ? `tab tabActive` : `tab`}
               onClick={() => {
-                this.props.toggleTab(tabNum);
+                handleClick(tablist, i);
               }}
             >
               {tabLists[i]}

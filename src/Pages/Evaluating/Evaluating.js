@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 // ##LIBRARY
 import { RiArrowDownSFill } from 'react-icons/ri';
+import { withRouter } from 'react-router-dom';
+
+// ##APIKEY
+import { CATEGORY_FOODS_APIKEY } from '../../Config';
 
 // ##COMPONENTS
-import Foods from './FoodsComponent/Foods';
-import Drinks from './DrinksComponent/Drinks';
-import Deserts from './DesertsComponent/Deserts';
+import All from './AllComponent/All';
 import TabList from './TabList/TabList';
 
 // ##STYLES
@@ -17,19 +19,36 @@ class Evaluating extends Component {
     super();
 
     this.state = {
-      toggleState: 1,
-      tabLists: ['All', 'Foods', 'Drinks', 'Deserts'],
+      toggleState: 0,
+      tabLists: ['식사', '음료', '디저트'],
+      contents: [],
     };
   }
 
-  toggleTab = idx => {
-    this.setState({
-      toggleState: idx,
-    });
+  componentDidMount = () => {
+    fetch(CATEGORY_FOODS_APIKEY)
+      .then(res => res.json())
+      .then(res =>
+        this.setState({
+          contents: res.results[0],
+        })
+      );
+  };
+
+  handleClick = (tabList, i) => {
+    if (tabList === this.state.tabLists[i]) {
+      fetch(`http://172.16.20.115:8000/products?category=${tabList}`)
+        .then(res => res.json())
+        .then(res =>
+          this.setState({
+            contents: res.results[0],
+          })
+        );
+    }
   };
 
   render() {
-    const { toggleState, tabLists } = this.state;
+    const { toggleState, tabLists, contents } = this.state;
     return (
       <div className="bg">
         <div className="container">
@@ -39,8 +58,8 @@ class Evaluating extends Component {
             <ul className="tabs">
               <TabList
                 toggleState={toggleState}
+                handleClick={this.handleClick}
                 tabLists={tabLists}
-                toggleTab={this.toggleTab}
               />
             </ul>
             <p className="category">
@@ -49,13 +68,11 @@ class Evaluating extends Component {
             </p>
           </div>
           <div className="contentsBox">
-            <Foods toggleState={toggleState} />
-            <Drinks toggleState={toggleState} />
-            <Deserts toggleState={toggleState} />
+            <All contents={contents} />
           </div>
         </div>
       </div>
     );
   }
 }
-export default Evaluating;
+export default withRouter(Evaluating);
