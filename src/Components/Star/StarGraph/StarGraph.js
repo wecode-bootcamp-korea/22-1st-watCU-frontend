@@ -20,6 +20,8 @@ export default class StarGraph extends Component {
       )
       .map(ratingPerson => Math.round((ratingPerson / totalPerson) * 100));
 
+    const maxPercentage = Math.max(...percentageList);
+
     return (
       <>
         <div className="graphLayout">
@@ -27,8 +29,12 @@ export default class StarGraph extends Component {
             {percentageList.map((percent, index) => {
               return (
                 <div
+                  className={
+                    percent >= maxPercentage
+                      ? 'maxRatingPerson'
+                      : 'ratingPerson'
+                  }
                   key={index}
-                  className="oneScore"
                   style={{ height: `${percent}%` }}
                 ></div>
               );
