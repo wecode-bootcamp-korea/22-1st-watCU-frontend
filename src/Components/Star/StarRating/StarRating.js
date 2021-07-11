@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Star from './EachStar/EachStar';
-import StarGraph from '../StarGraph/StarGraph';
 import './StarRating.scss';
 
 export default class StarRating extends Component {
@@ -21,6 +20,18 @@ export default class StarRating extends Component {
     if (isClickedStarActive && isNextStarActive) {
       prevRateValue.fill(false, clickedIndex + 1);
 
+      const rating = prevRateValue.filter(value => value).length;
+
+      fetch('http://localhost:1313/rating/7', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          rating: rating,
+        }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      }).then(() => {
+        this.props.callApi();
+      });
+
       this.setState({
         isHover: false,
         hoverRateValue: [false, false, false, false, false],
@@ -33,6 +44,18 @@ export default class StarRating extends Component {
     if (isClickedStarActive) {
       prevRateValue.fill(false, 0, clickedIndex + 1);
 
+      const rating = prevRateValue.filter(value => value).length;
+
+      fetch('http://localhost:1313/rating/7', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          rating: rating,
+        }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      }).then(() => {
+        this.props.callApi();
+      });
+
       this.setState({
         isHover: false,
         hoverRateValue: [false, false, false, false, false],
@@ -44,6 +67,18 @@ export default class StarRating extends Component {
 
     if (!isClickedStarActive) {
       prevRateValue.fill(true, 0, clickedIndex + 1);
+
+      const rating = prevRateValue.filter(value => value).length;
+
+      fetch('http://localhost:1313/rating/7', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          rating: rating,
+        }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      }).then(() => {
+        this.props.callApi();
+      });
 
       this.setState({
         isHover: false,
