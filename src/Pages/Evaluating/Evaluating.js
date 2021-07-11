@@ -14,6 +14,8 @@ import Contents from './Contents/Contents';
 // ##STYLES
 import './Evaluating.scss';
 
+const LIMIT = 9;
+
 class Evaluating extends Component {
   constructor() {
     super();
@@ -30,7 +32,7 @@ class Evaluating extends Component {
       .then(res => res.json())
       .then(res =>
         this.setState({
-          contents: res.results[0],
+          contents: res.results,
         })
       );
   };
@@ -41,10 +43,26 @@ class Evaluating extends Component {
         .then(res => res.json())
         .then(res =>
           this.setState({
-            contents: res.results[0],
+            contents: res.results,
           })
         );
     }
+  };
+  handleScroll = e => {
+    const { scrollTop, clientHeight, scrollHeight } = e.target;
+
+    const checkHeigth = scrollHeight - clientHeight;
+    const query = `limit=${LIMIT}`;
+
+    if (checkHeigth === scrollTop) {
+      this.props.history.push(`/evaluating${query}`);
+      // let category = this.state.contents[0].category_name;
+      // console.log(`category`, category);
+    }
+  };
+
+  componentDidUpdate = () => {
+    console.log(`this.props.history.location`, this.props.history.location);
   };
 
   render() {
@@ -67,8 +85,10 @@ class Evaluating extends Component {
               카테고리
             </p>
           </div>
-          <div className="contentsBox">
-            <Contents contents={contents} />
+          <div className="contentsBox" onScroll={this.handleScroll}>
+            {contents.map((content, i) => {
+              return <Contents contents={content} key={content.product_id} />;
+            })}
           </div>
         </div>
       </div>
