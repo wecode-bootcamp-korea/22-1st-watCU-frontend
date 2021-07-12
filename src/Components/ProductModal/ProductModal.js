@@ -19,11 +19,13 @@ export default class ProductModal extends Component {
   }
 
   changeIconColor = e => {
-    const { value } = e.target.attributes.name;
+    console.log(`e.target`, e.target.className.baseVal);
 
-    this.setState({
-      [value]: !this.state,
-    });
+    if (e.target.className.baseVal === 'willIcon') {
+      this.setState({ isWantBtn: !this.state.isWantBtn });
+    } else if (e.target.className.baseVal === 'ingIcon') {
+      this.setState({ isIngBtn: !this.state.isIngBtn });
+    }
   };
 
   render() {
