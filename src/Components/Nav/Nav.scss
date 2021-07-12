@@ -1,0 +1,119 @@
+@import '../../Styles/common.scss';
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 62px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+    .navLeft {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .navLogoBox {
+        margin: 0 50px;
+
+        .companyLogo {
+          width: 100px;
+          cursor: pointer;
+        }
+      }
+
+      .navCategoryBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1px;
+
+        .cateAll,
+        .navEvaluation {
+          margin: 0 10px;
+          padding-top: 4px;
+          color: #7e7e7e;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .navRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .inputBox {
+        position: relative;
+
+        .navInput {
+          width: 300px;
+          padding: 7px 10px;
+          background-color: #f5f5f7;
+          border: 1px solid #ccc;
+          border: transparent;
+          border-radius: 5px;
+          font-size: 15px;
+
+          &::placeholder {
+            text-align: left;
+            font-size: 13px;
+          }
+
+          &:focus + .navSearchBox {
+            display: block;
+          }
+        }
+      }
+
+      .adminBox {
+        margin: 0 50px;
+
+        .userIconBox {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #9b9b9e;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          .userIcon {
+            font-size: 18px;
+            color: #78787c;
+          }
+        }
+
+        .loginBtn {
+          color: #74747b;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        .signupBtn {
+          margin-left: 20px;
+          padding: 5px 14px 6px;
+          color: #74747b;
+          border: 1px solid rgba(116, 116, 123, 0.5);
+          border-radius: 10px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
