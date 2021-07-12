@@ -1,8 +1,8 @@
 [
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "콜라",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "김치찌개",
     "english_name": "cola",
     "price": "1400.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -11,9 +11,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "사이다",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "부대찌개",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -22,9 +22,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "환타",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "제육볶음",
     "english_name": "cola",
     "price": "1500.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -33,9 +33,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "오란씨",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "감동란",
     "english_name": "cola",
     "price": "1200.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -44,9 +44,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "폴라포",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "호유란",
     "english_name": "cola",
     "price": "1000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -55,9 +55,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "콜라",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "육개장",
     "english_name": "cola",
     "price": "1400.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -66,9 +66,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "사이다",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "맛나",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -77,9 +77,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "환타",
+    "category_id": 2,
+    "category_name": "푸드",
+    "korean_name": "소시지",
     "english_name": "cola",
     "price": "1500.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",

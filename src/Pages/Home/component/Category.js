@@ -1,29 +1,39 @@
 import React, { Component } from 'react';
 import AllCard from './Card/AllCard';
 
-import '../Home.scss';
-
-class All extends Component {
+class Category extends Component {
   constructor() {
     super();
 
     this.state = {
-      // allList: [],
+      allList: [],
+      foodList: [],
       transLate: 0,
     };
   }
 
-  //   // componentDidMount() {
-  //   //   fetch('http://10.58.6.205:8000/products?category=전체', {
-  //   //     method: 'GET',
-  //   //   })
-  //   //     .then(res => res.json())
-  //   //     .then(data => {
-  //   //       this.setState({
-  //   //         allList: data.results,
-  //   //       });
-  //   //     });
-  //   }
+  componentDidMount() {
+    fetch('data/productData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+
+      .then(data => {
+        this.setState({
+          allList: data,
+        });
+      });
+
+    fetch('data/foodData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          foodList: data,
+        });
+      });
+  }
 
   handleSlideLeft = () => {
     console.log('prev');
@@ -31,7 +41,7 @@ class All extends Component {
 
     if (transLate !== 0) {
       this.setState({
-        transLate: transLate + 720,
+        transLate: transLate + 704,
       });
     }
   };
@@ -40,9 +50,9 @@ class All extends Component {
     console.log('next');
     const { transLate } = this.state;
 
-    if (transLate > -1441) {
+    if (transLate > -3000) {
       this.setState({
-        transLate: transLate - 720,
+        transLate: transLate - 704,
       });
     }
   };
@@ -60,12 +70,16 @@ class All extends Component {
           <p>전체 카테고리 순위별</p>
         </div>
         <div className="slideContainer">
-          <div>
-            <AllCard transLate={this.state.transLate} />
-            {/* {this.state.allList &&
-            this.state.allList.map(all => {
-              return (
-                <>
+          <div
+            className="pdCardList"
+            style={{
+              transform: `translateX(${this.state.transLate}px)`,
+            }}
+          >
+            {/* <AllCard transLate={this.state.transLate} /> */}
+            {this.state.allList &&
+              this.state.allList.map(all => {
+                return (
                   <AllCard
                     key={all.product_id}
                     productBadge={all.product_badge}
@@ -77,10 +91,10 @@ class All extends Component {
                     description={all.description}
                     imageUrl={all.image_url}
                     averageRating={all.average_rating}
+                    transLate={this.state.transLate}
                   />
-                </>
-              );
-            })} */}
+                );
+              })}
           </div>
         </div>
       </div>
@@ -88,4 +102,4 @@ class All extends Component {
   }
 }
 
-export default All;
+export default Category;

@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 
 class AllCard extends Component {
   render() {
-    console.log('자식 컴포넌트에서 >>>', this.props.transLate);
+    // console.log('자식 컴포넌트에서 >>>', this.props.transLate);
     return (
-      <div
-        style={{ transform: `translateX(${this.props.transLate}px)` }}
-        className="pdCardList"
-      >
-        {/* <div className="productInfo">
+      <div className="pdCardList">
+        <div className="productInfo">
           <span className="pdBadge">
+            <p>1</p>
             <p>{this.props.productBadge}</p>
-          </span>d
-          <img alt="Product_image" src={this.props.imageUrl} />
+          </span>
+          <div className="pdImg">
+            <img alt="Product_image" src={this.props.imageUrl} />
+          </div>
           <div className="pdNameText">{this.props.koreanName}</div>
           <div className="pdPrice">{this.props.price}</div>
           <div className="pdStar">별점 ★ 4.5</div>
-        </div> */}
-        <div className="productInfo">
+        </div>
+        {/* <div className="productInfo">
           <span className="pdBadge">
             <p>1</p>
           </span>
@@ -133,7 +133,7 @@ class AllCard extends Component {
           <div className="pdNameText">상품명</div>
           <div className="pdPrice">가격</div>
           <div className="pdStar">평점</div>
-        </div>
+        </div> */}
       </div>
     );
   }
