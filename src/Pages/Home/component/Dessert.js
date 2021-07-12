@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CardList from './Card/CardList';
 
-class Drinks extends Component {
+class Dessert extends Component {
   constructor() {
     super();
 
@@ -41,7 +41,7 @@ class Drinks extends Component {
           next
         </button>
         <div className="categoryTitle">
-          <p>음료</p>
+          <p>디저트</p>
         </div>
         <div className="slideContainer">
           <div
@@ -50,18 +50,18 @@ class Drinks extends Component {
               transform: `translateX(${this.state.transLate}px)`,
             }}
           >
-            {this.props.drinkList &&
-              this.props.drinkList.map(drink => {
+            {this.props.dessertList &&
+              this.props.dessertList.map(dessert => {
                 return (
                   <CardList
-                    key={drink.product_id}
-                    categoryName={drink.category_name}
-                    koreanName={drink.korean_name}
-                    englishName={drink.english_name}
-                    productId={drink.product_id}
-                    price={drink.price}
-                    imageUrl={drink.image_url}
-                    averageRating={drink.average_rating}
+                    key={dessert.product_id}
+                    categoryName={dessert.category_name}
+                    koreanName={dessert.korean_name}
+                    englishName={dessert.english_name}
+                    productId={dessert.product_id}
+                    price={dessert.price}
+                    imageUrl={dessert.image_url}
+                    averageRating={dessert.average_rating}
                     transLate={this.state.transLate}
                   />
                 );
@@ -73,4 +73,4 @@ class Drinks extends Component {
   }
 }
 
-export default Drinks;
+export default Dessert;

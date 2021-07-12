@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
-import AllCard from './Card/AllCard';
+// import AllCard from './Card/AllCard';
+import CardList from './Card/CardList';
 
-class Category extends Component {
+class All extends Component {
   constructor() {
     super();
 
     this.state = {
-      allList: [],
-      foodList: [],
       transLate: 0,
     };
   }
 
-  componentDidMount() {
-    fetch('data/productData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-
-      .then(data => {
-        this.setState({
-          allList: data,
-        });
-      });
-
-    fetch('data/foodData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          foodList: data,
-        });
-      });
-  }
-
   handleSlideLeft = () => {
-    console.log('prev');
     const { transLate } = this.state;
 
     if (transLate !== 0) {
@@ -47,7 +22,6 @@ class Category extends Component {
   };
 
   handleSlideRight = () => {
-    console.log('next');
     const { transLate } = this.state;
 
     if (transLate > -3000) {
@@ -67,7 +41,7 @@ class Category extends Component {
           next
         </button>
         <div className="categoryTitle">
-          <p>전체 카테고리 순위별</p>
+          <p>전체 카테고리 순위</p>
         </div>
         <div className="slideContainer">
           <div
@@ -76,19 +50,16 @@ class Category extends Component {
               transform: `translateX(${this.state.transLate}px)`,
             }}
           >
-            {/* <AllCard transLate={this.state.transLate} /> */}
-            {this.state.allList &&
-              this.state.allList.map(all => {
+            {this.props.allList &&
+              this.props.allList.map(all => {
                 return (
-                  <AllCard
+                  <CardList
                     key={all.product_id}
-                    productBadge={all.product_badge}
                     categoryName={all.category_name}
                     koreanName={all.korean_name}
                     englishName={all.english_name}
                     productId={all.product_id}
                     price={all.price}
-                    description={all.description}
                     imageUrl={all.image_url}
                     averageRating={all.average_rating}
                     transLate={this.state.transLate}
@@ -102,4 +73,4 @@ class Category extends Component {
   }
 }
 
-export default Category;
+export default All;

@@ -1,6 +1,6 @@
 [
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
     "korean_name": "콜라",
     "english_name": "cola",
@@ -11,9 +11,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "음식",
+    "korean_name": "사이다",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -22,9 +22,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "푸드",
+    "korean_name": "환타",
     "english_name": "cola",
     "price": "1500.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -33,9 +33,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "디저트",
+    "korean_name": "오란씨",
     "english_name": "cola",
     "price": "1200.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -44,9 +44,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "1번",
+    "korean_name": "폴라포",
     "english_name": "cola",
     "price": "1000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -55,9 +55,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "순위",
+    "korean_name": "콜라",
     "english_name": "cola",
     "price": "1400.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -66,9 +66,9 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
-    "korean_name": "랭킹",
+    "korean_name": "사이다",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -77,7 +77,7 @@
   },
 
   {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "음료",
     "korean_name": "환타",
     "english_name": "cola",

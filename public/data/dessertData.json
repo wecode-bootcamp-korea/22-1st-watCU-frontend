@@ -1,8 +1,8 @@
 [
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "콜라",
+    "category_id": 4,
+    "category_name": "음디저트료",
+    "korean_name": "메로나",
     "english_name": "cola",
     "price": "1400.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -11,9 +11,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "음식",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "수박바",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -22,9 +22,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "푸드",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "보석바",
     "english_name": "cola",
     "price": "1500.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -33,9 +33,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "디저트",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "빠삐코",
     "english_name": "cola",
     "price": "1200.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -44,9 +44,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "1번",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "빵빠레",
     "english_name": "cola",
     "price": "1000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -55,9 +55,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "순위",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "월드콘",
     "english_name": "cola",
     "price": "1400.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -66,9 +66,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "랭킹",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "아이스크림",
     "english_name": "cola",
     "price": "15000.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
@@ -77,9 +77,9 @@
   },
 
   {
-    "category_id": 1,
-    "category_name": "음료",
-    "korean_name": "환타",
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "러브아이스",
     "english_name": "cola",
     "price": "1500.00",
     "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
