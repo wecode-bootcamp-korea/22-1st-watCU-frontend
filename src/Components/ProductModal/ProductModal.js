@@ -29,6 +29,7 @@ export default class ProductModal extends Component {
   };
 
   render() {
+    console.log(`this.state`, this.state);
     const { isWantBtn, isIngBtn } = this.state;
     return (
       <section className="productModal">
