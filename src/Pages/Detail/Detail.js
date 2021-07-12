@@ -13,13 +13,11 @@ export default class Detail extends Component {
     this.itemRef = React.createRef();
     this.state = {
       eachDatalist: {},
-      categoryDatalist: {
-        category_image_url: [1, 2, 3, 4, 5, 6, 7, 8],
-      },
+      categoryDatalist: [],
     };
   }
 
-  callApi = () => {
+  callEachDataApi = () => {
     fetch('http://10.58.6.40:8000/products/1')
       .then(res => res.json())
       .then(data =>
@@ -29,36 +27,57 @@ export default class Detail extends Component {
       );
   };
 
+  callCategoryDataApi = () => {
+    fetch('http://10.58.6.40:8000/products?category=음료&product_id=1')
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          categoryDatalist: data.results,
+        })
+      );
+  };
+
   componentDidMount = () => {
-    this.callApi();
+    this.callEachDataApi();
+    this.callCategoryDataApi();
   };
 
   render() {
-    console.log(this.state.eachDatalist);
+    console.log(this.state);
+    const { categoryDatalist } = this.state;
+
+    const {
+      category_image_url,
+      korean_name,
+      english_name,
+      category_name,
+      average_rating,
+      price,
+      main_image_url,
+      sub_image_url,
+      description,
+    } = this.state.eachDatalist;
+
     return (
       <>
-        <CategoryImage />
+        <CategoryImage image={category_image_url} />
 
         <div className="introContainer">
           <div className="introContents">
             <div className="introText">
               <h1>
-                {this.state.eachDatalist.korean_name}
-                {`(${this.state.eachDatalist.english_name})`}
+                {korean_name}
+                {`(${english_name})`}
               </h1>
               <div className="classification">
-                {this.state.eachDatalist.category_name}
+                {`${category_name} 평점${average_rating}`}
               </div>
               <div className="buttons">
                 <WantEatContainer />
                 <EvaluationContainer />
               </div>
             </div>
-            <img
-              className="postImage"
-              alt="drink"
-              src={this.state.eachDatalist.main_image_url}
-            />
+            <img className="postImage" alt="drink" src={main_image_url} />
           </div>
         </div>
 
@@ -66,33 +85,34 @@ export default class Detail extends Component {
           <div className="itemIntroduce">
             <div className="itemPrice">
               <h2>상품 가격</h2>
-              <h3>{`${this.state.eachDatalist.price}원`}</h3>
+              <h3>{`${price}원`}</h3>
             </div>
 
-            <Slider
-              title="상품의 다른이미지"
-              subImage={this.state.eachDatalist.sub_image_url}
-            />
+            <Slider title="상품의 다른이미지" subImage={sub_image_url} />
 
             <div className="similarItemContainer">
               <h2>비슷한 상품</h2>
               <div className="similarItemList">
-                {this.state.categoryDatalist.category_image_url &&
-                  this.state.categoryDatalist.category_image_url.map(
-                    (similar, index) => {
-                      return <SimilarItem key={index} />;
-                    }
-                  )}
+                {categoryDatalist &&
+                  categoryDatalist.map((similar, index) => {
+                    return (
+                      <SimilarItem
+                        key={index}
+                        image={similar.image_url}
+                        koreanName={similar.korean_name}
+                        englishName={similar.english_name}
+                        categoryName={similar.category_name}
+                        price={similar.price}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </div>
           <div className="itemEtc">
             <div className="itemInfo">
               <h2>상품 정보</h2>
-              <p>
-                1886년 미국에서 탄생 현재 일평균 10억 잔 이상 팔리고 있는 세계
-                대표 청량음료
-              </p>
+              <p>{description}</p>
             </div>
           </div>
         </div>
