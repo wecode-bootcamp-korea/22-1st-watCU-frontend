@@ -29,12 +29,8 @@ export default class Nav extends Component {
     };
   }
   onInputChange = e => {
-    fetch(SEARCH_APIKEY, {
-      method: 'POST',
-      body: JSON.stringify({
-        word: e.target.value,
-      }),
-    })
+    console.log(`e.target.value`, e.target.value);
+    fetch(`http://10.58.5.120:8000/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({
