@@ -40,6 +40,7 @@ class Login extends Component {
     })
       .then(res => res.json())
       .then(
+        res => window.localStorage.setItem('token', res.token),
         res => alert('로그인 성공'),
         this.props.closeModal(),
         this.props.userButtons(),
