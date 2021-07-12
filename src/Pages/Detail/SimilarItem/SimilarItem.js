@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './SimilarItem.scss';
 
 export default class SimilarItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="similarItem">

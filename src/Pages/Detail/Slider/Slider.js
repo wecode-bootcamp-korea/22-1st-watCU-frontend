@@ -9,13 +9,13 @@ export default class Slider extends Component {
     this.itemRef = React.createRef();
     this.state = {
       currentIndex: 0,
-      subImage: this.props.subImage,
     };
   }
 
   handleNextSlider = () => {
     const sliderElement = this.sliderRef.current;
-    const { subImage, currentIndex } = this.state;
+    const { currentIndex } = this.state;
+    const { subImage } = this.props;
 
     if (this.itemRef.current) {
       const itemWidth = Math.ceil(
@@ -65,7 +65,8 @@ export default class Slider extends Component {
   };
 
   render() {
-    const { subImage, currentIndex } = this.state;
+    const { currentIndex } = this.state;
+    const { subImage } = this.props;
 
     return (
       <div className="anotherItemContainer">
@@ -92,7 +93,7 @@ export default class Slider extends Component {
           </button>
         )}
 
-        {currentIndex !== subImage.length - 4 && (
+        {subImage && currentIndex !== subImage.length - 4 && (
           <button onClick={this.handleNextSlider}>
             <div className="nextButton">
               <img src="/images/detail/right_arrow_angle.png" />

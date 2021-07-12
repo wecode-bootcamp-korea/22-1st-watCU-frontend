@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './WantEatContainer.scss';
 
 export default class WantEatContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="wantEatContainer">
