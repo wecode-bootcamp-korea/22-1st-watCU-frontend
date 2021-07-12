@@ -85,7 +85,7 @@ class Login extends Component {
             <p className="loginSignup">
               계정이 없으신가요?<span>회원가입</span>
             </p>
-            <p className="closeBtn" onClick={this.props.closeMoal}>
+            <p className="closeBtn" onClick={this.props.closeModal}>
               X
             </p>
           </div>
