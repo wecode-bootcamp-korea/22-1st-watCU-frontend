@@ -9,7 +9,21 @@ import { VscComment } from 'react-icons/vsc';
 import './ProductModal.scss';
 
 export default class ProductModal extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isWantBtn: false,
+      isIngBtn: false,
+    };
+  }
+
+  changeIconColor = e => {
+    // console.log(`e.target.name`, e.target.name);
+  };
+
   render() {
+    const { isWantBtn, isIngBtn } = this.state;
     return (
       <section className="productModal">
         <div className="productModalBg">
@@ -25,11 +39,19 @@ export default class ProductModal extends Component {
             </div>
             <div className="wantEat">
               <div className="willEat">
-                <BsBookmarkPlus className="willIcon" />
+                <BsBookmarkPlus
+                  name="isWantBtn"
+                  className={isWantBtn ? `willIcon activeWillIcon` : `willIcon`}
+                  onClick={this.changeIconColor}
+                />
                 <p>WANT</p>
               </div>
               <div className="eating">
-                <BsHeart className="ingIcon" />
+                <BsHeart
+                  name="isIngBtn"
+                  className={isIngBtn ? `ingIcon activeIngIcon` : `ingIcon`}
+                  onClick={this.changeIconColor}
+                />
                 <p>LIKE</p>
               </div>
             </div>

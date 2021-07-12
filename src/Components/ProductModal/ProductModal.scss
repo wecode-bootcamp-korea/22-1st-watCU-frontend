@@ -95,6 +95,9 @@
               transition: all 0.2s ease-in-out;
             }
           }
+          .activeWillIcon {
+            color: #ff2f6e;
+          }
 
           p {
             margin: 10px 0;
@@ -118,6 +121,9 @@
               color: #ff2f6e;
               transition: all 0.2s ease-in-out;
             }
+          }
+          .activeIngIcon {
+            color: #ff2f6e;
           }
 
           p {
@@ -182,6 +188,7 @@
 
         > p {
           color: #ff2f6e;
+          font-size: 18px;
           cursor: pointer;
         }
       }
