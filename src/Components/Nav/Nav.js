@@ -49,7 +49,6 @@ export default class Nav extends Component {
 
   closeModal = () => {
     this.setState({ isLoginModal: false, isSignupModal: false });
-    console.log(`"HIHI`, 'HIHI');
   };
 
   userButtons = () => {
@@ -57,7 +56,6 @@ export default class Nav extends Component {
   };
 
   render() {
-    console.log(`this.state.isLoginModal`, this.state.isLoginModal);
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
       this.state;
     return (
