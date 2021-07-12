@@ -22,7 +22,7 @@ class Evaluating extends Component {
 
     this.state = {
       toggleState: 0,
-      tabLists: ['식사', '음료', '디저트'],
+      tabLists: ['먹거리', '음료', '디저트'],
       contents: [],
     };
   }
@@ -30,6 +30,7 @@ class Evaluating extends Component {
   componentDidMount = () => {
     fetch(CATEGORY_FOODS_APIKEY)
       .then(res => res.json())
+      // .then(res => console.log(`res`, res));
       .then(res =>
         this.setState({
           contents: res.results,
@@ -38,8 +39,11 @@ class Evaluating extends Component {
   };
 
   handleClick = (tabList, i) => {
+    this.setState({
+      toggleState: i,
+    });
     if (tabList === this.state.tabLists[i]) {
-      fetch(`http://172.16.20.115:8000/products?category=${tabList}`)
+      fetch(`http://10.58.6.40:8000/products?category=${tabList}`)
         .then(res => res.json())
         .then(res =>
           this.setState({
@@ -55,14 +59,14 @@ class Evaluating extends Component {
     const query = `limit=${LIMIT}`;
 
     if (checkHeigth === scrollTop) {
-      this.props.history.push(`/evaluating${query}`);
+      // this.props.history.push(`/evaluating/${query}`);
       // let category = this.state.contents[0].category_name;
       // console.log(`category`, category);
     }
   };
 
   componentDidUpdate = () => {
-    console.log(`this.props.history.location`, this.props.history.location);
+    // console.log(`this.props.history.location`, this.props.history.location);
   };
 
   render() {
