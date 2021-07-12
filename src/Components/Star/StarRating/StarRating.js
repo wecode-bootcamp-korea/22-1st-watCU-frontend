@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Star from './EachStar/EachStar';
+import EachStar from './EachStar/EachStar';
 import './StarRating.scss';
 
 export default class StarRating extends Component {
@@ -11,6 +11,20 @@ export default class StarRating extends Component {
       isHover: false,
     };
   }
+
+  componentDidMount = () => {
+    fetch('http://localhost:1313/rating/7')
+      .then(res => res.json())
+      .then(data => {
+        const currentRateValue = Array(5)
+          .fill(false)
+          .fill(true, 0, data.rating);
+
+        this.setState({
+          rateValue: currentRateValue,
+        });
+      });
+  };
 
   handleStarClick = clickedIndex => {
     const prevRateValue = [...this.state.rateValue];
@@ -157,7 +171,6 @@ export default class StarRating extends Component {
 
   render() {
     const starArray = [0, 1, 2, 3, 4];
-    // console.log(this.state);
 
     return (
       <>
@@ -170,7 +183,10 @@ export default class StarRating extends Component {
                 onMouseEnter={() => this.handleStarMousehover(star)}
                 onMouseLeave={() => this.handleStarMouseout()}
               >
-                <Star size={this.props.size} name={this.checkIsActive(star)} />
+                <EachStar
+                  size={this.props.size}
+                  name={this.checkIsActive(star)}
+                />
               </button>
             );
           })}

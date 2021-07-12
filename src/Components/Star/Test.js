@@ -26,10 +26,9 @@ export default class Test extends Component {
 
   render() {
     // console.log(this.state);
-    // console.log(this.state.userInfo);
+    console.log(this.state.userInfo);
     return (
       <>
-        <div>Hello test!</div>
         <div>
           <StarRating size="60" callApi={this.callApi} />
         </div>
