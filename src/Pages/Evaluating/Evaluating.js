@@ -56,10 +56,10 @@ class Evaluating extends Component {
     const { scrollTop, clientHeight, scrollHeight } = e.target;
 
     const checkHeigth = scrollHeight - clientHeight;
-    const query = `limit=${LIMIT}`;
+    const query = `?limit=${LIMIT}`;
 
     if (checkHeigth === scrollTop) {
-      // this.props.history.push(`/evaluating/${query}`);
+      // this.props.history.push(`/evaluating${query}`);
       // let category = this.state.contents[0].category_name;
       // console.log(`category`, category);
     }
