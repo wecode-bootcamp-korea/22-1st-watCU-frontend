@@ -19,7 +19,11 @@ export default class ProductModal extends Component {
   }
 
   changeIconColor = e => {
-    // console.log(`e.target.name`, e.target.name);
+    const { value } = e.target.attributes.name;
+
+    this.setState({
+      [value]: !this.state,
+    });
   };
 
   render() {
