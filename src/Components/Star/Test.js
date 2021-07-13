@@ -11,11 +11,11 @@ export default class Test extends Component {
   }
 
   callApi = () => {
-    fetch('http://localhost:1313/rating')
+    fetch('http://10.58.1.82:8000/ratings/products/1/graph')
       .then(res => res.json())
       .then(data =>
         this.setState({
-          userInfo: data,
+          userInfo: data.results,
         })
       );
   };

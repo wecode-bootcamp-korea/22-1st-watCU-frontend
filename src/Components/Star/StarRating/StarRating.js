@@ -23,7 +23,7 @@ export default class StarRating extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:1313/rating/7')
+    fetch('http://10.58.1.82:8000/ratings/products/1/graph')
       .then(res => res.json())
       .then(data => {
         const currentRateValue = Array(5)
@@ -52,8 +52,8 @@ export default class StarRating extends Component {
     const rating = prevRateValue.filter(value => value).length;
 
     const callback = () => {
-      fetch('http://localhost:1313/rating/7', {
-        method: 'PATCH',
+      fetch('http://10.58.1.82:8000/ratings/products/1/graph', {
+        method: 'POST',
         body: JSON.stringify({
           rating: rating,
         }),
