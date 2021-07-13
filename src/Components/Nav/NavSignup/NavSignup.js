@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// ##LIBRARY
+import { withRouter } from 'react-router-dom';
+
 // ## STYLES
 import './NavSignup.scss';
 
@@ -38,9 +41,13 @@ class Signup extends Component {
       }),
     })
       .then(res => res.json())
-      .then(res => alert('회원가입 성공'));
+      .then(
+        res => alert('회원가입 성공'),
+        this.props.closeModal(),
+        this.props.history.push('/')
+      );
 
-    this.setState({ email: '', password: '' });
+    this.setState({ name: '', email: '', password: '' });
   };
 
   render() {
@@ -86,7 +93,7 @@ class Signup extends Component {
             <p className="alreadySignup">
               이미가입하셨나요?<span>로그인</span>
             </p>
-            <p className="closeBtn" onClick={this.props.closeMoal}>
+            <p className="closeBtn" onClick={this.props.closeModal}>
               X
             </p>
           </div>
@@ -95,4 +102,4 @@ class Signup extends Component {
     );
   }
 }
-export default Signup;
+export default withRouter(Signup);

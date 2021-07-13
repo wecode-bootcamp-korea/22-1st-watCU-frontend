@@ -39,12 +39,14 @@ class Login extends Component {
       }),
     })
       .then(res => res.json())
-      .then(
-        res => alert('로그인 성공'),
-        this.props.closeModal(),
-        this.props.userButtons(),
-        this.props.history.push('/')
-      );
+      .then(res => {
+        localStorage.setItem('token', res.token);
+        console.log(`res`, res);
+        alert('로그인 성공');
+        this.props.closeModal();
+        this.props.userButtons();
+        this.props.history.push('/');
+      });
 
     this.setState({ email: '', password: '' });
   };
@@ -85,7 +87,7 @@ class Login extends Component {
             <p className="loginSignup">
               계정이 없으신가요?<span>회원가입</span>
             </p>
-            <p className="closeBtn" onClick={this.props.closeMoal}>
+            <p className="closeBtn" onClick={this.props.closeModal}>
               X
             </p>
           </div>

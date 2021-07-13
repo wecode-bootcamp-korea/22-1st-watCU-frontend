@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // ##LIBRARY
 import { Link } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
+import { IoIosLogOut } from 'react-icons/io';
+import { withRouter } from 'react-router-dom';
 
 // ##COMPONENT
 import Login from './NavLogin/NavLogin';
@@ -13,10 +15,7 @@ import NavUserBtns from './NavUserBtns/NavUserBtns';
 // ##STYLES
 import './Nav.scss';
 
-// ##APIKEY
-import { SEARCH_APIKEY } from '../../Config';
-
-export default class Nav extends Component {
+class Nav extends Component {
   constructor() {
     super();
 
@@ -28,13 +27,18 @@ export default class Nav extends Component {
       isUserButtons: false,
     };
   }
+  componentDidMount = () => {
+    let token = localStorage.getItem('token');
+
+    if (token) {
+      this.setState({
+        isUserButtons: true,
+      });
+    }
+  };
+
   onInputChange = e => {
-    fetch(SEARCH_APIKEY, {
-      method: 'POST',
-      body: JSON.stringify({
-        word: e.target.value,
-      }),
-    })
+    fetch(`http://10.58.5.120:8000/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -58,6 +62,10 @@ export default class Nav extends Component {
   userButtons = () => {
     this.setState({ isUserButtons: true });
   };
+  removeToken = () => {
+    localStorage.removeItem('token');
+    window.location.replace('/');
+  };
 
   render() {
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
@@ -77,9 +85,11 @@ export default class Nav extends Component {
               <Link to="/" className="cateAll">
                 전체
               </Link>
-              <Link to="/evaluating" className="navEvaluation">
-                평가하기
-              </Link>
+              {this.state.isUserButtons ? (
+                <Link to="/evaluating" className="navEvaluation">
+                  평가하기
+                </Link>
+              ) : null}
             </div>
           </div>
           <div className="navRight">
@@ -94,9 +104,14 @@ export default class Nav extends Component {
             </div>
             <div className="adminBox">
               {isUserButtons ? (
-                <div className="userIconBox">
-                  <FaRegUser className="userIcon" />
-                </div>
+                <>
+                  <div className="userIconBox">
+                    <FaRegUser className="userIcon" />
+                  </div>
+                  <div className="userIconBox" onClick={this.removeToken}>
+                    <IoIosLogOut className="userIcon2" />
+                  </div>
+                </>
               ) : (
                 <NavUserBtns openModal={this.openModal} />
               )}
@@ -111,3 +126,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default withRouter(Nav);
