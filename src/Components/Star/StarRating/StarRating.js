@@ -112,20 +112,6 @@ export default class StarRating extends Component {
     }
 
     return isStarActive ? 'activeStar' : 'inactiveStar';
-
-    // if (this.state.isHover) {
-    //   if (this.state.hoverRateValue[star]) {
-    //     return 'activeStar';
-    //   }
-
-    //   return 'inactiveStar';
-    // }
-
-    // if (this.state.rateValue[star]) {
-    //   return 'activeStar';
-    // }
-
-    // return 'inactiveStar';
   };
 
   render() {
