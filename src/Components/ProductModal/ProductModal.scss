@@ -1,9 +1,10 @@
+@import '../../Styles/common.scss';
+
 .productModal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  // display: none;
 
   &::before {
     content: '';
@@ -16,6 +17,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
   }
+
   .productModalBg {
     display: flex;
     justify-content: center;
@@ -54,6 +56,7 @@
             object-fit: cover;
           }
         }
+
         .aboutText {
           display: flex;
           flex-direction: column;
@@ -76,7 +79,7 @@
         width: 100%;
         border-bottom: 1px solid #ccc;
 
-        .wishEat {
+        .wish {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -95,10 +98,10 @@
               color: #ff2f6e;
               transition: all 0.2s ease-in-out;
             }
+          }
 
-            .activeWillIcon {
-              color: #ff2f6e;
-            }
+          .activeWishIcon {
+            color: #ff2f6e;
           }
 
           p {
@@ -124,6 +127,7 @@
               transition: all 0.2s ease-in-out;
             }
           }
+
           .activeDoneIcon {
             color: #ff2f6e;
           }
@@ -181,6 +185,7 @@
           }
         }
       }
+
       .cancleBox {
         display: flex;
         justify-content: center;
