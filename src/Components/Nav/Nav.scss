@@ -81,6 +81,7 @@
 
       .adminBox {
         margin: 0 50px;
+        display: flex;
 
         .userIconBox {
           width: 30px;
@@ -91,9 +92,21 @@
           justify-content: center;
           align-items: center;
           cursor: pointer;
+
+          &:nth-child(2) {
+            margin-left: 10px;
+          }
+
           .userIcon {
             font-size: 18px;
             color: #78787c;
+          }
+
+          .userIcon2 {
+            margin-left: 4px;
+            font-size: 22px;
+            color: #78787c;
+            font-weight: bold;
           }
         }
 
