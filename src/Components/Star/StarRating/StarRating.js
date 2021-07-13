@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import EachStar from './EachStar/EachStar';
 import './StarRating.scss';
 
+const checkUserWithCallbackFunc = callBackFunc => {
+  callBackFunc();
+
+  // if (localStorage.getItem('token') && callBackFunc) {
+  //   callBackFunc();
+  // }
+
+  // alert('로그인 해주세요');
+};
+
 export default class StarRating extends Component {
   constructor() {
     super();
@@ -33,65 +43,28 @@ export default class StarRating extends Component {
 
     if (isClickedStarActive && isNextStarActive) {
       prevRateValue.fill(false, clickedIndex + 1);
-
-      const rating = prevRateValue.filter(value => value).length;
-
-      fetch('http://localhost:1313/rating/7', {
-        method: 'PATCH',
-        body: JSON.stringify({
-          rating: rating,
-        }),
-        headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      }).then(() => {
-        this.props.callApi();
-      });
-
-      this.setState({
-        isHover: false,
-        hoverRateValue: [false, false, false, false, false],
-        rateValue: prevRateValue,
-      });
-
-      return;
-    }
-
-    if (isClickedStarActive) {
+    } else if (isClickedStarActive) {
       prevRateValue.fill(false, 0, clickedIndex + 1);
-
-      const rating = prevRateValue.filter(value => value).length;
-
-      fetch('http://localhost:1313/rating/7', {
-        method: 'PATCH',
-        body: JSON.stringify({
-          rating: rating,
-        }),
-        headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      }).then(() => {
-        this.props.callApi();
-      });
-
-      this.setState({
-        isHover: false,
-        hoverRateValue: [false, false, false, false, false],
-        rateValue: prevRateValue,
-      });
-
-      return;
-    }
-
-    if (!isClickedStarActive) {
+    } else if (!isClickedStarActive) {
       prevRateValue.fill(true, 0, clickedIndex + 1);
+    }
 
-      const rating = prevRateValue.filter(value => value).length;
+    const rating = prevRateValue.filter(value => value).length;
 
+    const callback = () => {
       fetch('http://localhost:1313/rating/7', {
         method: 'PATCH',
         body: JSON.stringify({
           rating: rating,
         }),
-        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       }).then(() => {
-        this.props.callApi();
+        const { callApi } = this.props;
+
+        if (callApi) callApi();
       });
 
       this.setState({
@@ -99,54 +72,31 @@ export default class StarRating extends Component {
         hoverRateValue: [false, false, false, false, false],
         rateValue: prevRateValue,
       });
+    };
 
-      return;
-    }
+    checkUserWithCallbackFunc(callback);
   };
 
   handleStarMousehover = hoveredIndex => {
-    // console.log('MOUSE hover');
     const prevRateValue = [...this.state.hoverRateValue];
     const isClickedStarActive = prevRateValue[hoveredIndex];
     const isNextStarActive = prevRateValue[hoveredIndex + 1];
 
     if (isClickedStarActive && isNextStarActive) {
       prevRateValue.fill(false, hoveredIndex + 1);
-
-      this.setState({
-        isHover: true,
-        hoverRateValue: prevRateValue,
-      });
-
-      return;
-    }
-
-    if (isClickedStarActive) {
+    } else if (isClickedStarActive) {
       prevRateValue.fill(false, 0, hoveredIndex + 1);
-
-      this.setState({
-        isHover: true,
-        hoverRateValue: prevRateValue,
-      });
-
-      return;
-    }
-
-    if (!isClickedStarActive) {
+    } else if (!isClickedStarActive) {
       prevRateValue.fill(true, 0, hoveredIndex + 1);
-
-      this.setState({
-        isHover: true,
-        hoverRateValue: prevRateValue,
-      });
-
-      return;
     }
+
+    this.setState({
+      isHover: true,
+      hoverRateValue: prevRateValue,
+    });
   };
 
   handleStarMouseout = () => {
-    // console.log('MOUSE OUT');
-
     this.setState({
       isHover: false,
       hoverRateValue: [false, false, false, false, false],
@@ -154,19 +104,28 @@ export default class StarRating extends Component {
   };
 
   checkIsActive = star => {
-    if (this.state.isHover) {
-      if (this.state.hoverRateValue[star]) {
-        return 'activeStar';
-      }
+    const { isHover, hoverRateValue, rateValue } = this.state;
+    const isStarActive = rateValue[star];
 
-      return 'inactiveStar';
+    if (isHover) {
+      return hoverRateValue[star] ? 'activeStar' : 'inactiveStar';
     }
 
-    if (this.state.rateValue[star]) {
-      return 'activeStar';
-    }
+    return isStarActive ? 'activeStar' : 'inactiveStar';
 
-    return 'inactiveStar';
+    // if (this.state.isHover) {
+    //   if (this.state.hoverRateValue[star]) {
+    //     return 'activeStar';
+    //   }
+
+    //   return 'inactiveStar';
+    // }
+
+    // if (this.state.rateValue[star]) {
+    //   return 'activeStar';
+    // }
+
+    // return 'inactiveStar';
   };
 
   render() {
