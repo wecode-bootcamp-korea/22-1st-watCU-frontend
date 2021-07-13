@@ -3,7 +3,6 @@ import './CategoryImage.scss';
 
 export default class CategoryImage extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="categoryImageBox">
         <div className="blackBlock">block</div>

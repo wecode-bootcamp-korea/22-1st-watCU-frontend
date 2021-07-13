@@ -126,3 +126,17 @@ body {
     }
   }
 }
+
+@media only screen and (max-width: 990px) {
+  .itemInfo {
+    margin: 0px 5px;
+    h3 {
+      position: relative;
+      top: 17px;
+      font-size: 18px;
+      margin-bottom: 35px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+  }
+}
