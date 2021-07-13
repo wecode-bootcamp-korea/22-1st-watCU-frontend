@@ -1,0 +1,204 @@
+{
+  "results": [
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "콜라",
+      "english_name": "cola",
+      "price": "1400.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 1,
+      "average_rating": "4.0"
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 4,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다1",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 5,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다2",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 6,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다3",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 7,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다4",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 8,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다5",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 9,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다6",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 10,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다67",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 11,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다8",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 12,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다9",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 13,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다10",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 14,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다11",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 15,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다12",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 16,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다13",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 17,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다14",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 18,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다15",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 19,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다16",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 20,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다17",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 21,
+      "average_rating": 0.0
+    },
+    {
+      "category_id": 1,
+      "category_name": "음료",
+      "korean_name": "사이다18",
+      "english_name": "42da",
+      "price": "10000.00",
+      "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+      "product_id": 22,
+      "average_rating": 0.0
+    }
+  ]
+}
