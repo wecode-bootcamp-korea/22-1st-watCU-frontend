@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
 class CardList extends Component {
+  goToDetail = () => {
+    this.props.history.push(`/detail/${this.props.productId}`);
+  };
+
   render() {
     return (
       <div className="pdCardList">
-        <div className="productInfo">
+        <div className="productInfo" onClick={this.goToDetail}>
           <span className="pdBadge">
             <p>1</p>
           </span>
@@ -20,4 +25,4 @@ class CardList extends Component {
   }
 }
 
-export default CardList;
+export default withRouter(CardList);

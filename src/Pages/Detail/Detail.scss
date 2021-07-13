@@ -1,1 +1,127 @@
-//
+@import '../../Styles/variables.scss';
+
+body {
+  background-color: #f8f8f8;
+}
+
+.introContainer {
+  position: relative;
+  height: 231px;
+  background-color: white;
+  border-bottom: 1px solid #e3e3e3;
+
+  .introContents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 975px;
+    height: 190px;
+    margin: 0px auto;
+
+    .introText {
+      position: relative;
+      margin-left: 191px;
+      height: 100%;
+
+      h1 {
+        font-size: 33px;
+        font-weight: 700;
+      }
+
+      .classification {
+        margin-top: 6px;
+        font-size: 17px;
+        color: $font-color-sub;
+      }
+
+      .buttons {
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        height: 40px;
+      }
+    }
+
+    .postImage {
+      position: relative;
+      bottom: 243px;
+      width: 166px;
+      height: 238px;
+      border: 2px solid #ececec;
+      border-radius: 5px;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .itemIntroduce {
+    flex-shrink: 0;
+    width: 640px;
+    background-color: white;
+    border: 1px solid #e3e3e3;
+    border-radius: 7px;
+    padding: 25px 25px 30px 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .itemPrice {
+      margin: 0px 5px;
+
+      h3 {
+        position: relative;
+        top: 17px;
+        font-size: 18px;
+        margin-bottom: 35px;
+      }
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .similarItemContainer {
+      h2 {
+        border-top: 1px solid #f0f0f0;
+        padding-top: 20px;
+        margin: 20px 8px 10px 5px;
+      }
+
+      .similarItemList {
+        position: relative;
+        left: 1.5px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .itemEtc {
+    width: 320px;
+    margin-top: 30px;
+
+    .itemInfo {
+      background-color: white;
+      border: 1px solid #e3e3e3;
+      border-radius: 7px;
+      padding: 20px 10px;
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+}

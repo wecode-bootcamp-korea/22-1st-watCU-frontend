@@ -51,7 +51,7 @@ class Home extends Component {
       });
 
     // fetch('data/dessertData.json', {
-    fetch('http://10.58.6.40:8000/products?category=디저트', {
+    fetch('http://10.58.1.82:8000/products?category=디저트', {
       method: 'GET',
     })
       .then(res => res.json())
