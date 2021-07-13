@@ -18,7 +18,7 @@ export default class Detail extends Component {
   }
 
   callEachDataApi = () => {
-    fetch('http://10.58.6.40:8000/products/1')
+    fetch('http://10.58.1.82:8000/products/1')
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -28,7 +28,7 @@ export default class Detail extends Component {
   };
 
   callCategoryDataApi = () => {
-    fetch('http://10.58.6.40:8000/products?category=음료&product_id=1')
+    fetch('http://10.58.1.82:8000/products?category=음료&product_id=1')
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -43,7 +43,6 @@ export default class Detail extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { categoryDatalist } = this.state;
 
     const {

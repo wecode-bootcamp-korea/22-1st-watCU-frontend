@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './EvaluationContainer.scss';
 
-export default class EvaluationContainer extends Component {
+class EvaluationContainer extends Component {
   render() {
     return (
       <div className="evaluationContainer">
@@ -10,3 +11,5 @@ export default class EvaluationContainer extends Component {
     );
   }
 }
+
+export default withRouter(EvaluationContainer);

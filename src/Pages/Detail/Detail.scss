@@ -52,6 +52,7 @@ body {
       height: 238px;
       border: 2px solid #ececec;
       border-radius: 5px;
+      object-fit: cover;
     }
   }
 }
@@ -87,76 +88,6 @@ body {
       font-weight: 700;
     }
 
-    // .anotherItemContainer {
-    //   position: relative;
-
-    //   h2 {
-    //     border-top: 1px solid #f0f0f0;
-    //     margin: 10px 5px;
-    //     padding-top: 20px;
-    //   }
-
-    //   .anotherItemWrapper {
-    //     overflow: hidden;
-
-    //     .anotherItemList {
-    //       position: relative;
-    //       top: 0px;
-    //       left: 1.5px;
-    //       display: flex;
-    //       justify-content: flex-start;
-    //       transition: transform 0.5s ease-in-out;
-    //     }
-    //   }
-
-    //   .nextButton {
-    //     position: absolute;
-    //     top: 135px;
-    //     right: -8px;
-    //     width: 30px;
-    //     height: 30px;
-    //     border-radius: 80%;
-    //     box-shadow: 0px 0px 10px grey;
-    //     background-color: white;
-    //     text-align: center;
-
-    //     &:hover {
-    //       opacity: 0.7;
-    //       cursor: pointer;
-    //     }
-
-    //     img {
-    //       position: relative;
-    //       top: 7px;
-    //       filter: invert(60%);
-    //       cursor: pointer;
-    //     }
-    //   }
-
-    //   .prevButton {
-    //     position: absolute;
-    //     top: 135px;
-    //     left: -10px;
-    //     width: 30px;
-    //     height: 30px;
-    //     border-radius: 80%;
-    //     box-shadow: 0px 0px 10px grey;
-    //     background-color: white;
-    //     text-align: center;
-
-    //     &:hover {
-    //       opacity: 0.7;
-    //       cursor: pointer;
-    //     }
-
-    //     img {
-    //       position: relative;
-    //       top: 7px;
-    //       filter: invert(60%);
-    //       cursor: pointer;
-    //     }
-    //   }
-    // }
     .similarItemContainer {
       h2 {
         border-top: 1px solid #f0f0f0;
