@@ -24,24 +24,26 @@ class Evaluating extends Component {
       toggleState: 0,
       tabLists: ['먹거리', '음료', '디저트'],
       contents: [],
+      count: 1,
+      ratingCount: '',
     };
   }
 
   componentDidMount = () => {
-    this.props.history.push(`/evaluating?음료`);
-
-    fetch(`${BASE_URL2}?category=음료`)
+    const query = `limit=${LIMIT}&offset=0`;
+    this.props.history.push(`/evaluating?먹거리`);
+    fetch(`${BASE_URL2}?category=먹거리&${query}`)
       .then(res => res.json())
-      .then(res => console.log(`res`, res));
-    // .then(res =>
-    //   this.setState({
-    //     contents: res.results,
-    //   })
-    // );
+      .then(res =>
+        this.setState({
+          contents: res.results,
+          ratingCount: res.rating_count,
+        })
+      );
   };
 
   handleClick = (tabList, i) => {
-    const query = `?limit=5&offset=5`;
+    const query = `limit=${LIMIT}&offset=0`;
 
     this.props.history.push(`/evaluating?${tabList}`);
 
@@ -54,50 +56,53 @@ class Evaluating extends Component {
         .then(res =>
           this.setState({
             contents: res.results,
+            ratingCount: res.rating_count,
           })
         );
     }
   };
   handleScroll = e => {
     const { scrollTop, clientHeight, scrollHeight } = e.target;
+    const { count } = this.state;
 
     const checkHeigth = scrollHeight - clientHeight;
-    // const query = `?limit=${LIMIT}`;
-    let count = 1;
-    const query = `?limit=5&offset=${count * 5}`;
 
     if (checkHeigth === scrollTop) {
       //지금위치랑 탭 의 위치를 파악해서 페이지 이동을 하고 이동을 하면 fetch 해야한다. componentDidUpdate 에서
       // fetch 할때 조건문을 줘야하는데 이전 프롭스와 같을때만 해줘야한다는 뭔가 조건을 줘야한다.
 
-      // this.props.history.push(`/evaluating${query}`);
+      this.props.history.push(
+        `/evaluating${this.props.history.location.search}`
+      );
 
-      // this.props.history.push(`/evaluating/${tabList}?limit=5&offset=5`);
-      // let category = this.state.contents[0].category_name;
-      // console.log(`category`, category);
-      count++;
+      this.setState({
+        count: count + 1,
+      });
     }
-    console.log(`count`, count);
   };
 
-  componentDidUpdate = (prevProps, _) => {
-    if (prevProps.location.search !== this.props.location.search) {
-      fetch(`${BASE_URL2}?category=${this.props.location.search}`)
-        .then(res => res.json())
-        .then(res => console.log(`res`, res));
-    }
+  // componentDidUpdate = (prevProps, _) => {
+  //   const { count } = this.state;
+  //   const query = `limit=${LIMIT}&offset=${count * 5}`;
 
-    // console.log(`this.props.history.location`, this.props.history.location);
-    // console.log(`this.props.location`, this.props.location.search);
-  };
+  //   if (prevProps.location.search !== this.props.location.search) {
+  //     fetch(`${BASE_URL2}?category=&${this.props.location.search}&${query}`)
+  //       .then(res => res.json())
+  //       .then(res =>
+  //         this.setState({
+  //           contents: res.results,
+  //         })
+  //       );
+  //   }
+  // };
 
   render() {
-    const { toggleState, tabLists, contents } = this.state;
+    const { toggleState, tabLists, contents, ratingCount } = this.state;
     return (
       <div className="bg">
         <div className="container">
           <div className="top">
-            <h2>3</h2>
+            <h2>{ratingCount}</h2>
             <p>조금씩 당신의 취향을 알아가는 중입니다.</p>
             <ul className="tabs">
               <TabList

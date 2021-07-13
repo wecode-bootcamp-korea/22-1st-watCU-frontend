@@ -28,12 +28,16 @@ class Contents extends Component {
           <div className="listBg">
             <div className="listBox">
               <div className="listImgBox">
-                <img src={contents.image_url} alt="" className="listImg" />
+                <img
+                  src={contents.image_url}
+                  alt="listImg"
+                  className="listImg"
+                />
               </div>
               <div className="listTextBox">
                 <div className="listText">
                   <h2>{contents.korean_name}</h2>
-                  <p>글 설명</p>
+                  <p>{contents.price}</p>
                 </div>
                 <div className="listHeartComponent">
                   <p>이곳은 하트 자리</p>
