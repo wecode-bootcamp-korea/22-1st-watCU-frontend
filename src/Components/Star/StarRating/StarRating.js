@@ -21,7 +21,7 @@ export default class StarRating extends Component {
   }
 
   componentDidMount = () => {
-    const callback = () => {
+    if (localStorage.getItem('token')) {
       fetch('http://10.58.1.82:8000/ratings/products/1', {
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -37,9 +37,7 @@ export default class StarRating extends Component {
             rateValue: currentRateValue,
           });
         });
-    };
-
-    checkUserWithCallbackFunc(callback);
+    }
   };
 
   handleStarClick = clickedIndex => {

@@ -35,7 +35,9 @@ export default class StarGraph extends Component {
                       : 'ratingPerson'
                   }
                   key={index}
-                  style={{ height: `${percent}%` }}
+                  style={
+                    percent > 0 ? { height: `${percent}%` } : { height: '1%' }
+                  }
                 ></div>
               );
             })}
