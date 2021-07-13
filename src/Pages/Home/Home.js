@@ -19,48 +19,45 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch('data/productData.json', {
-      // fetch('http://10.58.6.40:8000/products', { 백엔드 데이터
+    // fetch('data/productData.json', {
+    fetch('http://10.58.1.82:8000/products', {
       method: 'GET',
     })
       .then(res => res.json())
-
       .then(data => {
         this.setState({
-          allList: data,
+          allList: data.results,
         });
       });
 
-    fetch('data/foodData.json', {
-      // fetch('http://10.58.6.40:8000/products?category=먹거리', { 백엔드 데이터
-      method: 'GET',
-    })
+    // fetch('data/foodData.json', {
+    fetch('http://10.58.1.82:8000/products?category=먹거리', {})
       .then(res => res.json())
       .then(data => {
         this.setState({
-          foodList: data,
+          foodList: data.results,
         });
       });
 
-    fetch('data/drinkData.json', {
-      // fetch('http://10.58.6.40:8000/products?category=음료', { 백엔드 데이터
+    // fetch('data/drinkData.json', {
+    fetch('http://10.58.1.82:8000/products?category=음료', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          drinkList: data,
+          drinkList: data.results,
         });
       });
 
-    fetch('data/dessertData.json', {
-      // fetch('http://10.58.6.40:8000/products?category=디저트', { 백엔드 데이터
+    // fetch('data/dessertData.json', {
+    fetch('http://10.58.6.40:8000/products?category=디저트', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          dessertList: data,
+          dessertList: data.results,
         });
       });
   }
