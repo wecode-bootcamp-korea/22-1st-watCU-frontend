@@ -3,13 +3,11 @@ import EachStar from './EachStar/EachStar';
 import './StarRating.scss';
 
 const checkUserWithCallbackFunc = callBackFunc => {
-  callBackFunc();
-
-  // if (localStorage.getItem('token') && callBackFunc) {
-  //   callBackFunc();
-  // }
-
-  // alert('로그인 해주세요');
+  if (localStorage.getItem('token')) {
+    callBackFunc();
+  } else {
+    alert('로그인 해주세요');
+  }
 };
 
 export default class StarRating extends Component {
@@ -23,17 +21,25 @@ export default class StarRating extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://10.58.1.82:8000/ratings/products/1/graph')
-      .then(res => res.json())
-      .then(data => {
-        const currentRateValue = Array(5)
-          .fill(false)
-          .fill(true, 0, data.rating);
+    const callback = () => {
+      fetch('http://10.58.1.82:8000/ratings/products/1', {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      })
+        .then(res => res.json())
+        .then(data => {
+          const currentRateValue = Array(5)
+            .fill(false)
+            .fill(true, 0, data.result.rating);
 
-        this.setState({
-          rateValue: currentRateValue,
+          this.setState({
+            rateValue: currentRateValue,
+          });
         });
-      });
+    };
+
+    checkUserWithCallbackFunc(callback);
   };
 
   handleStarClick = clickedIndex => {
@@ -52,14 +58,14 @@ export default class StarRating extends Component {
     const rating = prevRateValue.filter(value => value).length;
 
     const callback = () => {
-      fetch('http://10.58.1.82:8000/ratings/products/1/graph', {
+      fetch('http://10.58.1.82:8000/ratings/products/1', {
         method: 'POST',
         body: JSON.stringify({
           rating: rating,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Authorization: localStorage.getItem('token'),
         },
       }).then(() => {
         const { callApi } = this.props;
