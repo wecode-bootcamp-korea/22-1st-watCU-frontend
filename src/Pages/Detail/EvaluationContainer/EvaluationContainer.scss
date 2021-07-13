@@ -1,0 +1,15 @@
+@import '../../../Styles/variables.scss';
+
+.evaluationContainer {
+  background-color: $main-color;
+  border-radius: 8px;
+  width: 120px;
+  .evaluationButton {
+    height: 100%;
+    display: block;
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0px auto;
+  }
+}
