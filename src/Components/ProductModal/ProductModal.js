@@ -31,8 +31,7 @@ export default class ProductModal extends Component {
     fetch(`http://10.58.0.189:8000/products/1/status/wish`, {
       method: 'GET',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoyfQ.Zy6jKeYAMr-Vzom7zCl8ZS6GgIhAEvvXK2Qv_fcjuMU',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(res => res.json())
@@ -48,8 +47,7 @@ export default class ProductModal extends Component {
     fetch(`http://10.58.0.189:8000/products/1/status/done`, {
       method: 'GET',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoyfQ.Zy6jKeYAMr-Vzom7zCl8ZS6GgIhAEvvXK2Qv_fcjuMU',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(res => res.json())
