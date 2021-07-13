@@ -13,62 +13,78 @@ export default class ProductModal extends Component {
     super();
 
     this.state = {
-      isWantBtn: false,
-      isIngBtn: false,
+      wantBtn: '',
+      doneBtn: '',
     };
   }
 
-  changeIconColor = e => {
-    console.log(`e.target`, e.target.className.baseVal);
+  handleClick = e => {
+    let eValue = e.target.attributes.name.value;
 
-    if (e.target.className.baseVal === 'willIcon') {
-      this.setState({ isWantBtn: !this.state.isWantBtn });
-    } else if (e.target.className.baseVal === 'ingIcon') {
-      this.setState({ isIngBtn: !this.state.isIngBtn });
-    }
+    // if (this.state.isWantBtn === false) {
+    //   return console.log('no');
+    // } else if (this.state.isWantBtn === true) {
+    //   return console.log('rightj');
+    // }
+
+    fetch(`http://10.58.0.189:8000/products/1/status/${eValue}`, {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoyfQ.Zy6jKeYAMr-Vzom7zCl8ZS6GgIhAEvvXK2Qv_fcjuMU',
+      },
+    })
+      .then(res => res.json())
+      .then(res => console.log(`res`, res));
+  };
+
+  prepareAlert = () => {
+    alert('준비중입니다.');
   };
 
   render() {
-    console.log(`this.state`, this.state);
-    const { isWantBtn, isIngBtn } = this.state;
+    const { wantBtn, doneBtn } = this.state;
     return (
       <section className="productModal">
         <div className="productModalBg">
           <div className="productContainer">
             <div className="aboutProduct">
               <div className="aboutImgBox">
-                <img src="/images/desert1.jpg" alt="" className="aboutImg" />
+                <img src={this.props.src} alt="" className="aboutImg" />
               </div>
               <div className="aboutText">
-                <h2>Cakesome</h2>
-                <p>$7.9</p>
+                <h2>{this.props.korean_name}</h2>
+                <p>{this.props.price}</p>
               </div>
             </div>
             <div className="wantEat">
-              <div className="willEat">
+              <div className="wishEat">
                 <BsBookmarkPlus
-                  name="isWantBtn"
-                  className={isWantBtn ? `willIcon activeWillIcon` : `willIcon`}
-                  onClick={this.changeIconColor}
+                  name="wish"
+                  className={wantBtn ? `wishIcon activeWishIcon` : `wishIcon`}
+                  onClick={this.handleClick}
                 />
                 <p>WANT</p>
               </div>
-              <div className="eating">
+              <div className="done">
                 <BsHeart
-                  name="isIngBtn"
-                  className={isIngBtn ? `ingIcon activeIngIcon` : `ingIcon`}
-                  onClick={this.changeIconColor}
+                  name="done"
+                  className={doneBtn ? `doneIcon activeDoneIcon` : `doneIcon`}
+                  onClick={this.handleClick}
                 />
-                <p>LIKE</p>
+                <p>DONE</p>
               </div>
             </div>
             <div className="commentProduct">
               <p>Comment</p>
-              <VscComment className="commentIcon" />
+              <VscComment className="commentIcon" onClick={this.prepareAlert} />
             </div>
             <div className="unInterested">
               <p>Uninterested</p>
-              <AiOutlineStop className="uninterIcon" />
+              <AiOutlineStop
+                className="uninterIcon"
+                onClick={this.prepareAlert}
+              />
             </div>
             <div className="cancleBox">
               <p>close</p>
