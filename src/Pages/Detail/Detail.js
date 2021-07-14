@@ -50,7 +50,9 @@ export default class Detail extends Component {
   };
 
   callStarGraphApi = () => {
-    fetch('http://10.58.3.228:8000/ratings/products/1/graph')
+    fetch(
+      `http://10.58.3.228:8000/ratings/products/${this.props.match.params.productId}/graph`
+    )
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -60,7 +62,6 @@ export default class Detail extends Component {
   };
 
   resizeWindow = e => {
-    // console.log(e.target.innerWidth);
     this.setState({
       isSmallerThanMaxWidth: this.maxWidth > e.target.innerWidth,
     });
@@ -70,11 +71,8 @@ export default class Detail extends Component {
     this.setState({
       isModalOn: true,
     });
-
-    // setTimeout(() => {
-    //   this.setState({ isModalOn: false });
-    // }, 3000);
   };
+
   closeModal = () => {
     this.setState({
       isModalOn: false,
@@ -83,7 +81,6 @@ export default class Detail extends Component {
 
   componentDidMount = () => {
     this.callEachDataApi();
-    this.callCategoryDataApi();
     this.callStarGraphApi();
 
     window.addEventListener('resize', this.resizeWindow, false);
@@ -107,8 +104,6 @@ export default class Detail extends Component {
       sub_image_url,
       description,
     } = this.state.eachDatalist;
-
-    console.log(this.state.isModalOn);
 
     return (
       <>
@@ -139,6 +134,7 @@ export default class Detail extends Component {
                   size="60"
                   callStarGraphApi={this.callStarGraphApi}
                   callEachDataApi={this.callEachDataApi}
+                  id={this.props.match.params.productId}
                 />
               </div>
 

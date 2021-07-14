@@ -22,7 +22,7 @@ export default class StarRating extends Component {
 
   componentDidMount = () => {
     if (localStorage.getItem('token')) {
-      fetch('http://10.58.3.228:8000/ratings/products/1', {
+      fetch(`http://10.58.3.228:8000/ratings/products/${this.props.id}`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },
@@ -56,7 +56,7 @@ export default class StarRating extends Component {
     const rating = prevRateValue.filter(value => value).length;
 
     const callback = () => {
-      fetch('http://10.58.3.228:8000/ratings/products/1', {
+      fetch(`http://10.58.3.228:8000/ratings/products/${this.props.id}`, {
         method: 'POST',
         body: JSON.stringify({
           rating: rating,
