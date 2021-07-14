@@ -21,19 +21,25 @@ class Evaluating extends Component {
     super(props);
 
     this.state = {
-      toggleState: '',
+      toggleState: 0,
       tabLists: ['먹거리', '음료', '디저트'],
       contents: [],
-      count: 1,
+      count: 0,
       ratingCount: '',
-      isLoading: false,
+      // isLoading: false,
     };
   }
 
   componentDidMount = () => {
+    console.log(`"comdima"`, 'comdima');
+    // console.log(`this.props.locatasffion`, this.props.location);
+    // console.log(`this.state.tabLists[0]`, this.state.tabLists[0]);
+
+    // console.log(`${BASE_URL2}?category=${this.state.tabLists[0]}`);
     const query = `limit=${LIMIT}&offset=0`;
 
-    fetch(`${BASE_URL2}?category=먹거리&${query}`)
+    // fetch(`${BASE_URL2}?category=${this.state.tabLists[0]}&${query}`)
+    fetch(`${BASE_URL2}?category=${this.state.tabLists[0]}&${query}`)
       .then(res => res.json())
       .then(res => {
         // ##############################################
@@ -41,7 +47,7 @@ class Evaluating extends Component {
         // ##############################################
         // this.props.history.push('/evaluating?category=먹거리');
         this.setState({
-          toggleState: '먹거리',
+          toggleState: 0,
           contents: res.results,
           ratingCount: res.rating_count,
         });
@@ -49,6 +55,7 @@ class Evaluating extends Component {
   };
 
   handleClick = (tabList, i) => {
+    console.log(`"handleClick"`, 'handleClick');
     // ##############################################
     // ################여기 2번 문제 ###################
     // ##############################################
@@ -61,24 +68,23 @@ class Evaluating extends Component {
         toggleState: i,
       },
       () => {
-        this.props.history.push(`/evaluating?category=${tabList}&${query}`);
+        // this.props.history.push(`/evaluating?category=${tabList}&${query}`);
       }
     );
 
-    // if (tabList === this.state.tabLists[i]) {
-    //   fetch(`${BASE_URL2}?category=${tabList}&${query}`)
-    //     .then(res => res.json())
-    //     .then(res => {
-    //       this.setState({
-    //         contents: res.results,
-    //         ratingCount: res.rating_count,
-    //       });
-    //     });
-    // }
+    if (tabList === this.state.tabLists[i]) {
+      fetch(`${BASE_URL2}?category=${tabList}&${query}`)
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            contents: res.results,
+            ratingCount: res.rating_count,
+          });
+        });
+    }
   };
 
   handleScroll = e => {
-    console.log(`this.props.location.search`, this.props.location);
     const { scrollTop, clientHeight, scrollHeight } = e.target;
     const { count } = this.state;
     // const qsObject = qsToObject(this.props.location.search);
@@ -86,46 +92,57 @@ class Evaluating extends Component {
     // const newQuery = objectToQs(qsObject);
     const query = `limit=${LIMIT}&offset=${count}`;
 
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollTop !== 0 && scrollTop + clientHeight === scrollHeight) {
+      console.log(`scrollTop`, scrollTop);
+      console.log(`clientHeight`, clientHeight);
+      console.log(`scrollHeight`, scrollHeight);
+      console.log(`"handleScroll"`, 'handleScroll');
       this.setState({
         count: count + 1,
       });
-      this.setState({
-        isLoading: true,
-      });
+      // this.setState({
+      //   isLoading: true,
+      // });
       setTimeout(() => {
-        console.log(`${BASE_URL2}${this.props.location.search}&${query}`);
+        // console.log(`${BASE_URL2}${this.props.location.search}&${query}`);
         // fetch(`${BASE_URL2}${newQuery}`)
-        // fetch(`${BASE_URL2}${this.props.location.search}&${query}`)
-        //   .then(res => res.json())
-        //   .then(res => {
-        //     this.setState({
-        //       isLoading: false,
-        //       contents: [...this.state.contents, ...res.results],
-        //     });
-        //   });
+        console.log(`this.state.count`, this.state.count);
+        fetch(
+          `${BASE_URL2}?category=${
+            this.state.tabLists[this.state.toggleState]
+          }&${query}`
+        )
+          .then(res => res.json())
+          .then(res => {
+            console.log(`this.state.count`, this.state.count);
+            this.setState({
+              // isLoading: false,
+              contents: [...this.state.contents, ...res.results],
+            });
+          });
       }, 1000);
     }
   };
 
-  componentDidUpdate = (prevProps, _) => {
-    if (prevProps.location.search !== this.props.location.search) {
-      // console.log(`this.state.count`, this.state.count);
-      // console.log(`this.state.contents`, this.state.contents);
-      console.log('여기 호출됩ㄴ');
+  // componentDidUpdate = (prevProps, _) => {
+  //   if (prevProps.location.search !== this.props.location.search) {
+  //     // console.log(`this.state.count`, this.state.count);
+  //     // console.log(`this.state.contents`, this.state.contents);
+  //     console.log('여기 호출됩ㄴ');
 
-      fetch(`${BASE_URL2}${this.props.location.search}`)
-        .then(res => res.json())
-        .then(res =>
-          this.setState({
-            contents: res.results,
-            ratingCount: res.rating_count,
-          })
-        );
-    }
-  };
+  //     fetch(`${BASE_URL2}${this.props.location.search}`)
+  //       .then(res => res.json())
+  //       .then(res =>
+  //         this.setState({
+  //           contents: res.results,
+  //           ratingCount: res.rating_count,
+  //         })
+  //       );
+  //   }
+  // };
 
   render() {
+    console.log(`this.state.contents`, this.state.contents);
     const { toggleState, tabLists, contents, ratingCount } = this.state;
     return (
       <div className="bg">
@@ -152,11 +169,11 @@ class Evaluating extends Component {
                   <Contents
                     contents={content}
                     key={i}
-                    isLoading={this.state.isLoading}
+                    // isLoading={this.state.isLoading}
                   />
                 );
               })}
-              {this.state.isLoading ? <h3>Loading...</h3> : null}
+              {/* {this.state.isLoading ? <h3>Loading...</h3> : null} */}
             </ul>
           </div>
         </div>
