@@ -90,13 +90,9 @@ class Evaluating extends Component {
     // const qsObject = qsToObject(this.props.location.search);
     // qsObject.offset = count;
     // const newQuery = objectToQs(qsObject);
-    const query = `limit=${LIMIT}&offset=${count}`;
+    const query = `limit=${LIMIT}&offset=${count + 1}`;
 
     if (scrollTop !== 0 && scrollTop + clientHeight === scrollHeight) {
-      console.log(`scrollTop`, scrollTop);
-      console.log(`clientHeight`, clientHeight);
-      console.log(`scrollHeight`, scrollHeight);
-      console.log(`"handleScroll"`, 'handleScroll');
       this.setState({
         count: count + 1,
       });
@@ -142,7 +138,6 @@ class Evaluating extends Component {
   // };
 
   render() {
-    console.log(`this.state.contents`, this.state.contents);
     const { toggleState, tabLists, contents, ratingCount } = this.state;
     return (
       <div className="bg">
