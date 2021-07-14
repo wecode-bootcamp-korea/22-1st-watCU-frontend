@@ -23,36 +23,30 @@ class Contents extends Component {
   render() {
     const { contents, isLoading } = this.props;
     return (
-      <ul className={`contents contentsActive`}>
-        <li className="listContainer">
-          <div className="listBg">
-            <div className="listBox">
-              <div className="listImgBox">
-                <img
-                  src={contents.image_url}
-                  alt="listImg"
-                  className="listImg"
-                />
-              </div>
-              <div className="listTextBox">
-                <div className="listText">
-                  <h2>{contents.korean_name}</h2>
-                  <p>{contents.price}</p>
-                </div>
-                <div className="listHeartComponent">
-                  <p>이곳은 하트 자리</p>
-                </div>
-              </div>
+      <li className="listContainer">
+        <div className="listBg">
+          <div className="listBox">
+            <div className="listImgBox">
+              <img src={contents.image_url} alt="listImg" className="listImg" />
             </div>
-            <div className="listThreeDotBox">
-              <BsThreeDotsVertical
-                className="threeDot"
-                onClick={this.isAboutModalOpen}
-              />
+            <div className="listTextBox">
+              <div className="listText">
+                <h2>{contents.korean_name}</h2>
+                <p>{contents.price}</p>
+              </div>
+              <div className="listHeartComponent">
+                <p>이곳은 하트 자리</p>
+              </div>
             </div>
           </div>
-        </li>
-      </ul>
+          <div className="listThreeDotBox">
+            <BsThreeDotsVertical
+              className="threeDot"
+              onClick={this.isAboutModalOpen}
+            />
+          </div>
+        </div>
+      </li>
     );
   }
 }
