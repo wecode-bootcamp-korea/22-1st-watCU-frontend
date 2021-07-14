@@ -7,11 +7,13 @@ class CardList extends Component {
   };
 
   render() {
+    console.log(this.props.numArr);
     return (
       <div className="pdCardList">
         <div className="productInfo" onClick={this.goToDetail}>
           <span className="pdBadge">
             <p>1</p>
+            {/* <p>{this.props.numArr}</p> */}
           </span>
           <div className="pdImg">
             <img alt="Product_image" src={this.props.imageUrl} />

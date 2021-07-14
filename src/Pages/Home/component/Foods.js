@@ -15,7 +15,7 @@ class Foods extends Component {
 
     if (transLate !== 0) {
       this.setState({
-        transLate: transLate + 704,
+        transLate: transLate + 234 * 5,
       });
     }
   };
@@ -25,7 +25,7 @@ class Foods extends Component {
 
     if (transLate > -3000) {
       this.setState({
-        transLate: transLate - 704,
+        transLate: transLate - 234 * 5,
       });
     }
   };

@@ -93,17 +93,22 @@ $total-extra: $total + 1;
     position: relative;
     padding: 0 10px;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     span {
       width: 28px;
       height: 28px;
       position: absolute;
       text-align: center;
       font-weight: bold;
-      top: 6px;
-      left: 16px;
-      background-color: #ff0558;
+      top: 8px;
+      left: 18px;
+      background-color: #3b3b3b;
       color: white;
       border-radius: 4px;
+      z-index: 1;
 
       p {
         position: absolute;
@@ -115,12 +120,15 @@ $total-extra: $total + 1;
     .pdImg {
       img {
         width: 214px;
-        height: 340px;
+        height: 300px;
         object-fit: cover;
-        max-width: 240px;
-        min-width: 160px;
         border-radius: 5px;
         border: 1px solid rgb(226, 226, 226);
+
+        &:hover {
+          transform: scale(1.03);
+          transition: transform 0.4s;
+        }
       }
     }
 

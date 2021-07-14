@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import AllCard from './Card/AllCard';
 import CardList from './Card/CardList';
 
 class All extends Component {
@@ -8,6 +7,7 @@ class All extends Component {
 
     this.state = {
       transLate: 0,
+      numArr: [0],
     };
   }
 
@@ -16,7 +16,7 @@ class All extends Component {
 
     if (transLate !== 0) {
       this.setState({
-        transLate: transLate + 704,
+        transLate: transLate + 234 * 5,
       });
     }
   };
@@ -24,14 +24,27 @@ class All extends Component {
   handleSlideRight = () => {
     const { transLate } = this.state;
 
-    if (transLate > -3000) {
+    if (transLate > -5000) {
       this.setState({
-        transLate: transLate - 704,
+        transLate: transLate - 234 * 5,
       });
     }
   };
 
+  badgeNum = () => {
+    const badge = [];
+    for (let i = 1; i <= this.props.allList.length; i++) {
+      badge.push(i);
+    }
+    console.log('a', badge);
+    this.setState({
+      numArr: badge,
+    });
+  };
+
   render() {
+    this.state.numArr[0] === 0 && this.badgeNum();
+
     return (
       <div className="categoryContainer">
         <button className="slideBtnLeft" onClick={this.handleSlideLeft}>
@@ -63,6 +76,7 @@ class All extends Component {
                     imageUrl={all.image_url}
                     averageRating={all.average_rating}
                     transLate={this.state.transLate}
+                    // numArr={this.state.numArr}
                   />
                 );
               })}
