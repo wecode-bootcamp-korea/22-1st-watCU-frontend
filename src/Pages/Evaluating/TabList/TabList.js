@@ -10,7 +10,7 @@ class TabList extends Component {
           return (
             <li
               key={i}
-              className={toggleState === i ? `tab tabActive` : `tab`}
+              className={toggleState === tablist ? `tab tabActive` : `tab`}
               onClick={() => {
                 handleClick(tablist, i);
               }}

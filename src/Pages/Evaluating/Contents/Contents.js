@@ -21,7 +21,7 @@ class Contents extends Component {
   };
 
   render() {
-    const { contents } = this.props;
+    const { contents, isLoading } = this.props;
     return (
       <ul className={`contents contentsActive`}>
         <li className="listContainer">
