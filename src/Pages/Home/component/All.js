@@ -11,6 +11,8 @@ class All extends Component {
     this.state = {
       transLateX: 0,
       numArr: [0],
+      // slideBtnLeftDisplay: '',
+      // slideBtnRightDisplay: '',
     };
   }
 
@@ -27,7 +29,7 @@ class All extends Component {
   handleSlideRight = () => {
     const { transLateX } = this.state;
 
-    if (transLateX > -5000) {
+    if (transLateX > -CARD_WIDTH * 25) {
       this.setState({
         transLateX: transLateX - CARD_WIDTH * 5,
       });
@@ -37,12 +39,32 @@ class All extends Component {
   render() {
     return (
       <div className="categoryContainer">
-        <button className="slideBtnLeft" onClick={this.handleSlideLeft}>
-          prev
-        </button>
-        <button className="slideBtnRight" onClick={this.handleSlideRight}>
-          next
-        </button>
+        <div
+          // style={{ display: this.state.slideBtnLeftDisplay }}
+          className="slideBtnLeft"
+          onClick={this.handleSlideLeft}
+        >
+          <img
+            className="arrowLeft"
+            alt="slide_arrow_btn_left.svg"
+            src={
+              process.env.PUBLIC_URL + 'images/slide/slide_arrow_btn_left.svg'
+            }
+          />
+        </div>
+        <div
+          // style={{ display: this.state.slideBtnRightDisplay }}
+          className="slideBtnRight"
+          onClick={this.handleSlideRight}
+        >
+          <img
+            className="arrowRight"
+            alt="slide_arrow_btn_right.svg"
+            src={
+              process.env.PUBLIC_URL + 'images/slide/slide_arrow_btn_right.svg'
+            }
+          />
+        </div>
         <div className="categoryTitle">
           <p>전체 카테고리 순위</p>
         </div>

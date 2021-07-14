@@ -1,4 +1,5 @@
 export const BASE_URL = `http://10.58.3.228:8000`;
+export const BASE_URL2 = `http://10.58.4.4:8000`;
 
 export const LOGIN_APIKEY = `${BASE_URL}/users/login`;
 export const SIGNUP_APIKEY = `${BASE_URL}/users/signup`;
@@ -8,3 +9,5 @@ export const CATEGORY_All_APIKEY = `${BASE_URL}/products`;
 export const CATEGORY_FOOD_APIKEY = `${BASE_URL}/products?category=먹거리`;
 export const CATEGORY_DRINKS_APIKEY = `${BASE_URL}/products?category=음료`;
 export const CATEGORY_DESSERTS_APIKEY = `${BASE_URL}/products?category=디저트`;
+
+export const TOTAL_RATING_APIKEY = `${BASE_URL}/ratings`;
