@@ -19,7 +19,7 @@ export default class Detail extends Component {
 
   callEachDataApi = () => {
     fetch(
-      `http://10.58.1.82:8000/products/${this.props.match.params.productId}`
+      `http://10.58.3.228:8000/products/${this.props.match.params.productId}`
     )
       .then(res => res.json())
       .then(data =>
@@ -29,7 +29,7 @@ export default class Detail extends Component {
       )
       .then(() =>
         fetch(
-          `http://10.58.1.82:8000/products?category=${this.state.eachDatalist.category_name}&product_id=${this.props.match.params.productId}`
+          `http://10.58.3.228:8000/products?category=${this.state.eachDatalist.category_name}&product_id=${this.props.match.params.productId}`
         )
           .then(res => res.json())
           .then(data =>

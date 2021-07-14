@@ -69,6 +69,7 @@ class Nav extends Component {
   };
 
   render() {
+    console.log('Nav');
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
       this.state;
     return (

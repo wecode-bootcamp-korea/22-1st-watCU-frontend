@@ -1,50 +1,40 @@
 import React, { Component } from 'react';
 import CardList from './Card/CardList';
+import './Category.scss';
+
+const CARD_WIDTH = 234;
 
 class All extends Component {
   constructor() {
     super();
 
     this.state = {
-      transLate: 0,
+      transLateX: 0,
       numArr: [0],
     };
   }
 
   handleSlideLeft = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate !== 0) {
+    if (transLateX !== 0) {
       this.setState({
-        transLate: transLate + 234 * 5,
+        transLateX: transLateX + CARD_WIDTH * 5,
       });
     }
   };
 
   handleSlideRight = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate > -5000) {
+    if (transLateX > -5000) {
       this.setState({
-        transLate: transLate - 234 * 5,
+        transLateX: transLateX - CARD_WIDTH * 5,
       });
     }
   };
 
-  badgeNum = () => {
-    const badge = [];
-    for (let i = 1; i <= this.props.allList.length; i++) {
-      badge.push(i);
-    }
-    console.log('a', badge);
-    this.setState({
-      numArr: badge,
-    });
-  };
-
   render() {
-    this.state.numArr[0] === 0 && this.badgeNum();
-
     return (
       <div className="categoryContainer">
         <button className="slideBtnLeft" onClick={this.handleSlideLeft}>
@@ -60,7 +50,7 @@ class All extends Component {
           <div
             className="pdCardList"
             style={{
-              transform: `translateX(${this.state.transLate}px)`,
+              transform: `translateX(${this.state.transLateX}px)`,
             }}
           >
             {this.props.allList &&
@@ -75,8 +65,8 @@ class All extends Component {
                     price={all.price}
                     imageUrl={all.image_url}
                     averageRating={all.average_rating}
-                    transLate={this.state.transLate}
-                    // numArr={this.state.numArr}
+                    transLateX={this.state.transLateX}
+                    badge={all.badge}
                   />
                 );
               })}

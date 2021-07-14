@@ -1,0 +1,62 @@
+@import '../../../Styles/variables.scss';
+
+$total: 13;
+$total-extra: $total + 1;
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 1170px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .slideBtnLeft,
+  .slideBtnRight {
+    background-color: white;
+    border-radius: 50%;
+    line-height: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    top: 48%;
+    position: absolute;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .slideBtnLeft {
+    left: 4px;
+  }
+
+  .slideBtnRight {
+    right: 4px;
+  }
+
+  .categoryTitle {
+    margin: 0 10px;
+    padding: 60px 0 24px 0;
+
+    p {
+      font-size: 22px;
+      font-weight: 900;
+      color: $font-color-main;
+    }
+  }
+
+  .slideContainer {
+    width: 100% * $total-extra + 'px';
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+
+    .pdCardList {
+      display: flex;
+      flex-direction: row;
+      transition: transform 0.4s;
+    }
+  }
+}

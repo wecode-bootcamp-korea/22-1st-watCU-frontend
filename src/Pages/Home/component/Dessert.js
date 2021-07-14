@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
-
 import CardList from './Card/CardList';
+
+const CARD_WIDTH = 234;
 
 class Dessert extends Component {
   constructor() {
     super();
 
     this.state = {
-      transLate: 0,
+      transLateX: 0,
     };
   }
 
   handleSlideLeft = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate !== 0) {
+    if (transLateX !== 0) {
       this.setState({
-        transLate: transLate + 234 * 5,
+        transLateX: transLateX + CARD_WIDTH * 5,
       });
     }
   };
 
   handleSlideRight = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate > -3000) {
+    if (transLateX > -3000) {
       this.setState({
-        transLate: transLate - 234 * 5,
+        transLateX: transLateX - CARD_WIDTH * 5,
       });
     }
   };
@@ -47,7 +48,7 @@ class Dessert extends Component {
           <div
             className="pdCardList"
             style={{
-              transform: `translateX(${this.state.transLate}px)`,
+              transform: `translateX(${this.state.transLateX}px)`,
             }}
           >
             {this.props.dessertList &&
@@ -62,7 +63,8 @@ class Dessert extends Component {
                     price={dessert.price}
                     imageUrl={dessert.image_url}
                     averageRating={dessert.average_rating}
-                    transLate={this.state.transLate}
+                    transLateX={this.state.transLateX}
+                    badge={dessert.badge}
                   />
                 );
               })}

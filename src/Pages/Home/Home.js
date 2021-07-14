@@ -3,6 +3,12 @@ import All from './component/All';
 import Foods from './component/Foods';
 import Drinks from './component/Drinks';
 import Dessert from './component/Dessert';
+import {
+  CATEGORY_All_APIKEY,
+  CATEGORY_FOOD_APIKEY,
+  CATEGORY_DRINKS_APIKEY,
+  CATEGORY_DESSERTS_APIKEY,
+} from '../../Config';
 
 import './Home.scss';
 
@@ -20,7 +26,7 @@ class Home extends Component {
 
   componentDidMount() {
     // fetch('data/productData.json', {
-    fetch('http://10.58.1.82:8000/products', {
+    fetch(`${CATEGORY_All_APIKEY}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -31,7 +37,7 @@ class Home extends Component {
       });
 
     // fetch('data/foodData.json', {
-    fetch('http://10.58.1.82:8000/products?category=먹거리', {})
+    fetch(`${CATEGORY_FOOD_APIKEY}`, {})
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -40,7 +46,7 @@ class Home extends Component {
       });
 
     // fetch('data/drinkData.json', {
-    fetch('http://10.58.1.82:8000/products?category=음료', {
+    fetch(`${CATEGORY_DRINKS_APIKEY}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -51,7 +57,7 @@ class Home extends Component {
       });
 
     // fetch('data/dessertData.json', {
-    fetch('http://10.58.1.82:8000/products?category=디저트', {
+    fetch(`${CATEGORY_DESSERTS_APIKEY}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -63,6 +69,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log('Home');
     const { allList, foodList, drinkList, dessertList } = this.state;
 
     return (

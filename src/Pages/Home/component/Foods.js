@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import CardList from './Card/CardList';
 
+const CARD_WIDTH = 234;
+
 class Foods extends Component {
   constructor() {
     super();
 
     this.state = {
-      transLate: 0,
+      transLateX: 0,
     };
   }
 
   handleSlideLeft = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate !== 0) {
+    if (transLateX !== 0) {
       this.setState({
-        transLate: transLate + 234 * 5,
+        transLateX: transLateX + CARD_WIDTH * 5,
       });
     }
   };
 
   handleSlideRight = () => {
-    const { transLate } = this.state;
+    const { transLateX } = this.state;
 
-    if (transLate > -3000) {
+    if (transLateX > -3000) {
       this.setState({
-        transLate: transLate - 234 * 5,
+        transLateX: transLateX - CARD_WIDTH * 5,
       });
     }
   };
@@ -46,7 +48,7 @@ class Foods extends Component {
           <div
             className="pdCardList"
             style={{
-              transform: `translateX(${this.state.transLate}px)`,
+              transform: `translateX(${this.state.transLateX}px)`,
             }}
           >
             {this.props.foodList &&
@@ -61,7 +63,8 @@ class Foods extends Component {
                     price={food.price}
                     imageUrl={food.image_url}
                     averageRating={food.average_rating}
-                    transLate={this.state.transLate}
+                    transLateX={this.state.transLateX}
+                    badge={food.badge}
                   />
                 );
               })}

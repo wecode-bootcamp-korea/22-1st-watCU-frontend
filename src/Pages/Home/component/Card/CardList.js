@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import './CardList.scss';
 
 class CardList extends Component {
   goToDetail = () => {
@@ -7,13 +8,11 @@ class CardList extends Component {
   };
 
   render() {
-    console.log(this.props.numArr);
     return (
       <div className="pdCardList">
         <div className="productInfo" onClick={this.goToDetail}>
           <span className="pdBadge">
-            <p>1</p>
-            {/* <p>{this.props.numArr}</p> */}
+            <p>{this.props.badge}</p>
           </span>
           <div className="pdImg">
             <img alt="Product_image" src={this.props.imageUrl} />
