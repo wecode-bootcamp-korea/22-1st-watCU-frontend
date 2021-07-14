@@ -6,6 +6,7 @@ import WantEatContainer from './WantEatContainer/WantEatContainer';
 import EvaluationContainer from './EvaluationContainer/EvaluationContainer';
 import StarRating from '../../Components/Star/StarRating/StarRating';
 import StarGraph from '../../Components/Star/StarGraph/StarGraph';
+import ProductModal from '../../Components/ProductModal/ProductModal';
 import './Detail.scss';
 
 export default class Detail extends Component {
@@ -20,6 +21,7 @@ export default class Detail extends Component {
       categoryDatalist: [],
       eachDatalist: {},
       userInfo: [],
+      isModalOn: false,
       isSmallerThanMaxWidth: this.maxWidth > window.innerWidth,
     };
   }
@@ -61,6 +63,21 @@ export default class Detail extends Component {
     });
   };
 
+  goToModal = () => {
+    this.setState({
+      isModalOn: true,
+    });
+
+    // setTimeout(() => {
+    //   this.setState({ isModalOn: false });
+    // }, 3000);
+  };
+  closeModal = () => {
+    this.setState({
+      isModalOn: false,
+    });
+  };
+
   componentDidMount = () => {
     this.callEachDataApi();
     this.callCategoryDataApi();
@@ -88,8 +105,19 @@ export default class Detail extends Component {
       description,
     } = this.state.eachDatalist;
 
+    console.log(this.state.isModalOn);
+
     return (
       <>
+        {this.state.isModalOn && (
+          <ProductModal
+            src={main_image_url}
+            korean_name={korean_name}
+            price={price}
+            closeModal={this.closeModal}
+          />
+        )}
+
         <CategoryImage image={category_image_url} />
 
         <div className="introContainer">
@@ -112,8 +140,12 @@ export default class Detail extends Component {
               </div>
 
               <div className="buttons">
-                <WantEatContainer />
-                <EvaluationContainer />
+                <div className="want" onClick={this.goToModal}>
+                  <WantEatContainer />
+                </div>
+                <div className="evaluation">
+                  <EvaluationContainer />
+                </div>
               </div>
             </div>
             <img className="postImage" alt="drink" src={main_image_url} />

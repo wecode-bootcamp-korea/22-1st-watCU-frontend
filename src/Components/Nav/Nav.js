@@ -38,7 +38,7 @@ class Nav extends Component {
   };
 
   onInputChange = e => {
-    fetch(`http://10.58.5.120:8000/users/search?word=${e.target.value}`)
+    fetch(`http://10.58.4.4:8000/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({

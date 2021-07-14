@@ -21,17 +21,18 @@ export default class ProductModal extends Component {
 
   // ## 모달창 닫기 함수
   isCloseModal = () => {
-    this.setState({
-      isModalClose: false,
-    });
+    this.props.closeModal();
+    // this.setState({
+    //   isModalClose: false,
+    // });
   };
 
   // ## WISH 버튼 클릭시 실행
   wishHandleClick = () => {
-    fetch(`http://10.58.0.189:8000/products/1/status/wish`, {
+    fetch(`http://10.58.4.4:8000/products/1/status/wish`, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
@@ -44,10 +45,10 @@ export default class ProductModal extends Component {
 
   // ## DONE 버튼 클릭시 실행
   doneHandleClick = () => {
-    fetch(`http://10.58.0.189:8000/products/1/status/done`, {
+    fetch(`http://10.58.4.4:8000/products/1/status/done`, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
