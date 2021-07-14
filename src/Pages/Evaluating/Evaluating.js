@@ -16,11 +16,11 @@ import './Evaluating.scss';
 
 const LIMIT = 5;
 
-const TAB_LIST = {
-  먹거리: 0,
-  음료: 1,
-  디저트: 2,
-};
+// const TAB_LIST = {
+//   먹거리: 0,
+//   음료: 1,
+//   디저트: 2,
+// };
 
 // const TAB_NAME = {
 //   foods: '먹거리',
@@ -37,7 +37,7 @@ class Evaluating extends Component {
       toggleState: '',
       tabLists: ['먹거리', '음료', '디저트'],
       contents: [],
-      count: 1,
+      count: 0,
       ratingCount: '',
       isLoading: true,
     };
@@ -54,6 +54,8 @@ class Evaluating extends Component {
     fetch(`${BASE_URL2}?category=먹거리&${query}`)
       .then(res => res.json())
       .then(res => {
+        this.props.history.push('/evaluating?category=먹거리');
+        console.log(`res`, res);
         this.setState({
           // toggleState: TAB_LIST[this.props.location.search.split('=')[1]],
           isLoading: false,
@@ -67,6 +69,9 @@ class Evaluating extends Component {
   handleClick = (tabList, i) => {
     const query = `limit=${LIMIT}&offset=0`;
     this.props.history.push(`/evaluating?category=${tabList}`);
+    this.setState({
+      count: 0,
+    });
 
     // this.setState({
     //   toggleState: i,
@@ -85,20 +90,20 @@ class Evaluating extends Component {
 
   handleScroll = e => {
     const { scrollTop, clientHeight, scrollHeight } = e.target;
-    // const { count } = this.state;
+    const { count } = this.state;
     // const checkHeigth = scrollHeight - clientHeight;
     // console.log(`scrolltop`, scrollTop);
     // console.log(`clientHeight`, clientHeight);
     // console.log(`scrollHeight`, scrollHeight);
 
-    const category = this.props.location.search.split('=')[1];
-    const query = `limit=${LIMIT}&offset=${6}`;
+    // const category = this.props.location.search.split('=')[1];
+    const query = `limit=${LIMIT}&offset=${count}`;
 
-    // this.setState({
-    //   count: count + 1,
-    // });
-
-    if (scrollTop + clientHeight >= scrollHeight * 0.95) {
+    if (scrollTop + clientHeight >= scrollHeight) {
+      console.log(`this.props.loaction.search`, this.props.location.search);
+      this.setState({
+        count: count + 1,
+      });
       this.setState({
         isLoading: true,
       });
@@ -116,6 +121,7 @@ class Evaluating extends Component {
             // toggleState: TAB_LIST[category],
             isLoading: false,
             contents: [...this.state.contents, res.results],
+            // contents: [...this.state.contents, res.results],
           });
         });
     }
@@ -151,13 +157,12 @@ class Evaluating extends Component {
   };
 
   render() {
-    console.log(`this.state.isLoading`, this.state.isLoading);
     const { toggleState, tabLists, contents, ratingCount } = this.state;
     return (
       <div className="bg">
         <div className="container">
           <div className="top">
-            {/* <h2>{ratingCount}</h2> */}
+            <h2>{ratingCount}</h2>
             <p>조금씩 당신의 취향을 알아가는 중입니다.</p>
             <ul className="tabs">
               <TabList
