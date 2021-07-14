@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // #PAGES
@@ -17,7 +18,7 @@ class Routes extends Component {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/detail" component={Detail} />
+            <Route exact path="/detail/:productId" component={Detail} />
           </Switch>
           <Footer />
         </Router>

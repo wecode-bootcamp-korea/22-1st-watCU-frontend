@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Nav.scss';
 
 // ##LIBRARY
 import { Link } from 'react-router-dom';
@@ -68,6 +69,7 @@ class Nav extends Component {
   };
 
   render() {
+    console.log('Nav');
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
       this.state;
     return (

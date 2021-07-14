@@ -1,0 +1,89 @@
+[
+  {
+    "category_id": 4,
+    "category_name": "음디저트료",
+    "korean_name": "메로나",
+    "english_name": "cola",
+    "price": "1400.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 1,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "수박바",
+    "english_name": "cola",
+    "price": "15000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 2,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "보석바",
+    "english_name": "cola",
+    "price": "1500.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 3,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "빠삐코",
+    "english_name": "cola",
+    "price": "1200.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 4,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "빵빠레",
+    "english_name": "cola",
+    "price": "1000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 5,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "월드콘",
+    "english_name": "cola",
+    "price": "1400.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 1,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "아이스크림",
+    "english_name": "cola",
+    "price": "15000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 2,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 4,
+    "category_name": "디저트",
+    "korean_name": "러브아이스",
+    "english_name": "cola",
+    "price": "1500.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 3,
+    "average_rating": "4.0"
+  }
+]

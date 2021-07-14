@@ -1,0 +1,89 @@
+[
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "콜라",
+    "english_name": "cola",
+    "price": "1400.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 1,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "사이다",
+    "english_name": "cola",
+    "price": "15000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 2,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "환타",
+    "english_name": "cola",
+    "price": "1500.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 3,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "오란씨",
+    "english_name": "cola",
+    "price": "1200.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 4,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "폴라포",
+    "english_name": "cola",
+    "price": "1000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 5,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "콜라",
+    "english_name": "cola",
+    "price": "1400.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 1,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "사이다",
+    "english_name": "cola",
+    "price": "15000.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 2,
+    "average_rating": "4.0"
+  },
+
+  {
+    "category_id": 3,
+    "category_name": "음료",
+    "korean_name": "환타",
+    "english_name": "cola",
+    "price": "1500.00",
+    "image_url": "http://bgf-cu.xcache.kinxcdn.com/product/8801094083205.jpg",
+    "product_id": 3,
+    "average_rating": "4.0"
+  }
+]
