@@ -4,6 +4,8 @@ import Slider from './Slider/Slider';
 import SimilarItem from './SimilarItem/SimilarItem';
 import WantEatContainer from './WantEatContainer/WantEatContainer';
 import EvaluationContainer from './EvaluationContainer/EvaluationContainer';
+import StarRating from '../../Components/Star/StarRating/StarRating';
+import StarGraph from '../../Components/Star/StarGraph/StarGraph';
 import './Detail.scss';
 
 export default class Detail extends Component {
@@ -17,12 +19,13 @@ export default class Detail extends Component {
       eachDatalist: {},
       categoryDatalist: [],
       eachDatalist: {},
+      userInfo: [],
       isSmallerThanMaxWidth: this.maxWidth > window.innerWidth,
     };
   }
 
   callEachDataApi = () => {
-    fetch('http://10.58.1.82:8000/products/1')
+    fetch('http://10.58.3.228:8000/products/1')
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -32,11 +35,21 @@ export default class Detail extends Component {
   };
 
   callCategoryDataApi = () => {
-    fetch('http://10.58.1.82:8000/products?category=음료&product_id=1')
+    fetch('http://10.58.3.228:8000/products?category=음료&product_id=1')
       .then(res => res.json())
       .then(data =>
         this.setState({
           categoryDatalist: data.results,
+        })
+      );
+  };
+
+  callStarGraphApi = () => {
+    fetch('http://10.58.3.228:8000/ratings/products/1/graph')
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          userInfo: data.results,
         })
       );
   };
@@ -51,6 +64,7 @@ export default class Detail extends Component {
   componentDidMount = () => {
     this.callEachDataApi();
     this.callCategoryDataApi();
+    this.callStarGraphApi();
 
     window.addEventListener('resize', this.resizeWindow, false);
   };
@@ -86,8 +100,17 @@ export default class Detail extends Component {
                 {`(${english_name})`}
               </h1>
               <div className="classification">
-                {`${category_name} 평점${average_rating}`}
+                {`${category_name} / 평균 ★${average_rating}`}
               </div>
+
+              <div className="starRatingContainer">
+                <StarRating
+                  size="60"
+                  callStarGraphApi={this.callStarGraphApi}
+                  callEachDataApi={this.callEachDataApi}
+                />
+              </div>
+
               <div className="buttons">
                 <WantEatContainer />
                 <EvaluationContainer />
@@ -110,6 +133,15 @@ export default class Detail extends Component {
               <h2>상품 가격</h2>
               <h3>{`${price}원`}</h3>
             </div>
+
+            <div className="starGraphContainer">
+              <h2>별점 그래프</h2>
+              <h3>{`평균 ★${average_rating}`}</h3>
+              <div className="starGraph">
+                <StarGraph userInfo={this.state.userInfo} />
+              </div>
+            </div>
+
             <Slider title="상품의 다른이미지" subImage={sub_image_url} />
             <div className="similarItemContainer">
               <h2>비슷한 상품</h2>
