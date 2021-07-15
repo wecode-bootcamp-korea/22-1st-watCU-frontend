@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // #PAGES
 import Home from './Pages/Home/Home';
 import Detail from './Pages/Detail/Detail';
+import Evaluating from './Pages/Evaluating/Evaluating';
 
 // #COMPONENTS
 import Nav from './Components/Nav/Nav';
@@ -16,11 +17,21 @@ class Routes extends Component {
       <>
         <Router>
           <Nav />
-          <Switch>
+          <div>
+            {/* <Switch> */}
             <Route exact path="/" component={Home} />
             <Route exact path="/detail/:productId" component={Detail} />
-          </Switch>
-          <Footer />
+            <Route exact path="/evaluating" component={Evaluating} />
+            <Route exact path="/evaluating/:id" component={Evaluating} />
+            <Route
+              Route
+              path="/"
+              render={props =>
+                props.location.pathname !== '/evaluating' && <Footer />
+              }
+            />
+            {/* </Switch> */}
+          </div>
         </Router>
       </>
     );

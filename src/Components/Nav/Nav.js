@@ -4,14 +4,12 @@ import './Nav.scss';
 // ##LIBRARY
 import { Link } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
-import { IoIosLogOut } from 'react-icons/io';
 import { withRouter } from 'react-router-dom';
 
 // ##COMPONENT
 import Login from './NavLogin/NavLogin';
 import NavSearch from './NavSearch/NavSearch';
 import Signup from './NavSignup/NavSignup';
-import NavUserBtns from './NavUserBtns/NavUserBtns';
 
 // ##STYLES
 import './Nav.scss';
@@ -39,7 +37,7 @@ class Nav extends Component {
   };
 
   onInputChange = e => {
-    fetch(`http://10.58.4.4:8000/users/search?word=${e.target.value}`)
+    fetch(`http://10.58.6.188:8000/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -69,7 +67,6 @@ class Nav extends Component {
   };
 
   render() {
-    console.log('Nav');
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
       this.state;
     return (
@@ -77,11 +74,12 @@ class Nav extends Component {
         <div className="navContainer">
           <div className="navLeft">
             <Link to="/" className="navLogoBox">
-              <img
+              <p className="companyLogo">watCU</p>
+              {/* <img
                 alt="companyLogo"
                 src="/images/company-logo.png"
                 className="companyLogo"
-              />
+              /> */}
             </Link>
             <div className="navCategoryBox">
               <Link to="/" className="cateAll">
@@ -99,7 +97,7 @@ class Nav extends Component {
               <input
                 type="text"
                 className="navInput"
-                placeholder="🔍 작품 제목, 배우, 감독을 검색해보세요."
+                placeholder="🔍  작품 제목, 배우, 감독을 검색해보세요."
                 onChange={this.onInputChange}
               />
               <NavSearch searchLists={searchLists} />
@@ -111,11 +109,27 @@ class Nav extends Component {
                     <FaRegUser className="userIcon" />
                   </div>
                   <div className="userIconBox" onClick={this.removeToken}>
-                    <IoIosLogOut className="userIcon2" />
+                    {/* <IoIosLogOut className="userIcon2" /> */}
+                    <button>로그아웃</button>
                   </div>
                 </>
               ) : (
-                <NavUserBtns openModal={this.openModal} />
+                <>
+                  <button
+                    className="loginBtn"
+                    name="isLoginModal"
+                    onClick={this.openModal}
+                  >
+                    로그인
+                  </button>
+                  <button
+                    className="signupBtn"
+                    name="isSignupModal"
+                    onClick={this.openModal}
+                  >
+                    회원가입
+                  </button>
+                </>
               )}
             </div>
           </div>

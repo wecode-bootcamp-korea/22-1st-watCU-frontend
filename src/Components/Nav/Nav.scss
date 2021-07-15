@@ -1,4 +1,5 @@
 @import '../../Styles/common.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 .nav {
   position: fixed;
@@ -30,7 +31,11 @@
         margin: 0 50px;
 
         .companyLogo {
-          width: 100px;
+          // width: 100px;
+          font-size: 40px;
+          text-decoration: none;
+          font-family: 'Lilita One', cursive !important;
+          // font-family: 'Bubblegum Sans', cursive !important;
           cursor: pointer;
         }
       }
@@ -60,9 +65,13 @@
       .inputBox {
         position: relative;
 
+        @media screen and (max-width: 760px) {
+          display: none;
+        }
+
         .navInput {
           width: 300px;
-          padding: 7px 10px;
+          padding: 10px 10px;
           background-color: #f5f5f7;
           border: 1px solid #ccc;
           border: transparent;
@@ -71,7 +80,8 @@
 
           &::placeholder {
             text-align: left;
-            font-size: 13px;
+            font-size: 14px;
+            padding-left: 5px;
           }
 
           &:focus + .navSearchBox {
@@ -85,29 +95,25 @@
         display: flex;
 
         .userIconBox {
-          width: 30px;
-          height: 30px;
-          border: 1px solid #9b9b9e;
-          border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
 
           &:nth-child(2) {
-            margin-left: 10px;
+            margin-left: 15px;
+            border: 1px solid #ccc;
+            padding: 5px 2px;
+            border-radius: 5px;
           }
 
           .userIcon {
-            font-size: 18px;
+            font-size: 22px;
             color: #78787c;
           }
 
-          .userIcon2 {
-            margin-left: 4px;
-            font-size: 22px;
-            color: #78787c;
-            font-weight: bold;
+          button {
+            color: grey;
           }
         }
 

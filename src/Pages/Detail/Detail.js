@@ -9,6 +9,8 @@ import StarGraph from '../../Components/Star/StarGraph/StarGraph';
 import ProductModal from '../../Components/ProductModal/ProductModal';
 import './Detail.scss';
 
+import { BASE_URL } from '../../Config';
+
 export default class Detail extends Component {
   maxWidth = 990;
 
@@ -19,7 +21,6 @@ export default class Detail extends Component {
     this.state = {
       eachDatalist: {},
       categoryDatalist: [],
-      eachDatalist: {},
       userInfo: [],
       isModalOn: false,
       isSmallerThanMaxWidth: this.maxWidth > window.innerWidth,
@@ -27,9 +28,7 @@ export default class Detail extends Component {
   }
 
   callEachDataApi = () => {
-    fetch(
-      `http://10.58.3.228:8000/products/${this.props.match.params.productId}`
-    )
+    fetch(`${BASE_URL}/products/${this.props.match.params.productId}`)
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -38,7 +37,7 @@ export default class Detail extends Component {
       )
       .then(() =>
         fetch(
-          `http://10.58.3.228:8000/products?category=${this.state.eachDatalist.category_name}&product_id=${this.props.match.params.productId}`
+          `${BASE_URL}/products?category=${this.state.eachDatalist.category_name}&product_id=${this.props.match.params.productId}`
         )
           .then(res => res.json())
           .then(data =>
@@ -51,7 +50,7 @@ export default class Detail extends Component {
 
   callStarGraphApi = () => {
     fetch(
-      `http://10.58.3.228:8000/ratings/products/${this.props.match.params.productId}/graph`
+      `${BASE_URL}/ratings/products/${this.props.match.params.productId}/graph`
     )
       .then(res => res.json())
       .then(data =>
