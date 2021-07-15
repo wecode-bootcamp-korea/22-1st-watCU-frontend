@@ -3,8 +3,7 @@ import './Nav.scss';
 
 // ##LIBRARY
 import { Link } from 'react-router-dom';
-import { FaRegUser } from 'react-icons/fa';
-import { IoIosLogOut } from 'react-icons/io';
+
 import { withRouter } from 'react-router-dom';
 
 // ##COMPONENT
@@ -69,7 +68,6 @@ class Nav extends Component {
   };
 
   render() {
-    console.log('Nav');
     const { isLoginModal, isSignupModal, searchLists, isUserButtons } =
       this.state;
     return (
@@ -79,7 +77,7 @@ class Nav extends Component {
             <Link to="/" className="navLogoBox">
               <img
                 alt="companyLogo"
-                src="/images/company-logo.png"
+                src={process.env.PUBLIC_URL + 'images/logo_watcu.svg'}
                 className="companyLogo"
               />
             </Link>
@@ -107,12 +105,14 @@ class Nav extends Component {
             <div className="adminBox">
               {isUserButtons ? (
                 <>
-                  <div className="userIconBox">
-                    <FaRegUser className="userIcon" />
-                  </div>
                   <div className="userIconBox" onClick={this.removeToken}>
-                    <IoIosLogOut className="userIcon2" />
+                    로그아웃
                   </div>
+                  <img
+                    alt="user_page"
+                    src={process.env.PUBLIC_URL + 'images/icon_logout.svg'}
+                    className="userIconBox"
+                  />
                 </>
               ) : (
                 <NavUserBtns openModal={this.openModal} />

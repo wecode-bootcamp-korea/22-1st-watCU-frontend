@@ -59,7 +59,7 @@ class Login extends Component {
           <div className="loginBox">
             <img
               alt=""
-              src="/images/company-logo.png"
+              src={process.env.PUBLIC_URL + 'images/logo_watcu.svg'}
               className="loginCompanyName"
             />
             <p className="loginTitle">로그인</p>
