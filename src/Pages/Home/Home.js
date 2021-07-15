@@ -39,7 +39,9 @@ class Home extends Component {
       });
 
     // fetch('data/foodData.json', {
-    fetch(`${CATEGORY_FOOD_APIKEY}`, {})
+    fetch(`${CATEGORY_FOOD_APIKEY}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -51,6 +53,7 @@ class Home extends Component {
     fetch(`${CATEGORY_DRINKS_APIKEY}`, {
       method: 'GET',
     })
+      // .then(res => console.log('a', res))
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -62,6 +65,7 @@ class Home extends Component {
     fetch(`${CATEGORY_DESSERTS_APIKEY}`, {
       method: 'GET',
     })
+      // .then(res => console.log('b', res))
       .then(res => res.json())
       .then(data => {
         this.setState({

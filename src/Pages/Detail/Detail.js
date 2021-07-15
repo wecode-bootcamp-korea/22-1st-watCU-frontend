@@ -19,7 +19,6 @@ export default class Detail extends Component {
     this.state = {
       eachDatalist: {},
       categoryDatalist: [],
-      eachDatalist: {},
       userInfo: [],
       isModalOn: false,
       isSmallerThanMaxWidth: this.maxWidth > window.innerWidth,

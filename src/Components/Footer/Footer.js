@@ -10,7 +10,7 @@ class Footer extends Component {
           안내
         </p>
         <p>고객센터 &nbsp; | &nbsp; cs@watcu.co.kr, 02-000-0000</p>
-        <p>watCU &nbsp; | &nbsp; 서울특별시 강남구 테헤란로 watCU 빌딩 </p>
+        <p>WATCU &nbsp; | &nbsp; 서울특별시 강남구 테헤란로 WATCU 빌딩 </p>
         <p>&nbsp;</p>
         <p>ⓒ 2021 by WATCU, Inc. All rights reserved. </p>
         <div className="snsIcon">
