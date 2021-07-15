@@ -7,6 +7,7 @@ import { VscComment } from 'react-icons/vsc';
 
 // ##STYLES
 import './ProductModal.scss';
+import { BASE_URL } from '../../Config';
 
 export default class ProductModal extends Component {
   constructor() {
@@ -22,14 +23,11 @@ export default class ProductModal extends Component {
   // ## 모달창 닫기 함수
   isCloseModal = () => {
     this.props.closeModal();
-    // this.setState({
-    //   isModalClose: false,
-    // });
   };
 
   // ## WISH 버튼 클릭시 실행
   wishHandleClick = () => {
-    fetch(`http://10.58.3.228:8000/products/1/status/wish`, {
+    fetch(`${BASE_URL}/products/1/status/wish`, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -45,7 +43,7 @@ export default class ProductModal extends Component {
 
   // ## DONE 버튼 클릭시 실행
   doneHandleClick = () => {
-    fetch(`http://10.58.3.228:8000/products/1/status/done`, {
+    fetch(`${BASE_URL}/products/1/status/done`, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -75,7 +73,7 @@ export default class ProductModal extends Component {
                 </div>
                 <div className="aboutText">
                   <h2>{this.props.korean_name}</h2>
-                  <p>{this.props.price}</p>
+                  <p>{this.props.price}원</p>
                 </div>
               </div>
               <div className="wantEat">

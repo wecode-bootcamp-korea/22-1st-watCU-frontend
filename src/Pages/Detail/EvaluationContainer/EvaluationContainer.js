@@ -3,7 +3,13 @@ import { withRouter } from 'react-router-dom';
 import './EvaluationContainer.scss';
 
 class EvaluationContainer extends Component {
-  goToEvaluationPage = () => {};
+  goToEvaluationPage = () => {
+    if (localStorage.getItem('token')) {
+      this.props.history.push('/evaluating');
+    } else {
+      alert('로그인이 필요한 서비스입니다');
+    }
+  };
 
   render() {
     return (

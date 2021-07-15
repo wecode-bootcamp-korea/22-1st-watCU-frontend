@@ -3,14 +3,12 @@ import './Nav.scss';
 
 // ##LIBRARY
 import { Link } from 'react-router-dom';
-
 import { withRouter } from 'react-router-dom';
 
 // ##COMPONENT
 import Login from './NavLogin/NavLogin';
 import NavSearch from './NavSearch/NavSearch';
 import Signup from './NavSignup/NavSignup';
-import NavUserBtns from './NavUserBtns/NavUserBtns';
 
 // ##STYLES
 import './Nav.scss';
@@ -38,7 +36,7 @@ class Nav extends Component {
   };
 
   onInputChange = e => {
-    fetch(`http://10.58.4.4:8000/users/search?word=${e.target.value}`)
+    fetch(`http://10.58.6.188:8000/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -77,7 +75,7 @@ class Nav extends Component {
             <Link to="/" className="navLogoBox">
               <img
                 alt="companyLogo"
-                src={process.env.PUBLIC_URL + 'images/logo_watcu.svg'}
+                src={process.env.PUBLIC_URL + '/images/logo_watcu.svg'}
                 className="companyLogo"
               />
             </Link>
@@ -97,7 +95,7 @@ class Nav extends Component {
               <input
                 type="text"
                 className="navInput"
-                placeholder="🔍 작품 제목, 배우, 감독을 검색해보세요."
+                placeholder="🔍  작품 제목, 배우, 감독을 검색해보세요."
                 onChange={this.onInputChange}
               />
               <NavSearch searchLists={searchLists} />
@@ -105,17 +103,32 @@ class Nav extends Component {
             <div className="adminBox">
               {isUserButtons ? (
                 <>
-                  <div className="userIconBox" onClick={this.removeToken}>
+                  <button className="userIconBox" onClick={this.removeToken}>
                     로그아웃
-                  </div>
+                  </button>
                   <img
                     alt="user_page"
-                    src={process.env.PUBLIC_URL + 'images/icon_logout.svg'}
+                    src={process.env.PUBLIC_URL + '/images/icon_logout.svg'}
                     className="userIconBox"
                   />
                 </>
               ) : (
-                <NavUserBtns openModal={this.openModal} />
+                <>
+                  <button
+                    className="loginBtn"
+                    name="isLoginModal"
+                    onClick={this.openModal}
+                  >
+                    로그인
+                  </button>
+                  <button
+                    className="signupBtn"
+                    name="isSignupModal"
+                    onClick={this.openModal}
+                  >
+                    회원가입
+                  </button>
+                </>
               )}
             </div>
           </div>

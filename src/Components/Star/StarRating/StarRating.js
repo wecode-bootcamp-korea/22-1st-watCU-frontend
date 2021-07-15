@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import EachStar from './EachStar/EachStar';
 import './StarRating.scss';
 
+import { BASE_URL } from '../../../Config';
+
 const checkUserWithCallbackFunc = callBackFunc => {
   if (localStorage.getItem('token')) {
     callBackFunc();
@@ -22,7 +24,7 @@ export default class StarRating extends Component {
 
   componentDidMount = () => {
     if (localStorage.getItem('token')) {
-      fetch(`http://10.58.3.228:8000/ratings/products/${this.props.id}`, {
+      fetch(`${BASE_URL}/ratings/products/${this.props.id}`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },
@@ -56,7 +58,7 @@ export default class StarRating extends Component {
     const rating = prevRateValue.filter(value => value).length;
 
     const callback = () => {
-      fetch(`http://10.58.3.228:8000/ratings/products/${this.props.id}`, {
+      fetch(`${BASE_URL}/ratings/products/${this.props.id}`, {
         method: 'POST',
         body: JSON.stringify({
           rating: rating,
@@ -75,6 +77,11 @@ export default class StarRating extends Component {
           const { callEachDataApi } = this.props;
 
           if (callEachDataApi) callEachDataApi();
+        })
+        .then(() => {
+          const { selectItem, idx } = this.props;
+
+          if (selectItem) selectItem(idx);
         });
 
       this.setState({
