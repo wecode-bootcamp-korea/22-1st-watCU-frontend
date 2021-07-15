@@ -57,6 +57,7 @@ body {
       width: 166px;
       height: 238px;
       border: 2px solid #ececec;
+      background-color: #ffffff;
       border-radius: 5px;
       object-fit: cover;
     }
@@ -103,6 +104,7 @@ body {
         top: 23px;
         margin: 0px 5px;
         font-size: 18px;
+        color: #ff0558;
       }
 
       .starGraph {
@@ -165,6 +167,12 @@ body {
       margin-bottom: 35px;
       padding-bottom: 20px;
       border-bottom: 1px solid #f0f0f0;
+    }
+  }
+
+  .introContainer {
+    .introContents {
+      margin-left: 168px;
     }
   }
 }

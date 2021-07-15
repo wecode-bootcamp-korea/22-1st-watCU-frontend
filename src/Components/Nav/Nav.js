@@ -73,12 +73,11 @@ class Nav extends Component {
         <div className="navContainer">
           <div className="navLeft">
             <Link to="/" className="navLogoBox">
-              <p className="companyLogo">watCU</p>
-              {/* <img
+              <img
                 alt="companyLogo"
-                src={process.env.PUBLIC_URL + 'images/logo_watcu.svg'}
+                src={process.env.PUBLIC_URL + '/images/logo_watcu.svg'}
                 className="companyLogo"
-              /> */}
+              />
             </Link>
             <div className="navCategoryBox">
               <Link to="/" className="cateAll">
@@ -104,12 +103,12 @@ class Nav extends Component {
             <div className="adminBox">
               {isUserButtons ? (
                 <>
-                  <div className="userIconBox" onClick={this.removeToken}>
+                  <button className="userIconBox" onClick={this.removeToken}>
                     로그아웃
-                  </div>
+                  </button>
                   <img
                     alt="user_page"
-                    src={process.env.PUBLIC_URL + 'images/icon_logout.svg'}
+                    src={process.env.PUBLIC_URL + '/images/icon_logout.svg'}
                     className="userIconBox"
                   />
                 </>

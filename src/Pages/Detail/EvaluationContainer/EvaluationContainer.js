@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import './EvaluationContainer.scss';
 
 class EvaluationContainer extends Component {
-  goToEvaluationPage = () => {};
+  goToEvaluationPage = () => {
+    this.props.history.push('/evaluating');
+  };
 
   render() {
     return (
