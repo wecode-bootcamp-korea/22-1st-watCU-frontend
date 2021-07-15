@@ -83,7 +83,7 @@ class Evaluating extends Component {
     const { count } = this.state;
     const query = `limit=${LIMIT}&offset=${count + 1}`;
 
-    if (scrollTop !== 0 && scrollTop + clientHeight === scrollHeight) {
+    if (scrollTop !== 0 && scrollTop + clientHeight >= scrollHeight) {
       this.setState({
         count: count + 1,
       });

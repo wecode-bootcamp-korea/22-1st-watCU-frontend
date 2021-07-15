@@ -95,7 +95,7 @@ class Nav extends Component {
               <input
                 type="text"
                 className="navInput"
-                placeholder="🔍  작품 제목, 배우, 감독을 검색해보세요."
+                placeholder="🔍  관심있는 상품을 검색해보세요."
                 onChange={this.onInputChange}
               />
               <NavSearch searchLists={searchLists} />

@@ -19,7 +19,6 @@ class Contents extends Component {
   }
 
   render() {
-    console.log(`this.props`, this.props);
     const { contents, selectItem, modalOpen, idx } = this.props;
 
     return (
