@@ -73,7 +73,7 @@ export default class ProductModal extends Component {
                 </div>
                 <div className="aboutText">
                   <h2>{this.props.korean_name}</h2>
-                  <p>{this.props.price}원</p>
+                  <p>{this.props.price}</p>
                 </div>
               </div>
               <div className="wantEat">
