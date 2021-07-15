@@ -31,12 +31,9 @@
         margin: 0 50px;
 
         .companyLogo {
-          // width: 100px;
-          font-size: 40px;
-          text-decoration: none;
-          font-family: 'Lilita One', cursive !important;
-          // font-family: 'Bubblegum Sans', cursive !important;
+          width: 110px;
           cursor: pointer;
+          margin-top: 2px;
         }
       }
 
@@ -48,6 +45,7 @@
 
         .cateAll,
         .navEvaluation {
+          font-size: 14px;
           margin: 0 10px;
           padding-top: 4px;
           color: #7e7e7e;
@@ -95,9 +93,11 @@
         display: flex;
 
         .userIconBox {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          font-size: 14px;
+          margin: 0 10px;
+          padding-top: 4px;
+          line-height: 28px;
+          color: #7e7e7e;
           cursor: pointer;
 
           &:nth-child(2) {
@@ -125,10 +125,10 @@
 
         .signupBtn {
           margin-left: 20px;
-          padding: 5px 14px 6px;
+          padding: 5px 12px 6px;
           color: #74747b;
           border: 1px solid rgba(116, 116, 123, 0.5);
-          border-radius: 10px;
+          border-radius: 6px;
           font-size: 14px;
           font-weight: 500;
           cursor: pointer;

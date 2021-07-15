@@ -8,6 +8,7 @@ import {
   CATEGORY_FOOD_APIKEY,
   CATEGORY_DRINKS_APIKEY,
   CATEGORY_DESSERTS_APIKEY,
+  TOTAL_RATING_APIKEY,
 } from '../../Config';
 
 import './Home.scss';
@@ -21,6 +22,7 @@ class Home extends Component {
       foodList: [],
       drinkList: [],
       dessertList: [],
+      totalRating: 0,
     };
   }
 
@@ -62,10 +64,21 @@ class Home extends Component {
           dessertList: data.results,
         });
       });
+
+    fetch(`${TOTAL_RATING_APIKEY}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          totalRating: data.result,
+        });
+      });
   }
 
   render() {
-    const { allList, foodList, drinkList, dessertList } = this.state;
+    const { allList, foodList, drinkList, dessertList, totalRating } =
+      this.state;
 
     return (
       <div className="homeContainer">
@@ -75,7 +88,8 @@ class Home extends Component {
         <Dessert dessertList={dessertList} />
         <div className="ratingSection">
           <span>
-            지금까지 <em>★ 125개의 평가가</em> 쌓였어요.
+            지금까지 <em className="star">★</em>{' '}
+            <em>{totalRating.count}개의 평가가</em> 쌓였어요.
           </span>
         </div>
       </div>

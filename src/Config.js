@@ -8,3 +8,5 @@ export const CATEGORY_All_APIKEY = `${BASE_URL}/products`;
 export const CATEGORY_FOOD_APIKEY = `${BASE_URL}/products?category=먹거리`;
 export const CATEGORY_DRINKS_APIKEY = `${BASE_URL}/products?category=음료`;
 export const CATEGORY_DESSERTS_APIKEY = `${BASE_URL}/products?category=디저트`;
+
+export const TOTAL_RATING_APIKEY = `${BASE_URL}/ratings`;
