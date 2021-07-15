@@ -77,6 +77,11 @@ export default class StarRating extends Component {
           const { callEachDataApi } = this.props;
 
           if (callEachDataApi) callEachDataApi();
+        })
+        .then(() => {
+          const { selectItem, idx } = this.props;
+
+          if (selectItem) selectItem(idx);
         });
 
       this.setState({

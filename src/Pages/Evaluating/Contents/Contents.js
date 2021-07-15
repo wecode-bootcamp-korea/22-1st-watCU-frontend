@@ -19,8 +19,8 @@ class Contents extends Component {
   }
 
   render() {
-    console.log(`this.props`, this.props);
-    const { contents } = this.props;
+    const { contents, selectItem, modalOpen, idx } = this.props;
+
     return (
       <li className="listContainer">
         <div className="listBg">
@@ -34,17 +34,17 @@ class Contents extends Component {
                 <p>{contents.price}</p>
               </div>
               <div className="listHeartComponent">
-                <StarRating
-                  size="30"
-                  product_id={this.props.contents.product_id}
-                />
+                <StarRating size="30" id={idx + 1} selectItem={selectItem} />
               </div>
             </div>
           </div>
           <div className="listThreeDotBox">
             <BsThreeDotsVertical
               className="threeDot"
-              onClick={this.props.modalOpen}
+              onClick={() => {
+                modalOpen();
+                selectItem(idx);
+              }}
             />
           </div>
         </div>

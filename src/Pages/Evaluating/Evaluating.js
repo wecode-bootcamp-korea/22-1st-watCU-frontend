@@ -30,6 +30,7 @@ class Evaluating extends Component {
       ratingCount: '',
       isModalOpen: false,
       productId: '',
+      currentSelectedIdx: 0,
     };
   }
 
@@ -121,8 +122,14 @@ class Evaluating extends Component {
     });
   };
 
+  selectItem = idx => {
+    this.setState({ currentSelectedIdx: idx });
+  };
+
   render() {
-    const { toggleState, tabLists, contents, ratingCount } = this.state;
+    const { toggleState, tabLists, contents, ratingCount, currentSelectedIdx } =
+      this.state;
+
     return (
       <div className="bg">
         <div className="container">
@@ -147,14 +154,22 @@ class Evaluating extends Component {
                 return (
                   <Contents
                     contents={content}
+                    idx={i}
                     key={i}
                     modalOpen={this.modalOpen}
+                    selectItem={this.selectItem}
+                    starFetch={this.starFetch}
                   />
                 );
               })}
             </ul>
             {this.state.isModalOpen && (
-              <ProductModal closeModal={this.closeModal} />
+              <ProductModal
+                src={contents[currentSelectedIdx].image_url}
+                korean_name={contents[currentSelectedIdx].korean_name}
+                price={contents[currentSelectedIdx].price}
+                closeModal={this.closeModal}
+              />
             )}
           </div>
         </div>
