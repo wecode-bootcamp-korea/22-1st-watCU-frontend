@@ -157,8 +157,7 @@ class Evaluating extends Component {
                     idx={i}
                     key={i}
                     modalOpen={this.modalOpen}
-                    selectItem={this.selectItem}
-                    starFetch={this.starFetch}
+                    product_id={contents[currentSelectedIdx].product_id}
                   />
                 );
               })}

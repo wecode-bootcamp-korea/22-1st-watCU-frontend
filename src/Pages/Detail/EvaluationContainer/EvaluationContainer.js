@@ -4,7 +4,11 @@ import './EvaluationContainer.scss';
 
 class EvaluationContainer extends Component {
   goToEvaluationPage = () => {
-    this.props.history.push('/evaluating');
+    if (localStorage.getItem('token')) {
+      this.props.history.push('/evaluating');
+    } else {
+      alert('로그인이 필요한 서비스입니다');
+    }
   };
 
   render() {

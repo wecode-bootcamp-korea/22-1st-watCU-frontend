@@ -19,6 +19,7 @@ class Contents extends Component {
   }
 
   render() {
+    console.log(`this.props`, this.props);
     const { contents, selectItem, modalOpen, idx } = this.props;
 
     return (
@@ -34,7 +35,7 @@ class Contents extends Component {
                 <p>{contents.price}</p>
               </div>
               <div className="listHeartComponent">
-                <StarRating size="30" id={idx + 1} selectItem={selectItem} />
+                <StarRating size="30" id={this.props.contents.product_id} />
               </div>
             </div>
           </div>
