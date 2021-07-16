@@ -82,7 +82,8 @@ class Evaluating extends Component {
     const { scrollTop, clientHeight, scrollHeight } = e.target;
     const { count } = this.state;
     const query = `limit=${LIMIT}&offset=${count + 1}`;
-
+    console.log(`scrollTop + clientHeight `, scrollTop);
+    console.log(`scrollHeight`, scrollHeight);
     if (scrollTop !== 0 && scrollTop + clientHeight >= scrollHeight) {
       this.setState({
         count: count + 1,
@@ -123,7 +124,6 @@ class Evaluating extends Component {
   };
 
   selectItem = idx => {
-    console.log(`idx`, idx);
     this.setState({ currentSelectedIdx: idx });
   };
 

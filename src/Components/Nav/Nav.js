@@ -12,6 +12,7 @@ import Signup from './NavSignup/NavSignup';
 
 // ##STYLES
 import './Nav.scss';
+import { BASE_URL } from '../../Config';
 
 class Nav extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Nav extends Component {
   };
 
   onInputChange = e => {
-    fetch(`http://10.58.6.188:8000/users/search?word=${e.target.value}`)
+    fetch(`${BASE_URL}/users/search?word=${e.target.value}`)
       .then(res => res.json())
       .then(res =>
         this.setState({
