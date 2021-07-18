@@ -32,7 +32,7 @@
 
 ### **적용 기술**
 
-> Front-End : React.js, sass, react-modal
+> Front-End : Javascript, React.js library, sass
 
 > Back-End : Python, Django web framework,  PyJWT, Bcrypt, My SQL, AqueryTool, AWS(EC2,RDS)
 
@@ -46,7 +46,15 @@
 
 ### <정준>
 
-- nav, 로그인, 회원가입, 상품평가페이지, 상품 modal
+- Login/ Signup
+  - JWT, LocalStorage를 사용하여 구현
+  - LocalStorage에 Token 여부에 따라 login/logout 구현
+
+- Evaluating Page
+  - watCU의 주요기능인 평가페이지를 tab
+- Product Modal
+- Nav
+  - Token 여부에 따라 볼수있는 메뉴가 달라지게 구현
 
 ### <민재>
 
