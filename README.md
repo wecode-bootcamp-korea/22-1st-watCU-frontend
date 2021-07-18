@@ -32,7 +32,7 @@
 
 ### **적용 기술**
 
-> Front-End : Javascript, React.js library, sass
+> Front-End : Javascript, React.js library, sass, react-router-dom
 
 > Back-End : Python, Django web framework,  PyJWT, Bcrypt, My SQL, AqueryTool, AWS(EC2,RDS)
 
@@ -51,8 +51,14 @@
   - LocalStorage에 Token 여부에 따라 login/logout 구현
 
 - Evaluating Page
-  - watCU의 주요기능인 평가페이지를 tab
+  - watCU의 주요기능인 평가페이지를 tab으로 구현
+  - 각 탭 클릭시 그에 맞는 queryString으로 fetch 하였음
+  - 각 탭 클릭시 styling 하였음
+  - 무한스크롤 구현(각 탭에 맞는 컨텐츠)
+  - threeDot클릭시 product modal 오픈
+   
 - Product Modal
+  - 
 - Nav
   - Token 여부에 따라 볼수있는 메뉴가 달라지게 구현
 
