@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+*프로젝트 소개는 아래를 참고해서 자유롭게 작성해주세요.그대로 따라서 작성하면, 다른 프로젝트와 획일화 되어서 특별해보이지 않습니다. 나만의 언어로 나의 소중한 프로젝트를 특별하게 설명해주세요*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/daa3496e-4454-4df1-91a9-76eac40dd36a/Screen_Shot_2021-07-18_at_2.29.26_PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/daa3496e-4454-4df1-91a9-76eac40dd36a/Screen_Shot_2021-07-18_at_2.29.26_PM.png)
 
-## Available Scripts
+### watCU **프로젝트 Front-end / Back-end 소개**
 
-In the project directory, you can run:
+- 왓챠 피디아 기능(평가, 추천 등) 기능을 활용하여 편의점 브랜드 CU의 상품을 소개하는 기획을 추가한 클론 프로젝트입니다.
+- 짧은 프로젝트 기간동안 개발에 집중해야 하므로 디자인 및 기능의 기획 부분만 클론했습니다.
+- 개발은 초기 세팅부터 전부 직접 구현했으며, 아래 데모 영상에서 보이는 부분은 모두 백앤드와 연결하여 실제 사용할 수 있는 서비스 수준으로 개발한 것입니다.
 
-### `yarn start`
+## **개발 인원 및 기간**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 개발기간 : 2021/7/5 ~ 2021/7/16
+- 개발 인원
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    👉  Front-end : 성정준, 최민재, 최재상 
 
-### `yarn test`
+    👉  Back-end : 김예랑, 이신재(PM)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **프로젝트 선정이유**
 
-### `yarn build`
+- 이 사이트는 평가하기 및 추천 등 실제 서비스에서 적용할 수 있는 기능들을 구현해 볼 수 있습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 실제 서비스에서 활용이 용이한 기술들이며 유저에게 매력적인 기능들이라 생각되어 선정하였습니다.
+- 편의점의 상품을 소비자들끼리 평가하고 공유하는 서비스가 부족해 불편하다는 생각에서 해당내용을 기획에 접목하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **데모 영상(이미지 클릭)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*유투브 영상 링크나 캡쳐 이미지 넣어주세요.*
 
-### `yarn eject`
+## **적용 기술 및 구현 기능**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **적용 기술**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> Front-End : React.js, sass, react-modal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Back-End : Python, Django web framework,  PyJWT, Bcrypt, My SQL, AqueryTool, AWS(EC2,RDS)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 협업 **도구**
 
-## Learn More
+- Slack / Git + GitHub / Trello를 이용, 일정관리 및 작업 현황 확인
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **구현 기능**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 💻  Front-end
 
-### Code Splitting
+### <정준>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- nav, 로그인, 회원가입, 상품평가페이지, 상품 modal
 
-### Analyzing the Bundle Size
+### <민재>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **메인 페이지**
+    - path parameter를 이용한 Detail 페이지로의 데이터 이동
+    - state를 활용, style - translateX 값 변경을 통한 슬라이드 이동 구현
+    - data를 활용한 실시간 평가 개수 적용
 
-### Making a Progressive Web App
+### <재상>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- 상품 상세 페이지(Detail)
 
-### Advanced Configuration
+### 💻  Back-end
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### <공통> Modeling
 
-### Deployment
+### <예랑>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Product
 
-### `yarn build` fails to minify
+- **상품 뷰 (쿼리파라미터 이용한 카테고리 필터링, 별점 높은 순으로 정렬)**
+- **상품 프라이빗 뷰 (로그인한 유저만 접근, 페이지네이션, 카테고리 필터링)**
+- **상품 상세 뷰 (상세 정보, 해당 상품 다른 이미지들)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Rating
+
+- **별점 뷰 (읽기, 작성, 수정, 삭제)**
+- **별점 그래프 뷰 (해당 상품에 대한 별점 모두 읽기)**
+- **별점 총 카운트 뷰 (모~든 별점 카운트)**
+
+### <신재>
+
+### User
+
+- **회원가입 뷰 (패스워드 해쉬, 벨리데이션, 토큰)**
+- **로그인 뷰 (패스워드 검증(해쉬), 토큰)**
+- **서치 뷰 (쿼리파라미터 이용한 검색어 자동완성)**
+- **토큰 검사 데코레이터**
+
+### Like
+
+- **StatusView (먹고싶어요, 먹어봤어요)**
+- **LikeView (댓글에 좋아요)**
+
+### Comment
+
+- **댓글 뷰 (작성, 읽기, 수정, 삭제)**
+
+## **Reference**
+
+- 이 프로젝트는 왓챠피디아 사이트를 참조하여 학습목적으로 만들었습니다.
+- 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+- 이 프로젝트에서 사용하고 있는 사진 대부분은 위코드에서 구매한 것이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
