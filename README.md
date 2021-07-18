@@ -53,14 +53,19 @@
 - Evaluating Page
   - watCU의 주요기능인 평가페이지를 tab으로 구현
   - 각 탭 클릭시 그에 맞는 queryString으로 fetch 하였음
-  - 각 탭 클릭시 styling 하였음
   - 무한스크롤 구현(각 탭에 맞는 컨텐츠)
-  - threeDot클릭시 product modal 오픈
+  - threeDot클릭시 클락한 상품에 관한 product modal 오픈
    
 - Product Modal
-  - 
+  - Detail 페이지와 evaluating 페이지에서 사용하는 product modal component 구현
+  - 각 상품의 id에 맞게 '먹고싶어요', '먹어봤어요' 를 백엔드와 데이터통신해서 값을 저장
+  - Token 을 가지고 있지 않으면 값이 저장되지 않고 css효과 또한 적용되지 않게 구현
+  
 - Nav
-  - Token 여부에 따라 볼수있는 메뉴가 달라지게 구현
+  - Token 여부에 따라 볼수있는 메뉴가 달라지게 구현 (로그인/회원가입) => (유저아이콘/평가하기)
+  - 반응형으로 구현
+  - Search input에 검색어 입력시 queryString를 e.target.value로 설정해 계속 fetching하게 구현
+  - 백엔드와 협력하여 단어단위가 아닌 글자단위로 fetch 후 글자와 매칭되는 단어 모두 보이게 구현
 
 ### <민재>
 
